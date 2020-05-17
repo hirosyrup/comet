@@ -8,19 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
-		FBAF4B702471842800614EDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6F2471842800614EDB /* ViewController.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
+		FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B8124718BBE00614EDB /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FBAF4B6F2471842800614EDB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBAF4B742471842B00614EDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FBAF4B762471842B00614EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBAF4B772471842B00614EDB /* comet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = comet.entitlements; sourceTree = "<group>"; };
+		FBAF4B8124718BBE00614EDB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,14 +53,22 @@
 		FBAF4B6C2471842800614EDB /* comet */ = {
 			isa = PBXGroup;
 			children = (
+				FBAF4B7E24718B9100614EDB /* ViewController */,
 				FBAF4B6D2471842800614EDB /* AppDelegate.swift */,
-				FBAF4B6F2471842800614EDB /* ViewController.swift */,
 				FBAF4B712471842A00614EDB /* Assets.xcassets */,
 				FBAF4B732471842B00614EDB /* Main.storyboard */,
 				FBAF4B762471842B00614EDB /* Info.plist */,
 				FBAF4B772471842B00614EDB /* comet.entitlements */,
 			);
 			path = comet;
+			sourceTree = "<group>";
+		};
+		FBAF4B7E24718B9100614EDB /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				FBAF4B8124718BBE00614EDB /* MainViewController.swift */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -133,8 +141,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBAF4B702471842800614EDB /* ViewController.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
+				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
