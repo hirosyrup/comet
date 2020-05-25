@@ -14,7 +14,7 @@ class MainViewController: NSViewController {
         let identifier = NSStoryboard.SceneIdentifier("MainViewController")
         return storyboard.instantiateController(withIdentifier: identifier) as! MainViewController
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

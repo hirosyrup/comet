@@ -14,33 +14,38 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     let mainViewController = MainViewController.create()
     
+    let popover = NSPopover()
+    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
         
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("icon"))
-            button.action = #selector(showMenu(_:))
+            button.action = #selector(show(_:))
         }
         
-        constructMenu()
+        constructPopover()
     }
     
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
     }
     
-    private func constructMenu() {
-        let menu = NSMenu()
-        let menuItem = NSMenuItem()
-        menuItem.view = mainViewController.view
-        
-        menu.addItem(menuItem)
-        
-        statusItem.menu = menu
+    private func constructPopover() {
+        popover.contentViewController = mainViewController
+        popover.behavior = .transient
+        popover.animates = false
     }
     
-    @objc func showMenu(_ sender: Any?) {
-        
+    @objc func show(_ sender: Any?) {
+        if popover.isShown {
+            popover.performClose(sender)
+        } else {
+            if let button = statusItem.button {
+                popover.show(relativeTo: button.bounds, of: button, preferredEdge: .minY)
+                NSApplication.shared.activate(ignoringOtherApps: true)
+            }
+        }
     }
 }
 
