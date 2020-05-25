@@ -11,6 +11,10 @@
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
 		FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B8124718BBE00614EDB /* MainViewController.swift */; };
+		FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */; };
+		FBF62F68247C0E9000D4289D /* PullRequestCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */; };
+		FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF62F69247C10C500D4289D /* RepositoryTabViewController.swift */; };
+		FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF62F6B247C132000D4289D /* PullRequestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		FBAF4B762471842B00614EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBAF4B772471842B00614EDB /* comet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = comet.entitlements; sourceTree = "<group>"; };
 		FBAF4B8124718BBE00614EDB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCollectionViewItem.swift; sourceTree = "<group>"; };
+		FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestCollectionViewItem.xib; sourceTree = "<group>"; };
+		FBF62F69247C10C500D4289D /* RepositoryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabViewController.swift; sourceTree = "<group>"; };
+		FBF62F6B247C132000D4289D /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				FBAF4B7E24718B9100614EDB /* ViewController */,
+				FBF62F64247C0D3600D4289D /* View */,
 				FBAF4B6D2471842800614EDB /* AppDelegate.swift */,
 				FBAF4B712471842A00614EDB /* Assets.xcassets */,
 				FBAF4B732471842B00614EDB /* Main.storyboard */,
@@ -67,8 +76,19 @@
 			isa = PBXGroup;
 			children = (
 				FBAF4B8124718BBE00614EDB /* MainViewController.swift */,
+				FBF62F69247C10C500D4289D /* RepositoryTabViewController.swift */,
+				FBF62F6B247C132000D4289D /* PullRequestViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		FBF62F64247C0D3600D4289D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */,
+				FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +149,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF62F68247C0E9000D4289D /* PullRequestCollectionViewItem.xib in Resources */,
 				FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */,
 				FBAF4B752471842B00614EDB /* Main.storyboard in Resources */,
 			);
@@ -141,8 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
+				FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
+				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
