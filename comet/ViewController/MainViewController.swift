@@ -20,5 +20,9 @@ class MainViewController: NSViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func pushQuit(_ sender: Any) {
+        NSApplication.shared.terminate(sender)
+    }
 }
 
