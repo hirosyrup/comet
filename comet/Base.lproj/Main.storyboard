@@ -80,31 +80,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="438" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <splitView arrangesAllSubviews="NO" dividerStyle="thin" vertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Rvw-bC-8Pn">
+                            <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Ft-LUK">
                                 <rect key="frame" x="0.0" y="280" width="438" height="20"/>
+                                <view key="contentView" id="Qlz-Ib-EIT">
+                                    <rect key="frame" x="1" y="1" width="436" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="s0w-A5-Ikc"/>
+                                    <constraint firstAttribute="height" constant="20" id="005-hP-raI"/>
                                 </constraints>
-                            </splitView>
+                                <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </box>
+                            <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="iHs-k4-hwJ">
+                                <rect key="frame" x="0.0" y="274" width="438" height="4"/>
+                                <view key="contentView" id="I6J-lU-grZ">
+                                    <rect key="frame" x="1" y="1" width="436" height="2"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="420-Gb-uvD">
+                                            <rect key="frame" x="6" y="0.0" width="424" height="2"/>
+                                            <view key="contentView" id="wIN-n1-xDk">
+                                                <rect key="frame" x="1" y="1" width="422" height="0.0"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                            <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="fillColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </box>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="420-Gb-uvD" secondAttribute="trailing" constant="6" id="1AN-cR-XpT"/>
+                                        <constraint firstItem="420-Gb-uvD" firstAttribute="leading" secondItem="I6J-lU-grZ" secondAttribute="leading" constant="6" id="dPB-Z1-Ofb"/>
+                                        <constraint firstAttribute="bottom" secondItem="420-Gb-uvD" secondAttribute="bottom" id="hOI-s5-UtB"/>
+                                        <constraint firstItem="420-Gb-uvD" firstAttribute="top" secondItem="I6J-lU-grZ" secondAttribute="top" id="uc8-sX-gPv"/>
+                                    </constraints>
+                                </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="438" id="KR8-xA-wb8"/>
+                                    <constraint firstAttribute="height" constant="4" id="uIe-aG-IoM"/>
+                                </constraints>
+                                <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="fillColor" white="0.72638157704105111" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </box>
                             <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="UNH-6O-zYe">
-                                <rect key="frame" x="0.0" y="0.0" width="438" height="280"/>
+                                <rect key="frame" x="0.0" y="0.0" width="438" height="270"/>
                                 <font key="font" metaFont="system"/>
                             </tabView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Rvw-bC-8Pn" firstAttribute="leading" secondItem="ClB-gi-p6b" secondAttribute="leading" id="1Ce-c3-aTB"/>
+                            <constraint firstItem="iHs-k4-hwJ" firstAttribute="top" secondItem="WwW-Ft-LUK" secondAttribute="bottom" constant="2" id="2Sf-ZI-vjn"/>
                             <constraint firstAttribute="trailing" secondItem="UNH-6O-zYe" secondAttribute="trailing" id="7DR-Z6-LyM"/>
+                            <constraint firstAttribute="trailing" secondItem="WwW-Ft-LUK" secondAttribute="trailing" id="9LH-Y7-yBq"/>
                             <constraint firstItem="UNH-6O-zYe" firstAttribute="leading" secondItem="ClB-gi-p6b" secondAttribute="leading" id="CCu-yo-bv8"/>
-                            <constraint firstItem="UNH-6O-zYe" firstAttribute="top" secondItem="Rvw-bC-8Pn" secondAttribute="bottom" id="Loh-I1-RhY"/>
-                            <constraint firstAttribute="trailing" secondItem="Rvw-bC-8Pn" secondAttribute="trailing" id="lup-YC-8PL"/>
+                            <constraint firstItem="WwW-Ft-LUK" firstAttribute="top" secondItem="ClB-gi-p6b" secondAttribute="top" id="J1H-cZ-SGF"/>
+                            <constraint firstItem="iHs-k4-hwJ" firstAttribute="leading" secondItem="ClB-gi-p6b" secondAttribute="leading" id="fhF-9K-3Fk"/>
+                            <constraint firstItem="UNH-6O-zYe" firstAttribute="top" secondItem="WwW-Ft-LUK" secondAttribute="bottom" constant="10" id="kPR-EH-buT"/>
                             <constraint firstAttribute="bottom" secondItem="UNH-6O-zYe" secondAttribute="bottom" id="p1B-vc-U8w"/>
-                            <constraint firstItem="Rvw-bC-8Pn" firstAttribute="top" secondItem="ClB-gi-p6b" secondAttribute="top" id="xyb-CQ-YMN"/>
+                            <constraint firstItem="WwW-Ft-LUK" firstAttribute="leading" secondItem="ClB-gi-p6b" secondAttribute="leading" id="pk7-3R-1Zz"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="selectBarLeadingConstraint" destination="fhF-9K-3Fk" id="vA3-lv-mOj"/>
+                        <outlet property="selectBarView" destination="iHs-k4-hwJ" id="9Fd-IC-d0m"/>
+                        <outlet property="selectBarWidthConstraint" destination="KR8-xA-wb8" id="HGR-Ow-k11"/>
                         <outlet property="tabContentView" destination="UNH-6O-zYe" id="IzK-Xv-KGq"/>
-                        <outlet property="tabItemContainerHeightConstraint" destination="s0w-A5-Ikc" id="I3u-x6-GHr"/>
-                        <outlet property="tabItemContainerView" destination="Rvw-bC-8Pn" id="rBL-9I-usO"/>
+                        <outlet property="tabItemContainerHeightConstraint" destination="005-hP-raI" id="g7O-an-Io4"/>
+                        <outlet property="tabItemContainerView" destination="WwW-Ft-LUK" id="gat-vc-Ip0"/>
                     </connections>
                 </viewController>
                 <customObject id="byF-fx-Uxu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -115,34 +155,53 @@
         <scene sceneID="eiw-S2-yva">
             <objects>
                 <viewController storyboardIdentifier="PullRequestViewController" id="jqN-OA-nkD" customClass="PullRequestViewController" customModule="comet" customModuleProvider="target" sceneMemberID="viewController">
-                    <scrollView key="view" wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="oPM-P9-51T">
+                    <box key="view" boxType="custom" cornerRadius="4" title="Box" id="A3Y-MF-Cmp">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="NlD-zz-2tG">
-                            <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <view key="contentView" id="7sA-QD-96K">
+                            <rect key="frame" x="1" y="1" width="448" height="298"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <collectionView id="Pmx-EU-onH">
-                                    <rect key="frame" x="0.0" y="0.0" width="450" height="158"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                    <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="His-HM-lgQ">
-                                        <size key="itemSize" width="50" height="50"/>
-                                    </collectionViewFlowLayout>
-                                    <color key="primaryBackgroundColor" white="0.85999999999999999" alpha="1" colorSpace="calibratedWhite"/>
-                                </collectionView>
+                                <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Lem-JB-vSd">
+                                    <rect key="frame" x="-1" y="-1" width="450" height="274"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="n5u-7z-dwK">
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="274"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <collectionView maxNumberOfColumns="1" id="38y-hI-ph1">
+                                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                                <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="mJu-w4-nVn"/>
+                                                <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </collectionView>
+                                        </subviews>
+                                    </clipView>
+                                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8ow-EQ-IgX">
+                                        <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="NdY-M4-Hbe">
+                                        <rect key="frame" x="434" y="0.0" width="16" height="274"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                    </scroller>
+                                </scrollView>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-JV-5vl">
+                                    <rect key="frame" x="9" y="281" width="37" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ph1-a2-mao">
+                                        <font key="font" usesAppearanceFont="YES"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
-                        </clipView>
-                        <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="fin-0j-94d">
-                            <rect key="frame" x="1" y="144" width="233" height="15"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                        <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="Rmo-hI-Ngu">
-                            <rect key="frame" x="234" y="1" width="15" height="143"/>
-                            <autoresizingMask key="autoresizingMask"/>
-                        </scroller>
-                    </scrollView>
+                        </view>
+                        <color key="borderColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    </box>
                     <connections>
-                        <outlet property="listView" destination="Pmx-EU-onH" id="jQU-oD-IfP"/>
+                        <outlet property="label" destination="JC4-JV-5vl" id="Yd4-rA-fyC"/>
+                        <outlet property="listView" destination="38y-hI-ph1" id="Pj8-JF-1ck"/>
                     </connections>
                 </viewController>
                 <customObject id="mIE-3E-Ppf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

@@ -8,8 +8,11 @@
 
 import Cocoa
 
-class PullRequestViewController: NSViewController {
+class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
     @IBOutlet weak var listView: NSCollectionView!
+    @IBOutlet weak var label: NSTextField!
+    
+    private let cellId = "PullRequestCollectionViewItem"
     
     class func create() -> PullRequestViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -19,10 +22,22 @@ class PullRequestViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
+        
+        listView.delegate = self
+        listView.dataSource = self
+        
+        let nib = NSNib(nibNamed: "PullRequestCollectionViewItem", bundle: nil)
+        listView.register(nib, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId))
+        
+        label.stringValue = title ?? ""
     }
     
-    func backgroundColor() -> NSColor? {
-        return listView.backgroundColors.first
+    func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 3
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
+        let item = listView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), for: indexPath) as! PullRequestCollectionViewItem
+        return item
     }
 }

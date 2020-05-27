@@ -8,26 +8,39 @@
 
 import Cocoa
 
-class RepositoryTabViewController: NSViewController, NSSplitViewDelegate {
-    @IBOutlet weak var tabItemContainerView: NSSplitView!
+class RepositoryTabViewController: NSViewController {
+    @IBOutlet weak var tabItemContainerView: NSBox!
     @IBOutlet weak var tabContentView: NSTabView!
+    @IBOutlet weak var selectBarView: NSBox!
     @IBOutlet weak var tabItemContainerHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var selectBarWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var selectBarLeadingConstraint: NSLayoutConstraint!
+    
+    private var tabItemWidth: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabItemContainerView.delegate = self
         
         let vc1 = PullRequestViewController.create()
         vc1.title = "test1"
         let vc2 = PullRequestViewController.create()
         vc2.title = "test2"
         let vcList = [vc1, vc2]
-        vcList.forEach { (vc) in
-            addViewController(vc: vc, needLabel: vcList.count > 1)
+        
+        tabItemWidth = tabItemContainerView.bounds.width / CGFloat(vcList.count)
+        selectBarWidthConstraint.constant = tabItemWidth
+        
+        let needLabel = vcList.count > 1
+        if !needLabel {
+            selectBarView.isHidden = true
+            tabItemContainerHeightConstraint.constant = 0.0
+        }
+        for (index, vc) in vcList.enumerated() {
+            addViewController(vc: vc, needLabel: needLabel, index: index)
         }
     }
     
-    private func addViewController(vc: PullRequestViewController, needLabel: Bool) {
+    private func addViewController(vc: PullRequestViewController, needLabel: Bool, index: Int) {
         let selected = tabContentView.subviews.isEmpty
         
         let tabViewItem = NSTabViewItem()
@@ -36,18 +49,30 @@ class RepositoryTabViewController: NSViewController, NSSplitViewDelegate {
         
         if needLabel {
             let tabLabel = NSTextField(labelWithString: vc.title ?? "tab")
+            tabLabel.frame = NSRect(x: CGFloat(index) * tabItemWidth, y: 0, width: tabItemWidth, height: tabItemContainerView.bounds.height)
             tabLabel.alignment = NSTextAlignment.center
-            tabItemContainerView.addArrangedSubview(tabLabel)
+            tabLabel.tag = index
+            tabLabel.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(clickTab(gesture:))))
+            tabItemContainerView.addSubview(tabLabel)
             if selected {
-                tabLabel.drawsBackground = true
-                tabLabel.backgroundColor = vc.backgroundColor()
+                selectBarLeadingConstraint.constant = tabItemContainerView.frame.minX
             }
-        } else {
-            tabItemContainerHeightConstraint.constant = 0.0
         }
     }
     
-    func splitView(_ splitView: NSSplitView, effectiveRect proposedEffectiveRect: NSRect, forDrawnRect drawnRect: NSRect, ofDividerAt dividerIndex: Int) -> NSRect {
-        return NSRect.zero
+    @objc func clickTab(gesture: NSClickGestureRecognizer) {
+        guard let index = gesture.view?.tag else {
+            return
+        }
+        
+        tabContentView.selectTabViewItem(at: index)
+        
+        NSAnimationContext.runAnimationGroup({context in
+            context.duration = 0.3
+            context.allowsImplicitAnimation = true
+            
+            self.selectBarLeadingConstraint.constant = CGFloat(index) * self.selectBarWidthConstraint.constant
+            self.selectBarView.layoutSubtreeIfNeeded()
+        }, completionHandler:nil)
     }
 }
