@@ -19,6 +19,8 @@
 		FBF62F7124815F1E00D4289D /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBF62F6F24815F1E00D4289D /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FBF62F742483E3D200D4289D /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF62F732483E3D200D4289D /* RealmSwift.framework */; };
 		FBF62F752483E3D200D4289D /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBF62F732483E3D200D4289D /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FBF62F7B2483FD6600D4289D /* Moya.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBF62F7A2483FD6600D4289D /* Moya.framework */; };
+		FBF62F7C2483FD6600D4289D /* Moya.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FBF62F7A2483FD6600D4289D /* Moya.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +31,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				FBF62F752483E3D200D4289D /* RealmSwift.framework in Embed Frameworks */,
+				FBF62F7C2483FD6600D4289D /* Moya.framework in Embed Frameworks */,
 				FBF62F7124815F1E00D4289D /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -50,6 +53,7 @@
 		FBF62F6B247C132000D4289D /* PullRequestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestViewController.swift; sourceTree = "<group>"; };
 		FBF62F6F24815F1E00D4289D /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/Mac/Realm.framework; sourceTree = "<group>"; };
 		FBF62F732483E3D200D4289D /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/Mac/RealmSwift.framework; sourceTree = "<group>"; };
+		FBF62F7A2483FD6600D4289D /* Moya.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Moya.framework; path = Carthage/Build/Mac/Moya.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +62,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBF62F742483E3D200D4289D /* RealmSwift.framework in Frameworks */,
+				FBF62F7B2483FD6600D4289D /* Moya.framework in Frameworks */,
 				FBF62F7024815F1E00D4289D /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -118,6 +123,7 @@
 		FBF62F6D24815E9200D4289D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FBF62F7A2483FD6600D4289D /* Moya.framework */,
 				FBF62F732483E3D200D4289D /* RealmSwift.framework */,
 				FBF62F6F24815F1E00D4289D /* Realm.framework */,
 			);
