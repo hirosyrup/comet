@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB83855C248696F600E88304 /* BitbucketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83855B248696F600E88304 /* BitbucketRequest.swift */; };
+		FB8385602486A6C700E88304 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; };
+		FB8385612486A6C700E88304 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -33,6 +36,7 @@
 				FBF62F752483E3D200D4289D /* RealmSwift.framework in Embed Frameworks */,
 				FBF62F7C2483FD6600D4289D /* Moya.framework in Embed Frameworks */,
 				FBF62F7124815F1E00D4289D /* Realm.framework in Embed Frameworks */,
+				FB8385612486A6C700E88304 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -40,6 +44,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB83855B248696F600E88304 /* BitbucketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitbucketRequest.swift; sourceTree = "<group>"; };
+		FB83855F2486A6C700E88304 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,12 +70,29 @@
 				FBF62F742483E3D200D4289D /* RealmSwift.framework in Frameworks */,
 				FBF62F7B2483FD6600D4289D /* Moya.framework in Frameworks */,
 				FBF62F7024815F1E00D4289D /* Realm.framework in Frameworks */,
+				FB8385602486A6C700E88304 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB8385592486967C00E88304 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB83855A248696D600E88304 /* api */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FB83855A248696D600E88304 /* api */ = {
+			isa = PBXGroup;
+			children = (
+				FB83855B248696F600E88304 /* BitbucketRequest.swift */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
 		FBAF4B612471842800614EDB = {
 			isa = PBXGroup;
 			children = (
@@ -90,6 +113,7 @@
 		FBAF4B6C2471842800614EDB /* comet */ = {
 			isa = PBXGroup;
 			children = (
+				FB8385592486967C00E88304 /* Model */,
 				FBAF4B7E24718B9100614EDB /* ViewController */,
 				FBF62F64247C0D3600D4289D /* View */,
 				FBAF4B6D2471842800614EDB /* AppDelegate.swift */,
@@ -123,6 +147,7 @@
 		FBF62F6D24815E9200D4289D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB83855F2486A6C700E88304 /* Alamofire.framework */,
 				FBF62F7A2483FD6600D4289D /* Moya.framework */,
 				FBF62F732483E3D200D4289D /* RealmSwift.framework */,
 				FBF62F6F24815F1E00D4289D /* Realm.framework */,
@@ -207,6 +232,7 @@
 				FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
+				FB83855C248696F600E88304 /* BitbucketRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

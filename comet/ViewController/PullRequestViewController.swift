@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Moya
 
 class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
     @IBOutlet weak var listView: NSCollectionView!
@@ -30,6 +31,21 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         listView.register(nib, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId))
         
         label.stringValue = title ?? ""
+        
+        fetch()
+    }
+    
+    private func fetch() {
+        let provider = MoyaProvider<BitbucketRequest>()
+        provider.request(.indexPullRequests(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap")) { result in
+            switch result {
+            case let .success(moyaResponse):
+                let json = try! moyaResponse.mapJSON()
+                print("\(json)")
+            case let .failure(error):
+                print("\(error)")
+            }
+        }
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
