@@ -36,8 +36,9 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     }
     
     private func fetch() {
-        let provider = MoyaProvider<BitbucketRequest>()
-        provider.request(.indexPullRequests(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap")) { result in
+        let requestHeader = RequestHeader(userName: "hirosyrup", password: "nzqnVPQ8dtyeecMDBXfc")
+        let provider = MoyaProvider<FetchPullRequest>()
+        provider.request(FetchPullRequest(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap", requestHeader: requestHeader)) { result in
             switch result {
             case let .success(moyaResponse):
                 let json = try! moyaResponse.mapJSON()

@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FB83855C248696F600E88304 /* BitbucketRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83855B248696F600E88304 /* BitbucketRequest.swift */; };
+		FB83855C248696F600E88304 /* FetchPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83855B248696F600E88304 /* FetchPullRequest.swift */; };
 		FB8385602486A6C700E88304 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; };
 		FB8385612486A6C700E88304 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385642487D7F200E88304 /* RequestHeader.swift */; };
+		FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385662487DAC600E88304 /* BaseUrl.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -44,8 +46,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		FB83855B248696F600E88304 /* BitbucketRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitbucketRequest.swift; sourceTree = "<group>"; };
+		FB83855B248696F600E88304 /* FetchPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPullRequest.swift; sourceTree = "<group>"; };
 		FB83855F2486A6C700E88304 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
+		FB8385642487D7F200E88304 /* RequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
+		FB8385662487DAC600E88304 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,9 +92,27 @@
 		FB83855A248696D600E88304 /* api */ = {
 			isa = PBXGroup;
 			children = (
-				FB83855B248696F600E88304 /* BitbucketRequest.swift */,
+				FB8385632487D79C00E88304 /* core */,
+				FB8385622487D75700E88304 /* request */,
 			);
 			path = api;
+			sourceTree = "<group>";
+		};
+		FB8385622487D75700E88304 /* request */ = {
+			isa = PBXGroup;
+			children = (
+				FB83855B248696F600E88304 /* FetchPullRequest.swift */,
+			);
+			path = request;
+			sourceTree = "<group>";
+		};
+		FB8385632487D79C00E88304 /* core */ = {
+			isa = PBXGroup;
+			children = (
+				FB8385642487D7F200E88304 /* RequestHeader.swift */,
+				FB8385662487DAC600E88304 /* BaseUrl.swift */,
+			);
+			path = core;
 			sourceTree = "<group>";
 		};
 		FBAF4B612471842800614EDB = {
@@ -230,9 +252,11 @@
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
 				FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */,
+				FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
-				FB83855C248696F600E88304 /* BitbucketRequest.swift in Sources */,
+				FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */,
+				FB83855C248696F600E88304 /* FetchPullRequest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
