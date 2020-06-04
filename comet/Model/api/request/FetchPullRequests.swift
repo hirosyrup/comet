@@ -9,7 +9,7 @@
 import Foundation
 import Moya
 
-class FetchPullRequest: TargetType {
+class FetchPullRequests: TargetType {
     
     private let repositoryOwner: String
     private let repositorySlug: String
