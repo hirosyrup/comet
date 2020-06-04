@@ -37,15 +37,14 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     
     private func fetch() {
         DispatchQueue.global().async {
-            let result = CallFetchPullRequests(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap", userName: "hirosyrup", password: "xhzc7NqWqKdExs7XYgQV").execute()
-            DispatchQueue.main.async {
-                switch result {
-                case let .success(moyaResponse):
-                    let json = try! moyaResponse.mapJSON()
-                    print("\(json)")
-                case let .failure(error):
-                    print("\(error)")
+            do {
+                let result = try CallFetchPullRequests(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap", userName: "hirosyrup", password: "xhzc7NqWqKdExs7XYgQV").execute()
+                
+                DispatchQueue.main.async {
+                    print(result)
                 }
+            } catch {
+                DispatchQueue.main.async { print("\(error.localizedDescription)") }
             }
         }
     }

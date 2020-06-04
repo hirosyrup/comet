@@ -13,6 +13,8 @@
 		FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385642487D7F200E88304 /* RequestHeader.swift */; };
 		FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385662487DAC600E88304 /* BaseUrl.swift */; };
 		FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856924894A6900E88304 /* CallFetchPullRequests.swift */; };
+		FB83856C24894FD300E88304 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856B24894FD300E88304 /* ApiError.swift */; };
+		FB83856E248953B200E88304 /* CheckError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856D248953B200E88304 /* CheckError.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -52,6 +54,8 @@
 		FB8385642487D7F200E88304 /* RequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
 		FB8385662487DAC600E88304 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
 		FB83856924894A6900E88304 /* CallFetchPullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallFetchPullRequests.swift; sourceTree = "<group>"; };
+		FB83856B24894FD300E88304 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
+		FB83856D248953B200E88304 /* CheckError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckError.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 			children = (
 				FB8385642487D7F200E88304 /* RequestHeader.swift */,
 				FB8385662487DAC600E88304 /* BaseUrl.swift */,
+				FB83856B24894FD300E88304 /* ApiError.swift */,
+				FB83856D248953B200E88304 /* CheckError.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -263,9 +269,11 @@
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
+				FB83856C24894FD300E88304 /* ApiError.swift in Sources */,
 				FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */,
 				FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
+				FB83856E248953B200E88304 /* CheckError.swift in Sources */,
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
 				FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */,
 				FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */,
