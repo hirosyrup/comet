@@ -38,7 +38,8 @@ class CallFetchPullRequests {
             if let error = CheckError.error(response: moyaResponse) {
                 throw error
             } else {
-                let json = try moyaResponse.mapJSON()
+                let decoder = JSONDecoder()
+                let json = try decoder.decode(FetchPullRequestResponse.self, from: moyaResponse.data)
                 return "\(json)"
             }
         case let .failure(error):

@@ -15,6 +15,8 @@
 		FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856924894A6900E88304 /* CallFetchPullRequests.swift */; };
 		FB83856C24894FD300E88304 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856B24894FD300E88304 /* ApiError.swift */; };
 		FB83856E248953B200E88304 /* CheckError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856D248953B200E88304 /* CheckError.swift */; };
+		FB838572248A921A00E88304 /* FetchPullRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838571248A921A00E88304 /* FetchPullRequestResponse.swift */; };
+		FB838575248A936600E88304 /* PullRequestVallue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838574248A936600E88304 /* PullRequestVallue.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -56,6 +58,8 @@
 		FB83856924894A6900E88304 /* CallFetchPullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallFetchPullRequests.swift; sourceTree = "<group>"; };
 		FB83856B24894FD300E88304 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		FB83856D248953B200E88304 /* CheckError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckError.swift; sourceTree = "<group>"; };
+		FB838571248A921A00E88304 /* FetchPullRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPullRequestResponse.swift; sourceTree = "<group>"; };
+		FB838574248A936600E88304 /* PullRequestVallue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestVallue.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,9 +102,10 @@
 		FB83855A248696D600E88304 /* api */ = {
 			isa = PBXGroup;
 			children = (
-				FB83856824894A4B00E88304 /* callApi */,
 				FB8385632487D79C00E88304 /* core */,
+				FB83856824894A4B00E88304 /* callApi */,
 				FB8385622487D75700E88304 /* request */,
+				FB83856F248A91D800E88304 /* responsse */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -130,6 +135,23 @@
 				FB83856924894A6900E88304 /* CallFetchPullRequests.swift */,
 			);
 			path = callApi;
+			sourceTree = "<group>";
+		};
+		FB83856F248A91D800E88304 /* responsse */ = {
+			isa = PBXGroup;
+			children = (
+				FB838570248A91FB00E88304 /* pullRequest */,
+			);
+			path = responsse;
+			sourceTree = "<group>";
+		};
+		FB838570248A91FB00E88304 /* pullRequest */ = {
+			isa = PBXGroup;
+			children = (
+				FB838571248A921A00E88304 /* FetchPullRequestResponse.swift */,
+				FB838574248A936600E88304 /* PullRequestVallue.swift */,
+			);
+			path = pullRequest;
 			sourceTree = "<group>";
 		};
 		FBAF4B612471842800614EDB = {
@@ -269,7 +291,9 @@
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
+				FB838575248A936600E88304 /* PullRequestVallue.swift in Sources */,
 				FB83856C24894FD300E88304 /* ApiError.swift in Sources */,
+				FB838572248A921A00E88304 /* FetchPullRequestResponse.swift in Sources */,
 				FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */,
 				FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
