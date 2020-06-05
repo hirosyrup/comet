@@ -38,10 +38,18 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     private func fetch() {
         DispatchQueue.global().async {
             do {
-                let result = try CallFetchPullRequests(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap", userName: "hirosyrup", password: "xhzc7NqWqKdExs7XYgQV").execute()
+                let repositoryOwner = "kiizan-kiizan"
+                let repositorySlug = "leeap"
+                let userName = "hirosyrup"
+                let password = "xhzc7NqWqKdExs7XYgQV"
+                let pullRequestIndex = try CallFetchPullRequests(repositoryOwner: repositoryOwner, repositorySlug: repositorySlug, userName: userName, password: password).execute()
+                
+                let pullRequestList = try pullRequestIndex.values.map { (value) -> ShowPullRequestResponse in
+                    try CallShowPullRequest(id: value.id, repositoryOwner: repositoryOwner, repositorySlug: repositorySlug, userName: userName, password: password).execute()
+                }
                 
                 DispatchQueue.main.async {
-                    print(result)
+                    print(pullRequestList)
                 }
             } catch {
                 DispatchQueue.main.async { print("\(error.localizedDescription)") }
