@@ -9,15 +9,12 @@
 import Foundation
 
 enum ApiError: Error {
-    case noneResult
     case serverError(description: String)
 }
 
 extension ApiError: LocalizedError {
     var errorDescription: String? {
         switch self {
-        case .noneResult:
-            return "The request has no result."
         case .serverError(let description):
             return description
         }

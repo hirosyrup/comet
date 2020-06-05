@@ -14,7 +14,7 @@
 		FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385662487DAC600E88304 /* BaseUrl.swift */; };
 		FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856924894A6900E88304 /* CallFetchPullRequests.swift */; };
 		FB83856C24894FD300E88304 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856B24894FD300E88304 /* ApiError.swift */; };
-		FB83856E248953B200E88304 /* CheckError.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856D248953B200E88304 /* CheckError.swift */; };
+		FB83856E248953B200E88304 /* DecodeJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83856D248953B200E88304 /* DecodeJson.swift */; };
 		FB838572248A921A00E88304 /* FetchPullRequestResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838571248A921A00E88304 /* FetchPullRequestResponse.swift */; };
 		FB838575248A936600E88304 /* PullRequestVallue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838574248A936600E88304 /* PullRequestVallue.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
@@ -57,7 +57,7 @@
 		FB8385662487DAC600E88304 /* BaseUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseUrl.swift; sourceTree = "<group>"; };
 		FB83856924894A6900E88304 /* CallFetchPullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CallFetchPullRequests.swift; sourceTree = "<group>"; };
 		FB83856B24894FD300E88304 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
-		FB83856D248953B200E88304 /* CheckError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckError.swift; sourceTree = "<group>"; };
+		FB83856D248953B200E88304 /* DecodeJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecodeJson.swift; sourceTree = "<group>"; };
 		FB838571248A921A00E88304 /* FetchPullRequestResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPullRequestResponse.swift; sourceTree = "<group>"; };
 		FB838574248A936600E88304 /* PullRequestVallue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestVallue.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,7 +124,7 @@
 				FB8385642487D7F200E88304 /* RequestHeader.swift */,
 				FB8385662487DAC600E88304 /* BaseUrl.swift */,
 				FB83856B24894FD300E88304 /* ApiError.swift */,
-				FB83856D248953B200E88304 /* CheckError.swift */,
+				FB83856D248953B200E88304 /* DecodeJson.swift */,
 			);
 			path = core;
 			sourceTree = "<group>";
@@ -297,7 +297,7 @@
 				FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */,
 				FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
-				FB83856E248953B200E88304 /* CheckError.swift in Sources */,
+				FB83856E248953B200E88304 /* DecodeJson.swift in Sources */,
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
 				FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */,
 				FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */,

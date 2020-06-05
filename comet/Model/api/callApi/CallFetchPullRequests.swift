@@ -22,7 +22,7 @@ class CallFetchPullRequests {
         self.password = password
     }
     
-    func execute() throws -> String {
+    func execute() throws -> FetchPullRequestResponse {
         let semaphore = DispatchSemaphore(value: 0)
         var result: Result<Moya.Response, Moya.MoyaError>!
         
@@ -33,19 +33,6 @@ class CallFetchPullRequests {
             semaphore.signal()
         }
         semaphore.wait()
-        switch result {
-        case let .success(moyaResponse):
-            if let error = CheckError.error(response: moyaResponse) {
-                throw error
-            } else {
-                let decoder = JSONDecoder()
-                let json = try decoder.decode(FetchPullRequestResponse.self, from: moyaResponse.data)
-                return "\(json)"
-            }
-        case let .failure(error):
-            throw error
-        case .none:
-            throw ApiError.noneResult
-        }
+        return try DecodeJson<FetchPullRequestResponse>(result: result).decode()
     }
 }
