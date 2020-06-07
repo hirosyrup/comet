@@ -24,6 +24,7 @@
 		FB838580248D1D5100E88304 /* PullRequestParticipantUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83857F248D1D5100E88304 /* PullRequestParticipantUser.swift */; };
 		FB838582248D1DB600E88304 /* PullRequestParticipantUserLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838581248D1DB600E88304 /* PullRequestParticipantUserLinks.swift */; };
 		FB838584248D1DE300E88304 /* PullRequestLinksHref.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838583248D1DE300E88304 /* PullRequestLinksHref.swift */; };
+		FB838587248D24E100E88304 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838586248D24E100E88304 /* Repository.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -74,6 +75,7 @@
 		FB83857F248D1D5100E88304 /* PullRequestParticipantUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestParticipantUser.swift; sourceTree = "<group>"; };
 		FB838581248D1DB600E88304 /* PullRequestParticipantUserLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestParticipantUserLinks.swift; sourceTree = "<group>"; };
 		FB838583248D1DE300E88304 /* PullRequestLinksHref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestLinksHref.swift; sourceTree = "<group>"; };
+		FB838586248D24E100E88304 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				FB83855A248696D600E88304 /* api */,
+				FB838585248D249E00E88304 /* repository */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -181,6 +184,14 @@
 				FB838577248AA2F600E88304 /* ShowPullRequest.swift */,
 			);
 			path = pullRequest;
+			sourceTree = "<group>";
+		};
+		FB838585248D249E00E88304 /* repository */ = {
+			isa = PBXGroup;
+			children = (
+				FB838586248D24E100E88304 /* Repository.swift */,
+			);
+			path = repository;
 			sourceTree = "<group>";
 		};
 		FBAF4B612471842800614EDB = {
@@ -331,6 +342,7 @@
 				FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
 				FB83856E248953B200E88304 /* DecodeJson.swift in Sources */,
+				FB838587248D24E100E88304 /* Repository.swift in Sources */,
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
 				FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */,
 				FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */,
