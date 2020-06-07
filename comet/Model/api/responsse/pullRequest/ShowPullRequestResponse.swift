@@ -10,8 +10,5 @@ import Foundation
 
 struct ShowPullRequestResponse: Codable {
     let id: Int
-    
-    private enum CodingKeys: String, CodingKey {
-        case id
-    }
+    let participants: [PullRequestParticipant]
 }

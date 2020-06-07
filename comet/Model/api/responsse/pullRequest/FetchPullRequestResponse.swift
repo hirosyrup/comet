@@ -13,11 +13,4 @@ struct FetchPullRequestResponse: Codable {
     let pagelen: Int
     let size: Int
     let values: [PullRequestValue]
-    
-    private enum CodingKeys: String, CodingKey {
-        case page
-        case pagelen
-        case size
-        case values
-    }
 }
