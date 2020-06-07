@@ -119,7 +119,7 @@
 				FB8385632487D79C00E88304 /* core */,
 				FB83856824894A4B00E88304 /* callApi */,
 				FB8385622487D75700E88304 /* request */,
-				FB83856F248A91D800E88304 /* responsse */,
+				FB83856F248A91D800E88304 /* response */,
 			);
 			path = api;
 			sourceTree = "<group>";
@@ -152,12 +152,12 @@
 			path = callApi;
 			sourceTree = "<group>";
 		};
-		FB83856F248A91D800E88304 /* responsse */ = {
+		FB83856F248A91D800E88304 /* response */ = {
 			isa = PBXGroup;
 			children = (
 				FB838570248A91FB00E88304 /* pullRequest */,
 			);
-			path = responsse;
+			path = response;
 			sourceTree = "<group>";
 		};
 		FB838570248A91FB00E88304 /* pullRequest */ = {
