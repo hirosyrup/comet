@@ -9,19 +9,24 @@
 import Foundation
 
 protocol RepositoryNotification: class {
-    func didUpdate(repository: Repository)
+    func didUpdateRepository()
 }
 
-class Repository {
+protocol RepositoryObservable {
+    func addObserver(observer: RepositoryNotification)
+    func removeObserver(observer: RepositoryNotification)
+}
+
+class Repository: RepositoryObservable {
     private var isUpdating = false
     private var lastUpdated = Date()
     private var timer = Timer()
     
+    let repositorySlug: String
     private let repositoryOwner: String
-    private let repositorySlug: String
     private let userName: String
     private let password: String
-    private let updateInterval: TimeInterval = 60.0
+    private let updateInterval: TimeInterval = 3.0
     
     private var observerList = [RepositoryNotification]()
     
@@ -56,6 +61,7 @@ class Repository {
                 
                 DispatchQueue.main.async {
                     self.lastUpdated = Date()
+                    self.notifyUpdate()
                     print(pullRequestList)
                 }
             } catch {
@@ -97,5 +103,9 @@ class Repository {
                 password: password
             ).execute()
         }
+    }
+    
+    private func notifyUpdate() {
+        observerList.forEach { $0.didUpdateRepository() }
     }
 }

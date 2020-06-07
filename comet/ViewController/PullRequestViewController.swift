@@ -9,16 +9,19 @@
 import Cocoa
 import Moya
 
-class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
+class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, RepositoryNotification {
     @IBOutlet weak var listView: NSCollectionView!
     @IBOutlet weak var label: NSTextField!
     
     private let cellId = "PullRequestCollectionViewItem"
+    private var repositoryObservable: RepositoryObservable!
     
-    class func create() -> PullRequestViewController {
+    class func create(repositoryObservable: RepositoryObservable) -> PullRequestViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let identifier = NSStoryboard.SceneIdentifier("PullRequestViewController")
-        return storyboard.instantiateController(withIdentifier: identifier) as! PullRequestViewController
+        let vc = storyboard.instantiateController(withIdentifier: identifier) as! PullRequestViewController
+        vc.repositoryObservable = repositoryObservable
+        return vc
     }
     
     override func viewDidLoad() {
@@ -31,30 +34,16 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         listView.register(nib, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId))
         
         label.stringValue = title ?? ""
-        
-        fetch()
     }
     
-    private func fetch() {
-        DispatchQueue.global().async {
-            do {
-                let repositoryOwner = "kiizan-kiizan"
-                let repositorySlug = "leeap"
-                let userName = "hirosyrup"
-                let password = "xhzc7NqWqKdExs7XYgQV"
-                let pullRequestIndex = try CallFetchPullRequests(repositoryOwner: repositoryOwner, repositorySlug: repositorySlug, userName: userName, password: password).execute()
-                
-                let pullRequestList = try pullRequestIndex.values.map { (value) -> ShowPullRequestResponse in
-                    try CallShowPullRequest(id: value.id, repositoryOwner: repositoryOwner, repositorySlug: repositorySlug, userName: userName, password: password).execute()
-                }
-                
-                DispatchQueue.main.async {
-                    print(pullRequestList)
-                }
-            } catch {
-                DispatchQueue.main.async { print("\(error.localizedDescription)") }
-            }
-        }
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        repositoryObservable.addObserver(observer: self)
+    }
+    
+    override func viewWillDisappear() {
+        super.viewWillDisappear()
+        repositoryObservable.removeObserver(observer: self)
     }
     
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -64,5 +53,9 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = listView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), for: indexPath) as! PullRequestCollectionViewItem
         return item
+    }
+    
+    func didUpdateRepository() {
+        print("updated")
     }
 }

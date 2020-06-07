@@ -16,27 +16,37 @@ class RepositoryTabViewController: NSViewController {
     @IBOutlet weak var selectBarWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var selectBarLeadingConstraint: NSLayoutConstraint!
     
+    var repositoryList = [Repository]()
+    
     private var tabItemWidth: CGFloat = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let vc1 = PullRequestViewController.create()
-        vc1.title = "test1"
-        let vc2 = PullRequestViewController.create()
-        vc2.title = "test2"
-        let vcList = [vc1, vc2]
+        let vcList = createChildViewControllers()
         
-        tabItemWidth = tabItemContainerView.bounds.width / CGFloat(vcList.count)
-        selectBarWidthConstraint.constant = tabItemWidth
-        
-        let needLabel = vcList.count > 1
-        if !needLabel {
+        if vcList.isEmpty {
             selectBarView.isHidden = true
-            tabItemContainerHeightConstraint.constant = 0.0
+        } else {
+            tabItemWidth = tabItemContainerView.bounds.width / CGFloat(vcList.count)
+            selectBarWidthConstraint.constant = tabItemWidth
+            
+            let needLabel = vcList.count > 1
+            if !needLabel {
+                selectBarView.isHidden = true
+                tabItemContainerHeightConstraint.constant = 0.0
+            }
+            for (index, vc) in vcList.enumerated() {
+                addViewController(vc: vc, needLabel: needLabel, index: index)
+            }
         }
-        for (index, vc) in vcList.enumerated() {
-            addViewController(vc: vc, needLabel: needLabel, index: index)
+    }
+    
+    private func createChildViewControllers() -> [PullRequestViewController] {
+        return repositoryList.map { (repository) -> PullRequestViewController in
+            let vc = PullRequestViewController.create(repositoryObservable: repository)
+            vc.title = repository.repositorySlug
+            return vc
         }
     }
     

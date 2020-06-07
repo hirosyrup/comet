@@ -9,10 +9,20 @@
 import Cocoa
 
 class MainViewController: NSViewController {
-    class func create() -> MainViewController {
+    private var repositoryList = [Repository]()
+    
+    class func create(repositoryList: [Repository]) -> MainViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let identifier = NSStoryboard.SceneIdentifier("MainViewController")
-        return storyboard.instantiateController(withIdentifier: identifier) as! MainViewController
+        let vc = storyboard.instantiateController(withIdentifier: identifier) as! MainViewController
+        vc.repositoryList = repositoryList
+        return vc
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if let tabVc = segue.destinationController as? RepositoryTabViewController {
+            tabVc.repositoryList = repositoryList
+        }
     }
     
     override func viewDidLoad() {
