@@ -25,6 +25,8 @@
 		FB838582248D1DB600E88304 /* PullRequestParticipantUserLinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838581248D1DB600E88304 /* PullRequestParticipantUserLinks.swift */; };
 		FB838584248D1DE300E88304 /* PullRequestLinksHref.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838583248D1DE300E88304 /* PullRequestLinksHref.swift */; };
 		FB838587248D24E100E88304 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838586248D24E100E88304 /* Repository.swift */; };
+		FB838589248D388700E88304 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838588248D388700E88304 /* PreferencesTabViewController.swift */; };
+		FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83858A248D3B2600E88304 /* PreferencesWindowController.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -76,6 +78,8 @@
 		FB838581248D1DB600E88304 /* PullRequestParticipantUserLinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestParticipantUserLinks.swift; sourceTree = "<group>"; };
 		FB838583248D1DE300E88304 /* PullRequestLinksHref.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestLinksHref.swift; sourceTree = "<group>"; };
 		FB838586248D24E100E88304 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		FB838588248D388700E88304 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
+		FB83858A248D3B2600E88304 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -232,6 +236,8 @@
 				FBAF4B8124718BBE00614EDB /* MainViewController.swift */,
 				FBF62F69247C10C500D4289D /* RepositoryTabViewController.swift */,
 				FBF62F6B247C132000D4289D /* PullRequestViewController.swift */,
+				FB83858A248D3B2600E88304 /* PreferencesWindowController.swift */,
+				FB838588248D388700E88304 /* PreferencesTabViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FB83857E248AA82400E88304 /* PullRequestParticipant.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
+				FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
 				FB838575248A936600E88304 /* PullRequestVallue.swift in Sources */,
 				FB83856C24894FD300E88304 /* ApiError.swift in Sources */,
@@ -349,6 +356,7 @@
 				FB838584248D1DE300E88304 /* PullRequestLinksHref.swift in Sources */,
 				FB83857C248AA4E600E88304 /* ShowPullRequestResponse.swift in Sources */,
 				FB838578248AA2F600E88304 /* ShowPullRequest.swift in Sources */,
+				FB838589248D388700E88304 /* PreferencesTabViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

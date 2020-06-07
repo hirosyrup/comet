@@ -10,6 +10,7 @@ import Cocoa
 
 class MainViewController: NSViewController {
     private var repositoryList = [Repository]()
+    private let preferencesWindowController = PreferencesWindowController.create()
     
     class func create(repositoryList: [Repository]) -> MainViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -29,6 +30,12 @@ class MainViewController: NSViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func pushPreferences(_ sender: Any) {
+        if let window = preferencesWindowController.window {
+            NSApp.runModal(for: window)
+        }
     }
     
     @IBAction func pushQuit(_ sender: Any) {

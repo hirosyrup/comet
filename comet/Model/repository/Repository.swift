@@ -26,7 +26,7 @@ class Repository: RepositoryObservable {
     private let repositoryOwner: String
     private let userName: String
     private let password: String
-    private let updateInterval: TimeInterval = 3.0
+    private let updateInterval: TimeInterval = 60.0
     
     private var observerList = [RepositoryNotification]()
     

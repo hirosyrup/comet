@@ -42,6 +42,12 @@
                                             <menuItem hidden="YES" id="EGW-Pc-k2C">
                                                 <modifierMask key="keyEquivalentModifierMask"/>
                                             </menuItem>
+                                            <menuItem title="Preferences" id="WGL-Eq-EqS">
+                                                <modifierMask key="keyEquivalentModifierMask"/>
+                                                <connections>
+                                                    <action selector="pushPreferences:" target="XfG-lQ-9wD" id="eZb-lF-k6o"/>
+                                                </connections>
+                                            </menuItem>
                                             <menuItem title="Quit" keyEquivalent="q" id="M1O-No-VHj">
                                                 <connections>
                                                     <action selector="pushQuit:" target="XfG-lQ-9wD" id="mf1-vL-h5e"/>
@@ -207,6 +213,79 @@
                 <customObject id="mIE-3E-Ppf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="1092"/>
+        </scene>
+        <!--Window Controller-->
+        <scene sceneID="UZx-HK-FwT">
+            <objects>
+                <windowController storyboardIdentifier="PreferencesWindowController" id="FZS-77-mP9" customClass="PreferencesWindowController" customModule="comet" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="YLC-45-MKh">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="245" y="310" width="480" height="270"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1050"/>
+                        <connections>
+                            <outlet property="delegate" destination="FZS-77-mP9" id="dUS-bs-PN3"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="Xgm-Ok-mUb" kind="relationship" relationship="window.shadowedContentViewController" id="ue2-bZ-odw"/>
+                    </connections>
+                </windowController>
+                <customObject id="YMk-oh-5am" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="75" y="1550"/>
+        </scene>
+        <!--Preferences Tab View Controller-->
+        <scene sceneID="vBa-2R-qIz">
+            <objects>
+                <tabViewController storyboardIdentifier="PreferencesTabViewController" id="Xgm-Ok-mUb" customClass="PreferencesTabViewController" customModule="comet" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem identifier="" id="CiM-S2-6HO"/>
+                        <tabViewItem identifier="" id="pe8-vN-25o"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="7Vs-hV-fOK">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <font key="font" metaFont="system"/>
+                        <connections>
+                            <outlet property="delegate" destination="Xgm-Ok-mUb" id="FFY-L8-UbU"/>
+                        </connections>
+                    </tabView>
+                    <connections>
+                        <outlet property="tabView" destination="7Vs-hV-fOK" id="7FG-f6-laC"/>
+                        <segue destination="mIe-uf-FFc" kind="relationship" relationship="tabItems" id="Mr3-it-xTQ"/>
+                        <segue destination="iNO-5N-0cY" kind="relationship" relationship="tabItems" id="DTF-z4-fHk"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="ihp-Fp-SvG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="613" y="1541"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="olN-Vd-0zE">
+            <objects>
+                <viewController id="mIe-uf-FFc" sceneMemberID="viewController">
+                    <view key="view" id="zYg-ZL-C3C">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="YSg-mj-shB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1322" y="1411"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="sRT-q1-ERP">
+            <objects>
+                <viewController id="iNO-5N-0cY" sceneMemberID="viewController">
+                    <view key="view" id="uTj-v7-g29">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="cle-FO-aZ6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1296" y="1806"/>
         </scene>
     </scenes>
     <resources>
