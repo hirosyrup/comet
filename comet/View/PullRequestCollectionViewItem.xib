@@ -7,18 +7,26 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="PullRequestCollectionViewItem" customModule="comet" customModuleProvider="target">
             <connections>
+                <outlet property="background" destination="N2P-Fa-MG1" id="TCq-8Q-ieM"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
+            <rect key="frame" x="0.0" y="0.0" width="480" height="40"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-x1-yMM">
-                    <rect key="frame" x="18" y="8" width="444" height="255"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="N2P-Fa-MG1">
+                    <rect key="frame" x="0.0" y="0.0" width="480" height="40"/>
+                    <view key="contentView" id="AFa-A8-ihY">
+                        <rect key="frame" x="1" y="1" width="478" height="38"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <color key="borderColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </box>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-x1-yMM">
+                    <rect key="frame" x="18" y="12" width="444" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="p1F-PW-RJa">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -26,6 +34,16 @@
                     </textFieldCell>
                 </textField>
             </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="ucs-x1-yMM" secondAttribute="trailing" constant="20" id="13q-ny-LuF"/>
+                <constraint firstItem="N2P-Fa-MG1" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="6Tb-Kk-EEe"/>
+                <constraint firstAttribute="trailing" secondItem="N2P-Fa-MG1" secondAttribute="trailing" id="7LE-9q-O4T"/>
+                <constraint firstItem="N2P-Fa-MG1" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Jsg-SO-cZf"/>
+                <constraint firstItem="ucs-x1-yMM" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="MJs-gd-rwA"/>
+                <constraint firstAttribute="bottom" secondItem="ucs-x1-yMM" secondAttribute="bottom" constant="12" id="auZ-pI-5XD"/>
+                <constraint firstAttribute="bottom" secondItem="N2P-Fa-MG1" secondAttribute="bottom" id="oO4-S0-kq7"/>
+                <constraint firstItem="ucs-x1-yMM" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="12" id="s29-vn-KwJ"/>
+            </constraints>
             <point key="canvasLocation" x="139" y="154"/>
         </customView>
         <collectionViewItem nibName="PullRequestCollectionViewItem" id="0tb-lj-M8c" customClass="PullRequestCollectionViewItem" customModule="comet" customModuleProvider="target"/>

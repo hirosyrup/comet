@@ -55,6 +55,9 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         return item
     }
     
+    func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
+    }
+    
     func didUpdateRepository() {
         print("updated")
     }

@@ -27,6 +27,9 @@
 		FB838587248D24E100E88304 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838586248D24E100E88304 /* Repository.swift */; };
 		FB838589248D388700E88304 /* PreferencesTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB838588248D388700E88304 /* PreferencesTabViewController.swift */; };
 		FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83858A248D3B2600E88304 /* PreferencesWindowController.swift */; };
+		FB83858D248E767B00E88304 /* PreferencesBitbucketUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83858C248E767B00E88304 /* PreferencesBitbucketUserViewController.swift */; };
+		FB838590248E78C600E88304 /* TextCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */; };
+		FB838591248E78C600E88304 /* TextCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB83858F248E78C600E88304 /* TextCollectionViewItem.xib */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -80,6 +83,9 @@
 		FB838586248D24E100E88304 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		FB838588248D388700E88304 /* PreferencesTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesTabViewController.swift; sourceTree = "<group>"; };
 		FB83858A248D3B2600E88304 /* PreferencesWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesWindowController.swift; sourceTree = "<group>"; };
+		FB83858C248E767B00E88304 /* PreferencesBitbucketUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesBitbucketUserViewController.swift; sourceTree = "<group>"; };
+		FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionViewItem.swift; sourceTree = "<group>"; };
+		FB83858F248E78C600E88304 /* TextCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCollectionViewItem.xib; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -238,6 +244,7 @@
 				FBF62F6B247C132000D4289D /* PullRequestViewController.swift */,
 				FB83858A248D3B2600E88304 /* PreferencesWindowController.swift */,
 				FB838588248D388700E88304 /* PreferencesTabViewController.swift */,
+				FB83858C248E767B00E88304 /* PreferencesBitbucketUserViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -247,6 +254,8 @@
 			children = (
 				FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */,
 				FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */,
+				FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */,
+				FB83858F248E78C600E88304 /* TextCollectionViewItem.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,6 +332,7 @@
 			files = (
 				FBF62F68247C0E9000D4289D /* PullRequestCollectionViewItem.xib in Resources */,
 				FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */,
+				FB838591248E78C600E88304 /* TextCollectionViewItem.xib in Resources */,
 				FBAF4B752471842B00614EDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,6 +346,7 @@
 			files = (
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FB83857E248AA82400E88304 /* PullRequestParticipant.swift in Sources */,
+				FB838590248E78C600E88304 /* TextCollectionViewItem.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
 				FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
@@ -346,6 +357,7 @@
 				FB83857A248AA36400E88304 /* CallShowPullRequest.swift in Sources */,
 				FB838572248A921A00E88304 /* FetchPullRequestResponse.swift in Sources */,
 				FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */,
+				FB83858D248E767B00E88304 /* PreferencesBitbucketUserViewController.swift in Sources */,
 				FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
 				FB83856E248953B200E88304 /* DecodeJson.swift in Sources */,

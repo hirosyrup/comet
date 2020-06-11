@@ -170,15 +170,17 @@
                             <subviews>
                                 <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Lem-JB-vSd">
                                     <rect key="frame" x="-1" y="-1" width="450" height="274"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
                                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="n5u-7z-dwK">
                                         <rect key="frame" x="0.0" y="0.0" width="450" height="274"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <collectionView maxNumberOfColumns="1" id="38y-hI-ph1">
+                                            <collectionView selectable="YES" maxNumberOfColumns="1" id="38y-hI-ph1">
                                                 <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="mJu-w4-nVn"/>
+                                                <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="mJu-w4-nVn">
+                                                    <size key="maximumItemSize" width="0.0" height="50"/>
+                                                </collectionViewGridLayout>
                                                 <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             </collectionView>
                                         </subviews>
@@ -192,9 +194,8 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-JV-5vl">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-JV-5vl">
                                     <rect key="frame" x="9" y="281" width="37" height="16"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ph1-a2-mao">
                                         <font key="font" usesAppearanceFont="YES"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -202,6 +203,11 @@
                                     </textFieldCell>
                                 </textField>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="Lem-JB-vSd" firstAttribute="top" secondItem="JC4-JV-5vl" secondAttribute="bottom" constant="8" symbolic="YES" id="4qq-Ys-hHw"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JC4-JV-5vl" secondAttribute="trailing" constant="20" symbolic="YES" id="7Bw-7M-Cxk"/>
+                                <constraint firstItem="JC4-JV-5vl" firstAttribute="leading" secondItem="7sA-QD-96K" secondAttribute="leading" constant="11" id="z1G-1v-3eS"/>
+                            </constraints>
                         </view>
                         <color key="borderColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </box>
@@ -261,18 +267,59 @@
             </objects>
             <point key="canvasLocation" x="613" y="1541"/>
         </scene>
-        <!--View Controller-->
+        <!--Bitbucket User-->
         <scene sceneID="olN-Vd-0zE">
             <objects>
-                <viewController id="mIe-uf-FFc" sceneMemberID="viewController">
+                <viewController title="Bitbucket User" storyboardIdentifier="PreferencesBitbucketUserViewController" id="mIe-uf-FFc" customClass="PreferencesBitbucketUserViewController" customModule="comet" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="zYg-ZL-C3C">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView wantsLayer="YES" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="t6v-1q-9hd">
+                                <rect key="frame" x="20" y="14" width="241" height="274"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="eVI-4M-Fi0">
+                                    <rect key="frame" x="1" y="1" width="239" height="272"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <collectionView selectable="YES" id="enQ-yd-Mfe">
+                                            <rect key="frame" x="0.0" y="0.0" width="239" height="158"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="pow-Mx-lcT">
+                                                <size key="minimumItemSize" width="241" height="0.0"/>
+                                                <size key="maximumItemSize" width="241" height="16"/>
+                                            </collectionViewGridLayout>
+                                            <color key="primaryBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </collectionView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="EoJ-jq-FN0">
+                                    <rect key="frame" x="1" y="257" width="239" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="8dZ-Dv-rgj">
+                                    <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xq0-Ce-ceT">
+                                <rect key="frame" x="267" y="264" width="37" height="16"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ZVF-n8-wyj">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
                     </view>
+                    <connections>
+                        <outlet property="listView" destination="enQ-yd-Mfe" id="RQ2-uD-B34"/>
+                    </connections>
                 </viewController>
                 <customObject id="YSg-mj-shB" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="1411"/>
+            <point key="canvasLocation" x="1296" y="1375"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="sRT-q1-ERP">
