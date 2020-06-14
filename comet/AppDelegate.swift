@@ -34,7 +34,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     private func constructRepository() {
         repositoryList = [
-            Repository(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap", userName: "hirosyrup", password: "xhzc7NqWqKdExs7XYgQV")
+            //Repository(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap", userName: "hirosyrup", password: "xhzc7NqWqKdExs7XYgQV")
         ]
         repositoryList.forEach {
             $0.startTimer()

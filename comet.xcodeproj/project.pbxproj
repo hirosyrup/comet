@@ -30,6 +30,7 @@
 		FB83858D248E767B00E88304 /* PreferencesBitbucketUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83858C248E767B00E88304 /* PreferencesBitbucketUserViewController.swift */; };
 		FB838590248E78C600E88304 /* TextCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */; };
 		FB838591248E78C600E88304 /* TextCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB83858F248E78C600E88304 /* TextCollectionViewItem.xib */; };
+		FB8385932496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385922496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -86,6 +87,7 @@
 		FB83858C248E767B00E88304 /* PreferencesBitbucketUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesBitbucketUserViewController.swift; sourceTree = "<group>"; };
 		FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionViewItem.swift; sourceTree = "<group>"; };
 		FB83858F248E78C600E88304 /* TextCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCollectionViewItem.xib; sourceTree = "<group>"; };
+		FB8385922496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesBitbucketUserInputViewController.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 				FB83858A248D3B2600E88304 /* PreferencesWindowController.swift */,
 				FB838588248D388700E88304 /* PreferencesTabViewController.swift */,
 				FB83858C248E767B00E88304 /* PreferencesBitbucketUserViewController.swift */,
+				FB8385922496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -347,6 +350,7 @@
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FB83857E248AA82400E88304 /* PullRequestParticipant.swift in Sources */,
 				FB838590248E78C600E88304 /* TextCollectionViewItem.swift in Sources */,
+				FB8385932496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
 				FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
