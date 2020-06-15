@@ -7,14 +7,16 @@
 //
 
 import Cocoa
+import RealmSwift
 
-class PreferencesBitbucketUserViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource {
+class PreferencesBitbucketUserViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, PreferencesBitbucketUserInputViewControllerDelegate, TextCollectionViewItemDelegate {
     @IBOutlet weak var listView: NSCollectionView!
     @IBOutlet weak var deleteButton: NSButton!
     @IBOutlet weak var editButton: NSButton!
     
     private let cellId = "BitbucketUserCollectionViewItem"
     private var selectedIndex: Int? = nil
+    private var users: RealmSwift.Results<User>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,12 @@ class PreferencesBitbucketUserViewController: NSViewController, NSCollectionView
         listView.register(nib, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId))
         
         updateButtonEnable()
+        updateList()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        clearSelected()
     }
     
     private func updateButtonEnable() {
@@ -34,25 +42,59 @@ class PreferencesBitbucketUserViewController: NSViewController, NSCollectionView
         editButton.isEnabled = enabled
     }
     
+    private func updateList() {
+        users = try! User.all()
+        listView.reloadData()
+    }
+    
+    private func clearSelected() {
+        selectedIndex = nil
+        updateList()
+        updateButtonEnable()
+    }
+    
+    private func showInputVc(user: User) {
+        let vc = PreferencesBitbucketUserInputViewController.create(user: user, delegate: self)
+        presentAsSheet(vc)
+    }
+    
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return users.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = listView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), for: indexPath) as! TextCollectionViewItem
-        item.setLabelText(labelText: "ああああああああいいいいいいいいううううううう")
+        let user = users[indexPath.item]
+        item.delegate = self
+        item.isSelected = selectedIndex == indexPath.item
+        item.setLabelText(labelText: user.name)
         return item
     }
     
+    func willDismiss(vc: PreferencesBitbucketUserInputViewController) {
+        clearSelected()
+    }
+    
+    func didClick(view: TextCollectionViewItem) {
+        if let indexPath = listView.indexPath(for: view) {
+            selectedIndex = indexPath.item
+            updateList()
+            updateButtonEnable()
+        }
+    }
     
     @IBAction func pushAddButton(_ sender: Any) {
-        let vc = PreferencesBitbucketUserInputViewController.create()
-        presentAsSheet(vc)
+        showInputVc(user: User())
     }
     
     @IBAction func pushDeleteButton(_ sender: Any) {
+        guard let index = selectedIndex else { return }
+        try! users[index].delete()
+        clearSelected()
     }
     
     @IBAction func pushEditButton(_ sender: Any) {
+        guard let index = selectedIndex else { return }
+        showInputVc(user: users[index])
     }
 }

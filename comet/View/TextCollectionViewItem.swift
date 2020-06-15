@@ -8,10 +8,22 @@
 
 import Cocoa
 
+protocol TextCollectionViewItemDelegate: class {
+    func didClick(view: TextCollectionViewItem)
+}
+
 class TextCollectionViewItem: NSCollectionViewItem {
 
     @IBOutlet weak var background: NSBox!
     @IBOutlet weak var label: NSTextField!
+    
+    weak var delegate: TextCollectionViewItemDelegate? = nil
+    
+    override var isSelected: Bool {
+        didSet {
+            setIdleColor()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +32,30 @@ class TextCollectionViewItem: NSCollectionViewItem {
     }
     
     override func mouseEntered(with event: NSEvent) {
-        background.fillColor = NSColor.red
+        if !isSelected {
+            background.fillColor = NSColor.cellBackground
+        }
     }
     
     override func mouseExited(with event: NSEvent) {
-        background.fillColor = NSColor.clear
+        setIdleColor()
+    }
+    
+    override func mouseDown(with event: NSEvent) {
+        delegate?.didClick(view: self)
     }
     
     func setLabelText(labelText: String) {
         label.stringValue = labelText
+    }
+    
+    private func setIdleColor() {
+        if isSelected {
+            background.fillColor = NSColor.systemBlue
+            label.textColor = NSColor.white
+        } else {
+            background.fillColor = NSColor.clear
+            label.textColor = NSColor.black
+        }
     }
 }

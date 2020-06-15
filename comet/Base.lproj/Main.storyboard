@@ -286,7 +286,7 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                             <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="pow-Mx-lcT">
                                                 <size key="minimumItemSize" width="400" height="0.0"/>
-                                                <size key="maximumItemSize" width="0.0" height="16"/>
+                                                <size key="maximumItemSize" width="0.0" height="20"/>
                                             </collectionViewGridLayout>
                                             <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         </collectionView>
@@ -404,17 +404,6 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="88D-ch-QZN">
-                                <rect key="frame" x="20" y="78" width="410" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="ede-yI-6o0"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Eig-BN-Ki1">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0uF-AD-pe4">
                                 <rect key="frame" x="364" y="5" width="72" height="32"/>
                                 <constraints>
@@ -448,18 +437,32 @@ Gw
                                     <action selector="pushCancelButton:" target="fPU-Zm-wdH" id="kaC-6X-72M"/>
                                 </connections>
                             </button>
+                            <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ldK-ON-gY9">
+                                <rect key="frame" x="20" y="78" width="410" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="rea-al-dN6"/>
+                                </constraints>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="UBB-vJ-ISy">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="88D-ch-QZN" firstAttribute="top" secondItem="VDX-Rd-Upl" secondAttribute="bottom" constant="8" id="2lo-nD-WAa"/>
-                            <constraint firstItem="88D-ch-QZN" firstAttribute="trailing" secondItem="VDX-Rd-Upl" secondAttribute="trailing" id="443-pW-bxz"/>
+                            <constraint firstItem="ldK-ON-gY9" firstAttribute="trailing" secondItem="VDX-Rd-Upl" secondAttribute="trailing" id="0tD-zs-djL"/>
                             <constraint firstItem="G3D-qe-OM6" firstAttribute="trailing" secondItem="fRV-bZ-pfo" secondAttribute="trailing" id="8kL-hG-4py"/>
+                            <constraint firstItem="ldK-ON-gY9" firstAttribute="trailing" secondItem="0uF-AD-pe4" secondAttribute="trailing" id="AE6-hn-BAA"/>
                             <constraint firstAttribute="bottom" secondItem="0uF-AD-pe4" secondAttribute="bottom" constant="12" id="BJh-Mn-Cdv"/>
                             <constraint firstItem="VDX-Rd-Upl" firstAttribute="leading" secondItem="G3D-qe-OM6" secondAttribute="leading" id="Eag-Jb-nyT"/>
                             <constraint firstItem="Tbd-Zl-XY8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="nbs-f1-qSd" secondAttribute="leading" constant="20" symbolic="YES" id="KYa-Ac-k7Q"/>
-                            <constraint firstItem="0uF-AD-pe4" firstAttribute="trailing" secondItem="88D-ch-QZN" secondAttribute="trailing" id="Oew-d0-Uf5"/>
-                            <constraint firstItem="88D-ch-QZN" firstAttribute="leading" secondItem="VDX-Rd-Upl" secondAttribute="leading" id="Tch-gk-FB7"/>
                             <constraint firstItem="G3D-qe-OM6" firstAttribute="leading" secondItem="fRV-bZ-pfo" secondAttribute="leading" id="WJf-bS-3nx"/>
+                            <constraint firstItem="ldK-ON-gY9" firstAttribute="leading" secondItem="VDX-Rd-Upl" secondAttribute="leading" id="Xd7-tw-wW6"/>
                             <constraint firstItem="fRV-bZ-pfo" firstAttribute="top" secondItem="nbs-f1-qSd" secondAttribute="top" constant="12" id="XoJ-5j-zrO"/>
+                            <constraint firstItem="ldK-ON-gY9" firstAttribute="top" secondItem="VDX-Rd-Upl" secondAttribute="bottom" constant="8" id="bha-YX-mM5"/>
                             <constraint firstItem="VDX-Rd-Upl" firstAttribute="trailing" secondItem="G3D-qe-OM6" secondAttribute="trailing" id="bvT-la-0EP"/>
                             <constraint firstItem="Tbd-Zl-XY8" firstAttribute="top" secondItem="0uF-AD-pe4" secondAttribute="top" id="byl-IG-g5q"/>
                             <constraint firstItem="G3D-qe-OM6" firstAttribute="top" secondItem="fRV-bZ-pfo" secondAttribute="bottom" constant="8" id="d9X-EM-llR"/>
@@ -470,6 +473,10 @@ Gw
                             <constraint firstItem="0uF-AD-pe4" firstAttribute="leading" secondItem="Tbd-Zl-XY8" secondAttribute="trailing" constant="16" id="zz9-Od-FQo"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="passwordTextField" destination="ldK-ON-gY9" id="WnY-J3-aLh"/>
+                        <outlet property="userNameTextField" destination="G3D-qe-OM6" id="ye4-ar-Miy"/>
+                    </connections>
                 </viewController>
                 <customObject id="hE4-4c-Crw" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

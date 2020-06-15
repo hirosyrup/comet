@@ -31,6 +31,9 @@
 		FB838590248E78C600E88304 /* TextCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */; };
 		FB838591248E78C600E88304 /* TextCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB83858F248E78C600E88304 /* TextCollectionViewItem.xib */; };
 		FB8385932496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385922496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift */; };
+		FB8385962497B03900E88304 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385952497B03900E88304 /* User.swift */; };
+		FB8385992497BF2A00E88304 /* NSColor+AppColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385982497BF2A00E88304 /* NSColor+AppColor.swift */; };
+		FB83859C2497CEFE00E88304 /* TextFieldHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83859B2497CEFE00E88304 /* TextFieldHelper.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -88,6 +91,9 @@
 		FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCollectionViewItem.swift; sourceTree = "<group>"; };
 		FB83858F248E78C600E88304 /* TextCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextCollectionViewItem.xib; sourceTree = "<group>"; };
 		FB8385922496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesBitbucketUserInputViewController.swift; sourceTree = "<group>"; };
+		FB8385952497B03900E88304 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FB8385982497BF2A00E88304 /* NSColor+AppColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSColor+AppColor.swift"; sourceTree = "<group>"; };
+		FB83859B2497CEFE00E88304 /* TextFieldHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldHelper.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,6 +128,8 @@
 		FB8385592486967C00E88304 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FB8385972497BF1500E88304 /* extension */,
+				FB8385942497B02700E88304 /* realm */,
 				FB83855A248696D600E88304 /* api */,
 				FB838585248D249E00E88304 /* repository */,
 			);
@@ -206,6 +214,30 @@
 			path = repository;
 			sourceTree = "<group>";
 		};
+		FB8385942497B02700E88304 /* realm */ = {
+			isa = PBXGroup;
+			children = (
+				FB8385952497B03900E88304 /* User.swift */,
+			);
+			path = realm;
+			sourceTree = "<group>";
+		};
+		FB8385972497BF1500E88304 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				FB8385982497BF2A00E88304 /* NSColor+AppColor.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		FB83859A2497CEEF00E88304 /* shared */ = {
+			isa = PBXGroup;
+			children = (
+				FB83859B2497CEFE00E88304 /* TextFieldHelper.swift */,
+			);
+			path = shared;
+			sourceTree = "<group>";
+		};
 		FBAF4B612471842800614EDB = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +287,7 @@
 		FBF62F64247C0D3600D4289D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FB83859A2497CEEF00E88304 /* shared */,
 				FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */,
 				FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */,
 				FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */,
@@ -351,7 +384,9 @@
 				FB83857E248AA82400E88304 /* PullRequestParticipant.swift in Sources */,
 				FB838590248E78C600E88304 /* TextCollectionViewItem.swift in Sources */,
 				FB8385932496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift in Sources */,
+				FB83859C2497CEFE00E88304 /* TextFieldHelper.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
+				FB8385962497B03900E88304 /* User.swift in Sources */,
 				FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
 				FB838575248A936600E88304 /* PullRequestVallue.swift in Sources */,
@@ -366,6 +401,7 @@
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
 				FB83856E248953B200E88304 /* DecodeJson.swift in Sources */,
 				FB838587248D24E100E88304 /* Repository.swift in Sources */,
+				FB8385992497BF2A00E88304 /* NSColor+AppColor.swift in Sources */,
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
 				FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */,
 				FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */,
