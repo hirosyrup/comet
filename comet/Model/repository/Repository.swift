@@ -82,6 +82,10 @@ class Repository: RepositoryObservable {
         }
     }
     
+    func removeAllObserver() {
+        observerList.removeAll()
+    }
+    
     private func shouldUpdate() -> Bool {
         return Date().timeIntervalSince1970 - lastUpdated.timeIntervalSince1970 >= updateInterval
     }

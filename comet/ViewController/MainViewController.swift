@@ -8,15 +8,15 @@
 
 import Cocoa
 
-class MainViewController: NSViewController {
+class MainViewController: NSViewController, PreferencesWindowControllerDelegate {
     private var repositoryList = [Repository]()
     private let preferencesWindowController = PreferencesWindowController.create()
     
-    class func create(repositoryList: [Repository]) -> MainViewController {
+    class func create() -> MainViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let identifier = NSStoryboard.SceneIdentifier("MainViewController")
         let vc = storyboard.instantiateController(withIdentifier: identifier) as! MainViewController
-        vc.repositoryList = repositoryList
+        vc.updateRepositoryList()
         return vc
     }
     
@@ -29,7 +29,26 @@ class MainViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        preferencesWindowController.delegate = self
+    }
+    
+    private func updateRepositoryList() {
+        repositoryList.forEach {
+            $0.stopTimer()
+            $0.removeAllObserver()
+        }
+        let repositoryPreferences = try! RepositoryPreference.all()
+        repositoryList = repositoryPreferences.map {
+            Repository(repositoryOwner: $0.owner, repositorySlug: $0.slug, userName: $0.user.name, password: $0.user.password)
+        }
+        repositoryList.forEach {
+            $0.startTimer()
+            $0.updatePullRequest()
+        }
+    }
+    
+    func willClose(vc: PreferencesWindowController) {
+        updateRepositoryList()
     }
     
     @IBAction func pushPreferences(_ sender: Any) {

@@ -46,7 +46,7 @@ class PreferencesBitbucketUserInputViewController: NSViewController {
     }
     
     @IBAction func pushOkButton(_ sender: Any) {
-        try! user.save(name: userNameTextField.stringValue, password: userNameTextField.stringValue)
+        try! user.save(name: userNameTextField.stringValue, password: passwordTextField.stringValue)
         delegate?.willDismiss(vc: self)
         dismiss(self)
     }

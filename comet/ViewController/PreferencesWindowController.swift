@@ -8,8 +8,14 @@
 
 import Cocoa
 
+protocol PreferencesWindowControllerDelegate: class {
+    func willClose(vc: PreferencesWindowController)
+}
+
 class PreferencesWindowController: NSWindowController, NSWindowDelegate {
 
+    weak var delegate: PreferencesWindowControllerDelegate?
+    
     class func create() -> PreferencesWindowController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let identifier = NSStoryboard.SceneIdentifier("PreferencesWindowController")
@@ -23,6 +29,7 @@ class PreferencesWindowController: NSWindowController, NSWindowDelegate {
     }
 
     func windowWillClose(_ notification: Notification) {
+        delegate?.willClose(vc: self)
         NSApp.stopModal(withCode: .cancel)
         window?.orderOut(self)
     }

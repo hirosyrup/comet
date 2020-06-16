@@ -14,7 +14,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
     private let popover = NSPopover()
-    private var repositoryList = [Repository]()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -23,8 +22,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.image = NSImage(named:NSImage.Name("icon"))
             button.action = #selector(show(_:))
         }
-        
-        constructRepository()
+
         constructPopover()
     }
     
@@ -32,18 +30,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
     
-    private func constructRepository() {
-        repositoryList = [
-            //Repository(repositoryOwner: "kiizan-kiizan", repositorySlug: "leeap", userName: "hirosyrup", password: "xhzc7NqWqKdExs7XYgQV")
-        ]
-        repositoryList.forEach {
-            $0.startTimer()
-            $0.updatePullRequest()
-        }
-    }
-    
     private func constructPopover() {
-        let mainViewController = MainViewController.create(repositoryList: repositoryList)
+        let mainViewController = MainViewController.create()
         popover.contentViewController = mainViewController
         popover.behavior = .transient
         popover.animates = false
