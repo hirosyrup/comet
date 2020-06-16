@@ -11,6 +11,7 @@ import Cocoa
 class MainViewController: NSViewController, PreferencesWindowControllerDelegate {
     private var repositoryList = [Repository]()
     private let preferencesWindowController = PreferencesWindowController.create()
+    private var repositoryTabVc: RepositoryTabViewController? = nil
     
     class func create() -> MainViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -22,7 +23,8 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate 
     
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if let tabVc = segue.destinationController as? RepositoryTabViewController {
-            tabVc.repositoryList = repositoryList
+            repositoryTabVc = tabVc
+            tabVc.initializeRepositoryList(list: repositoryList)
         }
     }
     
@@ -44,6 +46,10 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate 
         repositoryList.forEach {
             $0.startTimer()
             $0.updatePullRequest()
+        }
+        
+        if let tabVc = repositoryTabVc {
+            tabVc.updateRepositoryList(list: repositoryList)
         }
     }
     
