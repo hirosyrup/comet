@@ -1,43 +1,43 @@
 //
-//  User.swift
+//  RepositoryPreference.swift
 //  comet
 //
-//  Created by 岩井 宏晃 on 2020/06/15.
+//  Created by 岩井 宏晃 on 2020/06/16.
 //  Copyright © 2020 koalab. All rights reserved.
 //
 
 import Foundation
 import RealmSwift
 
-class User: Object {
+class RepositoryPreference: Object {
     @objc dynamic var id = NSUUID().uuidString
-    @objc dynamic var name = ""
-    @objc dynamic var password = ""
+    @objc dynamic var user: User!
+    @objc dynamic var owner = ""
+    @objc dynamic var slug = ""
     @objc dynamic var createdAt = Date()
     
     override static func primaryKey() -> String? {
         return "id"
     }
     
-    static func all() throws -> RealmSwift.Results<User> {
+    static func all() throws -> RealmSwift.Results<RepositoryPreference> {
         let realm = try Realm()
-        return realm.objects(User.self).sorted(byKeyPath: "createdAt")
+        return realm.objects(RepositoryPreference.self).sorted(byKeyPath: "createdAt")
     }
     
-    func save(name: String, password: String) throws {
+    func save(user: User, owner: String, slug: String) throws {
         let realm = try Realm()
         try realm.write{
-            self.name = name
-            self.password = password
+            self.user = user
+            self.owner = owner
+            self.slug = slug
             realm.add(self, update: .modified)
         }
     }
     
     func delete() throws {
         let realm = try Realm()
-        let relationships = try RepositoryPreference.all().filter("user.id = '\(id)'")
         try realm.write{
-            realm.delete(relationships)
             realm.delete(self)
         }
     }
