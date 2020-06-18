@@ -11,10 +11,10 @@ import Moya
 
 class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, RepositoryNotification {
     @IBOutlet weak var listView: NSCollectionView!
-    @IBOutlet weak var label: NSTextField!
     
     private let cellId = "PullRequestCollectionViewItem"
     private var repositoryObservable: RepositoryObservable!
+    private var listItemPresenterList = [PullRequestCollectionViewItemPresenter]()
     
     class func create(repositoryObservable: RepositoryObservable) -> PullRequestViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -32,8 +32,11 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         
         let nib = NSNib(nibNamed: "PullRequestCollectionViewItem", bundle: nil)
         listView.register(nib, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId))
-        
-        label.stringValue = title ?? ""
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        reloadList()
     }
     
     override func viewDidAppear() {
@@ -46,12 +49,22 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         repositoryObservable.removeObserver(observer: self)
     }
     
+    private func updatePresenterList() {
+        listItemPresenterList = repositoryObservable.pullRequestDataList().map { PullRequestCollectionViewItemPresenter(data: $0) }
+    }
+    
+    private func reloadList() {
+        updatePresenterList()
+        listView.reloadData()
+    }
+    
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 3
+        return listItemPresenterList.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = listView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), for: indexPath) as! PullRequestCollectionViewItem
+        item.updateView(presenter: listItemPresenterList[indexPath.item])
         return item
     }
     
@@ -59,6 +72,6 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     }
     
     func didUpdateRepository() {
-        print("updated")
+        reloadList()
     }
 }

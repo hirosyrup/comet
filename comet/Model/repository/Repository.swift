@@ -15,6 +15,7 @@ protocol RepositoryNotification: class {
 protocol RepositoryObservable {
     func addObserver(observer: RepositoryNotification)
     func removeObserver(observer: RepositoryNotification)
+    func pullRequestDataList() -> [PullRequestData]
 }
 
 class Repository: RepositoryObservable {
@@ -29,6 +30,7 @@ class Repository: RepositoryObservable {
     private let updateInterval: TimeInterval = 60.0
     
     private var observerList = [RepositoryNotification]()
+    private var _pullRequestDataList = [PullRequestData]()
     
     init(repositoryOwner: String, repositorySlug: String, userName: String, password: String) {
         self.repositoryOwner = repositoryOwner
@@ -61,8 +63,8 @@ class Repository: RepositoryObservable {
                 
                 DispatchQueue.main.async {
                     self.lastUpdated = Date()
+                    self.updateDataList(pullRequestList: pullRequestList)
                     self.notifyUpdate()
-                    print(pullRequestList)
                 }
             } catch {
                 DispatchQueue.main.async { print("\(error.localizedDescription)") }
@@ -84,6 +86,10 @@ class Repository: RepositoryObservable {
     
     func removeAllObserver() {
         observerList.removeAll()
+    }
+    
+    func pullRequestDataList() -> [PullRequestData] {
+        return _pullRequestDataList
     }
     
     private func shouldUpdate() -> Bool {
@@ -111,5 +117,12 @@ class Repository: RepositoryObservable {
     
     private func notifyUpdate() {
         observerList.forEach { $0.didUpdateRepository() }
+    }
+    
+    private func updateDataList(pullRequestList: [ShowPullRequestResponse]) {
+        let pullRequestLog = try! PullRequetLog.all()
+        _pullRequestDataList = pullRequestList.map {
+            PullRequestData(log: pullRequestLog.filter("id = \($0.id)").first, response: $0)
+        }
     }
 }

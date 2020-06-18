@@ -58,7 +58,7 @@
                                 </popUpButtonCell>
                             </popUpButton>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="zZ1-xP-xJs">
-                                <rect key="frame" x="10" y="10" width="460" height="354"/>
+                                <rect key="frame" x="0.0" y="10" width="480" height="354"/>
                                 <connections>
                                     <segue destination="xeO-yb-MNE" kind="embed" id="5yM-UY-YRR"/>
                                 </connections>
@@ -68,8 +68,8 @@
                             <constraint firstItem="jak-Yj-KRN" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="9re-Ol-5Ox"/>
                             <constraint firstAttribute="bottom" secondItem="zZ1-xP-xJs" secondAttribute="bottom" constant="10" id="Dfj-pk-7dE"/>
                             <constraint firstItem="jak-Yj-KRN" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="8" id="Y2t-fh-WIS"/>
-                            <constraint firstAttribute="trailing" secondItem="zZ1-xP-xJs" secondAttribute="trailing" constant="10" id="cKO-F4-4v8"/>
-                            <constraint firstItem="zZ1-xP-xJs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="10" id="eyD-Jk-Fp7"/>
+                            <constraint firstAttribute="trailing" secondItem="zZ1-xP-xJs" secondAttribute="trailing" id="cKO-F4-4v8"/>
+                            <constraint firstItem="zZ1-xP-xJs" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="eyD-Jk-Fp7"/>
                             <constraint firstItem="zZ1-xP-xJs" firstAttribute="top" secondItem="jak-Yj-KRN" secondAttribute="bottom" constant="10" id="vd9-dp-aMK"/>
                         </constraints>
                     </view>
@@ -104,9 +104,9 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="420-Gb-uvD">
-                                            <rect key="frame" x="6" y="0.0" width="424" height="2"/>
+                                            <rect key="frame" x="16" y="0.0" width="404" height="2"/>
                                             <view key="contentView" id="wIN-n1-xDk">
-                                                <rect key="frame" x="1" y="1" width="422" height="0.0"/>
+                                                <rect key="frame" x="1" y="1" width="402" height="0.0"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
@@ -114,8 +114,8 @@
                                         </box>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="420-Gb-uvD" secondAttribute="trailing" constant="6" id="1AN-cR-XpT"/>
-                                        <constraint firstItem="420-Gb-uvD" firstAttribute="leading" secondItem="I6J-lU-grZ" secondAttribute="leading" constant="6" id="dPB-Z1-Ofb"/>
+                                        <constraint firstAttribute="trailing" secondItem="420-Gb-uvD" secondAttribute="trailing" constant="16" id="1AN-cR-XpT"/>
+                                        <constraint firstItem="420-Gb-uvD" firstAttribute="leading" secondItem="I6J-lU-grZ" secondAttribute="leading" constant="16" id="dPB-Z1-Ofb"/>
                                         <constraint firstAttribute="bottom" secondItem="420-Gb-uvD" secondAttribute="bottom" id="hOI-s5-UtB"/>
                                         <constraint firstItem="420-Gb-uvD" firstAttribute="top" secondItem="I6J-lU-grZ" secondAttribute="top" id="uc8-sX-gPv"/>
                                     </constraints>
@@ -168,51 +168,37 @@
                             <rect key="frame" x="1" y="1" width="448" height="298"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" id="Lem-JB-vSd">
-                                    <rect key="frame" x="-1" y="-1" width="450" height="274"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMinY="YES"/>
+                                <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" id="Lem-JB-vSd">
+                                    <rect key="frame" x="-1" y="-1" width="450" height="299"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="n5u-7z-dwK">
-                                        <rect key="frame" x="0.0" y="0.0" width="450" height="274"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="450" height="299"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <collectionView selectable="YES" maxNumberOfColumns="1" id="38y-hI-ph1">
-                                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="450" height="299"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                 <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="mJu-w4-nVn">
-                                                    <size key="maximumItemSize" width="0.0" height="50"/>
+                                                    <size key="maximumItemSize" width="0.0" height="44"/>
                                                 </collectionViewGridLayout>
-                                                <color key="primaryBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="primaryBackgroundColor" white="0.69587435787671237" alpha="0.01" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </collectionView>
                                         </subviews>
                                     </clipView>
                                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8ow-EQ-IgX">
-                                        <rect key="frame" x="1" y="144" width="233" height="15"/>
+                                        <rect key="frame" x="-100" y="-100" width="233" height="15"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
-                                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="NdY-M4-Hbe">
-                                        <rect key="frame" x="434" y="0.0" width="16" height="274"/>
+                                    <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="NdY-M4-Hbe">
+                                        <rect key="frame" x="434" y="0.0" width="16" height="279"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JC4-JV-5vl">
-                                    <rect key="frame" x="9" y="281" width="37" height="16"/>
-                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="ph1-a2-mao">
-                                        <font key="font" usesAppearanceFont="YES"/>
-                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </textFieldCell>
-                                </textField>
                             </subviews>
-                            <constraints>
-                                <constraint firstItem="Lem-JB-vSd" firstAttribute="top" secondItem="JC4-JV-5vl" secondAttribute="bottom" constant="8" symbolic="YES" id="4qq-Ys-hHw"/>
-                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="JC4-JV-5vl" secondAttribute="trailing" constant="20" symbolic="YES" id="7Bw-7M-Cxk"/>
-                                <constraint firstItem="JC4-JV-5vl" firstAttribute="leading" secondItem="7sA-QD-96K" secondAttribute="leading" constant="11" id="z1G-1v-3eS"/>
-                            </constraints>
                         </view>
                         <color key="borderColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </box>
                     <connections>
-                        <outlet property="label" destination="JC4-JV-5vl" id="Yd4-rA-fyC"/>
                         <outlet property="listView" destination="38y-hI-ph1" id="Pj8-JF-1ck"/>
                     </connections>
                 </viewController>

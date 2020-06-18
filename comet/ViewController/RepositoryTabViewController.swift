@@ -16,6 +16,7 @@ class RepositoryTabViewController: NSViewController {
     @IBOutlet weak var selectBarWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var selectBarLeadingConstraint: NSLayoutConstraint!
     
+    private var initialized = false
     private var repositoryList = [Repository]()
     private var tabItemWidth: CGFloat = 0.0
     private var initialTabItemContainerHeight: CGFloat = 0.0
@@ -24,7 +25,14 @@ class RepositoryTabViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialTabItemContainerHeight = tabItemContainerHeightConstraint.constant
-        updateChildViewControllers()
+    }
+    
+    override func viewDidLayout() {
+        super.viewDidLayout()
+        if !initialized {
+            updateChildViewControllers()
+            initialized = true
+        }
     }
     
     func initializeRepositoryList(list: [Repository]) {

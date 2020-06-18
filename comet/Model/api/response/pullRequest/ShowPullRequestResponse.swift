@@ -10,5 +10,8 @@ import Foundation
 
 struct ShowPullRequestResponse: Codable {
     let id: Int
+    let title: String
+    let comment_count: Int
+    let author: PullRequestParticipantUser
     let participants: [PullRequestParticipant]
 }
