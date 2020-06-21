@@ -10,6 +10,7 @@
                 <outlet property="authorImageView" destination="6At-4A-06S" id="p3Y-d6-Bzt"/>
                 <outlet property="background" destination="N2P-Fa-MG1" id="TCq-8Q-ieM"/>
                 <outlet property="commentCountLabel" destination="dxm-zw-K66" id="Q0L-I9-9Q5"/>
+                <outlet property="reviewerIconView" destination="YzC-dd-kKe" id="ajM-cB-00g"/>
                 <outlet property="titleLabel" destination="ucs-x1-yMM" id="ogh-I0-bl1"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
@@ -64,16 +65,32 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ryh-bx-jje"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-x1-yMM">
-                    <rect key="frame" x="90" y="14" width="370" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" drawsBackground="YES" id="p1F-PW-RJa">
+                    <rect key="frame" x="90" y="14" width="298" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="charWrapping" drawsBackground="YES" id="p1F-PW-RJa">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </textFieldCell>
                 </textField>
+                <box boxType="custom" borderWidth="0.0" title="Box" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzC-dd-kKe" customClass="ReviewerIconContainerView" customModule="comet" customModuleProvider="target">
+                    <rect key="frame" x="400" y="0.0" width="80" height="44"/>
+                    <view key="contentView" id="r6f-eF-QXo">
+                        <rect key="frame" x="0.0" y="0.0" width="80" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="Qel-eA-k4A"/>
+                        <constraint firstAttribute="width" constant="80" id="xZ9-Bo-OqP"/>
+                    </constraints>
+                    <color key="borderColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <connections>
+                        <outlet property="heightConstraint" destination="Qel-eA-k4A" id="xL7-3L-3v0"/>
+                        <outlet property="widthConstraint" destination="xZ9-Bo-OqP" id="Gcp-HD-0Et"/>
+                    </connections>
+                </box>
             </subviews>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="ucs-x1-yMM" secondAttribute="trailing" constant="20" id="13q-ny-LuF"/>
+                <constraint firstItem="YzC-dd-kKe" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="3qY-lO-VfO"/>
                 <constraint firstItem="ucs-x1-yMM" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="45e-7T-gq3"/>
                 <constraint firstItem="6At-4A-06S" firstAttribute="leading" secondItem="dxm-zw-K66" secondAttribute="trailing" constant="12" id="55P-kH-jeL"/>
                 <constraint firstItem="6At-4A-06S" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="63R-gu-Qb0"/>
@@ -81,7 +98,9 @@
                 <constraint firstAttribute="trailing" secondItem="N2P-Fa-MG1" secondAttribute="trailing" id="7LE-9q-O4T"/>
                 <constraint firstItem="N2P-Fa-MG1" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Jsg-SO-cZf"/>
                 <constraint firstItem="ucs-x1-yMM" firstAttribute="leading" secondItem="6At-4A-06S" secondAttribute="trailing" constant="12" id="NGJ-8N-hUy"/>
+                <constraint firstItem="YzC-dd-kKe" firstAttribute="leading" secondItem="ucs-x1-yMM" secondAttribute="trailing" constant="12" id="lb6-Mb-pDa"/>
                 <constraint firstItem="gIV-0z-dfO" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="mBB-j4-orI"/>
+                <constraint firstAttribute="trailing" secondItem="YzC-dd-kKe" secondAttribute="trailing" id="mU1-xJ-Cdv"/>
                 <constraint firstAttribute="bottom" secondItem="N2P-Fa-MG1" secondAttribute="bottom" id="oO4-S0-kq7"/>
                 <constraint firstItem="gIV-0z-dfO" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="16" id="stR-3K-2Kx"/>
             </constraints>

@@ -14,6 +14,7 @@ class PullRequestCollectionViewItem: NSCollectionViewItem {
     @IBOutlet weak var commentCountLabel: NSTextField!
     @IBOutlet weak var authorImageView: NSImageView!
     @IBOutlet weak var titleLabel: NSTextField!
+    @IBOutlet weak var reviewerIconView: ReviewerIconContainerView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,5 +42,6 @@ class PullRequestCollectionViewItem: NSCollectionViewItem {
             authorImageView.loadImageAsynchronously(url: authorImageUrl)
         }
         titleLabel.stringValue = presenter.title()
+        reviewerIconView.updateView(presenter: presenter.reviewerIconContainerViewPresenter())
     }
 }

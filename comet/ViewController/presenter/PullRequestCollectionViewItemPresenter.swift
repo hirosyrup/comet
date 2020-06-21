@@ -26,4 +26,8 @@ class PullRequestCollectionViewItemPresenter {
     func title() -> String {
         return data.response.title
     }
+    
+    func reviewerIconContainerViewPresenter() -> ReviewerIconContainerViewPresenter {
+        return ReviewerIconContainerViewPresenter(reviewDataList: data.response.participants.filter{ $0.isReviewer() })
+    }
 }

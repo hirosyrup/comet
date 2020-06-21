@@ -12,4 +12,8 @@ class PullRequestParticipant: Codable {
     let approved: Bool
     let role: String
     let user: PullRequestParticipantUser
+    
+    func isReviewer() -> Bool {
+        return role == "REVIEWER"
+    }
 }
