@@ -27,8 +27,8 @@ class ReviewerIconContainerView: NSBox {
             imageView.wantsLayer = true
             imageView.layer?.cornerRadius = imageViewSize / 2.0
             imageView.loadImageAsynchronously(url: $0.element)
-            addSubview(imageView)
             return imageView
         }
+        iconViewList.reversed().forEach { addSubview($0) }
     }
 }
