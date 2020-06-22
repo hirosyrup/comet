@@ -47,6 +47,9 @@
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
 		FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B8124718BBE00614EDB /* MainViewController.swift */; };
+		FBF2AE9924A0ECC5006379CA /* ReviewerIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2AE9824A0ECC5006379CA /* ReviewerIconView.swift */; };
+		FBF2AE9B24A0ECD9006379CA /* ReviewerIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF2AE9A24A0ECD9006379CA /* ReviewerIconView.xib */; };
+		FBF2AE9D24A0F05C006379CA /* ReviewerIconViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2AE9C24A0F05C006379CA /* ReviewerIconViewPresenter.swift */; };
 		FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */; };
 		FBF62F68247C0E9000D4289D /* PullRequestCollectionViewItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */; };
 		FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF62F69247C10C500D4289D /* RepositoryTabViewController.swift */; };
@@ -119,6 +122,9 @@
 		FBAF4B762471842B00614EDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBAF4B772471842B00614EDB /* comet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = comet.entitlements; sourceTree = "<group>"; };
 		FBAF4B8124718BBE00614EDB /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		FBF2AE9824A0ECC5006379CA /* ReviewerIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerIconView.swift; sourceTree = "<group>"; };
+		FBF2AE9A24A0ECD9006379CA /* ReviewerIconView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ReviewerIconView.xib; sourceTree = "<group>"; };
+		FBF2AE9C24A0F05C006379CA /* ReviewerIconViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerIconViewPresenter.swift; sourceTree = "<group>"; };
 		FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCollectionViewItem.swift; sourceTree = "<group>"; };
 		FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestCollectionViewItem.xib; sourceTree = "<group>"; };
 		FBF62F69247C10C500D4289D /* RepositoryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabViewController.swift; sourceTree = "<group>"; };
@@ -272,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */,
+				FBF2AE9C24A0F05C006379CA /* ReviewerIconViewPresenter.swift */,
 			);
 			path = presenter;
 			sourceTree = "<group>";
@@ -331,6 +338,8 @@
 				FB83859A2497CEEF00E88304 /* shared */,
 				FB8385AE249F8B2100E88304 /* presenter */,
 				FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */,
+				FBF2AE9824A0ECC5006379CA /* ReviewerIconView.swift */,
+				FBF2AE9A24A0ECD9006379CA /* ReviewerIconView.xib */,
 				FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */,
 				FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */,
 				FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */,
@@ -409,6 +418,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBF2AE9B24A0ECD9006379CA /* ReviewerIconView.xib in Resources */,
 				FBF62F68247C0E9000D4289D /* PullRequestCollectionViewItem.xib in Resources */,
 				FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */,
 				FB838591248E78C600E88304 /* TextCollectionViewItem.xib in Resources */,
@@ -450,6 +460,7 @@
 				FB8385A224990CA600E88304 /* RepositoryPreference.swift in Sources */,
 				FBAF4B8224718BBE00614EDB /* MainViewController.swift in Sources */,
 				FB83856E248953B200E88304 /* DecodeJson.swift in Sources */,
+				FBF2AE9924A0ECC5006379CA /* ReviewerIconView.swift in Sources */,
 				FB838587248D24E100E88304 /* Repository.swift in Sources */,
 				FB8385992497BF2A00E88304 /* NSColor+AppColor.swift in Sources */,
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
@@ -461,6 +472,7 @@
 				FB83857C248AA4E600E88304 /* ShowPullRequestResponse.swift in Sources */,
 				FB838578248AA2F600E88304 /* ShowPullRequest.swift in Sources */,
 				FB838589248D388700E88304 /* PreferencesTabViewController.swift in Sources */,
+				FBF2AE9D24A0F05C006379CA /* ReviewerIconViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

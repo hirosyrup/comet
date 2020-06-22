@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="ReviewerIconView" customModule="comet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <box boxType="custom" borderWidth="0.0" cornerRadius="16" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="k4L-M4-PFE">
+                    <rect key="frame" x="6" y="6" width="32" height="32"/>
+                    <view key="contentView" id="lht-0U-wg1">
+                        <rect key="frame" x="0.0" y="0.0" width="32" height="32"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="BWi-zz-S1z"/>
+                        <constraint firstAttribute="width" constant="32" id="OcF-X4-kZZ"/>
+                    </constraints>
+                    <color key="fillColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </box>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vB8-dm-Q3i">
+                    <rect key="frame" x="8" y="8" width="28" height="28"/>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="bXw-lv-Vyh"/>
+                </imageView>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bgn-Fb-cdf">
+                    <rect key="frame" x="26" y="26" width="12" height="12"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="12" id="CuZ-vt-2ka"/>
+                        <constraint firstAttribute="height" constant="12" id="NyA-cb-fDX"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="check" id="0Sp-VO-VYA"/>
+                </imageView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="vB8-dm-Q3i" secondAttribute="trailing" constant="8" id="1V8-YA-0yt"/>
+                <constraint firstItem="k4L-M4-PFE" firstAttribute="centerY" secondItem="c22-O7-iKe" secondAttribute="centerY" id="PJU-Nx-z8d"/>
+                <constraint firstItem="k4L-M4-PFE" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="btm-CS-dMm"/>
+                <constraint firstAttribute="trailing" secondItem="bgn-Fb-cdf" secondAttribute="trailing" constant="6" id="dzE-Pa-6Kq"/>
+                <constraint firstItem="vB8-dm-Q3i" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="8" id="no7-IK-99Q"/>
+                <constraint firstItem="bgn-Fb-cdf" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="6" id="uk8-ah-lcg"/>
+                <constraint firstAttribute="bottom" secondItem="vB8-dm-Q3i" secondAttribute="bottom" constant="8" id="vhF-CJ-XFM"/>
+                <constraint firstItem="vB8-dm-Q3i" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="8" id="yYZ-Tk-hc5"/>
+            </constraints>
+            <connections>
+                <outlet property="checkImageView" destination="bgn-Fb-cdf" id="9A1-ob-xsS"/>
+                <outlet property="iconImageView" destination="vB8-dm-Q3i" id="j5f-4O-5S6"/>
+                <outlet property="topConstraint" destination="yYZ-Tk-hc5" id="RfI-VU-lbY"/>
+            </connections>
+            <point key="canvasLocation" x="-80" y="38"/>
+        </customView>
+    </objects>
+    <resources>
+        <image name="check" width="40" height="40"/>
+    </resources>
+</document>

@@ -12,22 +12,22 @@ class ReviewerIconContainerView: NSBox {
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
-    private var iconViewList = [NSImageView]()
-    private let padding: CGFloat = 8.0
+    private let iconDefaultOffset: CGFloat = -20.0
+    private var iconViewList = [ReviewerIconView]()
     
     func updateView(presenter: ReviewerIconContainerViewPresenter) {
-        let imageUrlList = presenter.imageUrlList()
+        let reviewIconViewPresenterList = presenter.reviewerIconViewPresenterList()
         iconViewList.forEach { $0.removeFromSuperview() }
-        let imageViewSize = heightConstraint.constant - padding * 2.0
-        let offset = imageUrlList.count == 1 ? 0 : (widthConstraint.constant - (imageViewSize * CGFloat(imageUrlList.count))) / CGFloat(imageUrlList.count - 1)
-        iconViewList = imageUrlList.enumerated().map {
-            let imageView = NSImageView()
+        let imageViewSize = heightConstraint.constant
+        let listCount = reviewIconViewPresenterList.count
+        let offset = imageViewSize * CGFloat(listCount) + iconDefaultOffset * CGFloat(listCount - 1) > widthConstraint.constant ? (widthConstraint.constant - (imageViewSize * CGFloat(listCount))) / CGFloat(listCount - 1) : iconDefaultOffset
+        iconViewList = reviewIconViewPresenterList.enumerated().compactMap {
+            guard let reviewerIconView = ReviewerIconView.createFromNib(owner: self) else { return nil }
             let x = (imageViewSize + offset) * CGFloat($0.offset)
-            imageView.frame = NSRect(x: x, y: padding, width: imageViewSize, height: imageViewSize)
-            imageView.wantsLayer = true
-            imageView.layer?.cornerRadius = imageViewSize / 2.0
-            imageView.loadImageAsynchronously(url: $0.element)
-            return imageView
+            reviewerIconView.frame = NSRect(x: x, y: 0.0, width: imageViewSize, height: imageViewSize)
+            reviewerIconView.setCornerRadius(radius: imageViewSize / 2.0)
+            reviewerIconView.updateView(presenter: $0.element)
+            return reviewerIconView
         }
         iconViewList.reversed().forEach { addSubview($0) }
     }

@@ -15,9 +15,10 @@ class ReviewerIconContainerViewPresenter {
         self.reviewDataList = reviewDataList
     }
     
-    func imageUrlList() -> [URL] {
+    func reviewerIconViewPresenterList() -> [ReviewerIconViewPresenter] {
         return reviewDataList.compactMap {
-            return URL(string: $0.user.links.avatar.href)
+            guard let _ = URL(string: $0.user.links.avatar.href) else { return nil }
+            return ReviewerIconViewPresenter(reviewerData: $0)
         }
     }
 }

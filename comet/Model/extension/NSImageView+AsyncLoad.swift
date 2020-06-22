@@ -10,6 +10,7 @@ import Cocoa
 
 extension NSImageView {
     func loadImageAsynchronously(url: URL) -> Void {
+        image = nil
         DispatchQueue.global().async {
             let imageData: Data? = try? Data(contentsOf: url)
             DispatchQueue.main.async {
