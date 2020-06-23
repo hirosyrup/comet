@@ -11,6 +11,8 @@ import Cocoa
 class PullRequestCollectionViewItem: NSCollectionViewItem {
 
     @IBOutlet weak var background: NSBox!
+    @IBOutlet weak var unreadCommentCountBadge: NSBox!
+    @IBOutlet weak var unreadCommentCountLabel: NSTextField!
     @IBOutlet weak var commentCountLabel: NSTextField!
     @IBOutlet weak var authorImageView: NSImageView!
     @IBOutlet weak var titleLabel: NSTextField!
@@ -37,6 +39,8 @@ class PullRequestCollectionViewItem: NSCollectionViewItem {
     }
     
     func updateView(presenter: PullRequestCollectionViewItemPresenter) {
+        unreadCommentCountBadge.isHidden = presenter.hiddenUnreadCommentCount()
+        unreadCommentCountLabel.stringValue = presenter.unreadCommentCount()
         commentCountLabel.stringValue = presenter.commentCount()
         if let authorImageUrl = presenter.authorImageUrl() {
             authorImageView.loadImageAsynchronously(url: authorImageUrl)

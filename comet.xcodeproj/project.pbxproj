@@ -266,17 +266,10 @@
 			path = shared;
 			sourceTree = "<group>";
 		};
-		FB8385A7249BB53400E88304 /* presenter */ = {
-			isa = PBXGroup;
-			children = (
-				FB8385A8249BB55200E88304 /* PullRequestCollectionViewItemPresenter.swift */,
-			);
-			path = presenter;
-			sourceTree = "<group>";
-		};
 		FB8385AE249F8B2100E88304 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
+				FB8385A8249BB55200E88304 /* PullRequestCollectionViewItemPresenter.swift */,
 				FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */,
 				FBF2AE9C24A0F05C006379CA /* ReviewerIconViewPresenter.swift */,
 			);
@@ -318,7 +311,7 @@
 		FBAF4B7E24718B9100614EDB /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				FB8385A7249BB53400E88304 /* presenter */,
+				FB8385AE249F8B2100E88304 /* presenter */,
 				FBAF4B8124718BBE00614EDB /* MainViewController.swift */,
 				FBF62F69247C10C500D4289D /* RepositoryTabViewController.swift */,
 				FBF62F6B247C132000D4289D /* PullRequestViewController.swift */,
@@ -336,7 +329,6 @@
 			isa = PBXGroup;
 			children = (
 				FB83859A2497CEEF00E88304 /* shared */,
-				FB8385AE249F8B2100E88304 /* presenter */,
 				FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */,
 				FBF2AE9824A0ECC5006379CA /* ReviewerIconView.swift */,
 				FBF2AE9A24A0ECD9006379CA /* ReviewerIconView.xib */,

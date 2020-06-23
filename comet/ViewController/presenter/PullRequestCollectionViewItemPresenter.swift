@@ -15,6 +15,14 @@ class PullRequestCollectionViewItemPresenter {
         self.data = data
     }
     
+    func hiddenUnreadCommentCount() -> Bool {
+        return unreadCommentCountInt() <= 0
+    }
+    
+    func unreadCommentCount() -> String {
+        return "\(unreadCommentCountInt())"
+    }
+    
     func commentCount() -> String {
         return "\(data.response.comment_count)"
     }
@@ -29,5 +37,13 @@ class PullRequestCollectionViewItemPresenter {
     
     func reviewerIconContainerViewPresenter() -> ReviewerIconContainerViewPresenter {
         return ReviewerIconContainerViewPresenter(reviewDataList: data.response.participants.filter{ $0.isReviewer() })
+    }
+    
+    private func unreadCommentCountInt() -> Int {
+        if let log = data.log {
+            return data.response.comment_count - log.openedCommentCount
+        } else {
+            return data.response.comment_count
+        }
     }
 }
