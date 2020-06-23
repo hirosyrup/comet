@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class RepositoryTabViewController: NSViewController {
+class RepositoryTabViewController: NSViewController, RepositoryTabItemViewDelegate, RepositoryNotification {
     @IBOutlet weak var tabItemContainerView: NSBox!
     @IBOutlet weak var tabContentView: NSTabView!
     @IBOutlet weak var selectBarView: NSBox!
@@ -20,7 +20,7 @@ class RepositoryTabViewController: NSViewController {
     private var repositoryList = [Repository]()
     private var tabItemWidth: CGFloat = 0.0
     private var initialTabItemContainerHeight: CGFloat = 0.0
-    private var tabLabelList = [NSTextField]()
+    private var tabItemList = [RepositoryTabItemView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +35,17 @@ class RepositoryTabViewController: NSViewController {
         }
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        for i in 0..<tabItemList.count { updateTabItem(index: i) }
+        repositoryList.forEach { $0.addObserver(observer: self) }
+    }
+    
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        repositoryList.forEach { $0.removeObserver(observer: self) }
+    }
+    
     func initializeRepositoryList(list: [Repository]) {
         repositoryList = list
     }
@@ -47,39 +58,33 @@ class RepositoryTabViewController: NSViewController {
     private func updateChildViewControllers() {
         removeAllChildren()
         
-        let vcList = createChildViewControllers()
-        
-        if vcList.isEmpty {
+        if repositoryList.isEmpty {
             selectBarView.isHidden = true
         } else {
-            tabItemWidth = tabItemContainerView.bounds.width / CGFloat(vcList.count)
+            tabItemWidth = tabItemContainerView.bounds.width / CGFloat(repositoryList.count)
             selectBarWidthConstraint.constant = tabItemWidth
             
-            let needLabel = vcList.count > 1
+            let needLabel = repositoryList.count > 1
             selectBarView.isHidden = !needLabel
             tabItemContainerHeightConstraint.constant = needLabel ? initialTabItemContainerHeight : 0.0
-            for (index, vc) in vcList.enumerated() {
-                addViewController(vc: vc, needLabel: needLabel, index: index)
+            for (index, repository) in repositoryList.enumerated() {
+                addViewController(repository: repository, needLabel: needLabel, index: index)
             }
-        }
-    }
-    
-    private func createChildViewControllers() -> [PullRequestViewController] {
-        return repositoryList.map { (repository) -> PullRequestViewController in
-            let vc = PullRequestViewController.create(repositoryObservable: repository)
-            vc.title = repository.repositorySlug
-            return vc
         }
     }
     
     private func removeAllChildren() {
         let tabViewItems = tabContentView.tabViewItems
         tabViewItems.forEach { tabContentView.removeTabViewItem($0) }
-        tabLabelList.forEach { $0.removeFromSuperview() }
-        tabLabelList.removeAll()
+        tabItemList.forEach { $0.removeFromSuperview() }
+        tabItemList.removeAll()
     }
     
-    private func addViewController(vc: PullRequestViewController, needLabel: Bool, index: Int) {
+    private func addViewController(repository: Repository, needLabel: Bool, index: Int) {
+        let vc = PullRequestViewController.create(repositoryObservable: repository)
+        let title = repository.repositorySlug
+        vc.title = title
+        
         let selected = tabContentView.subviews.isEmpty
         
         let tabViewItem = NSTabViewItem()
@@ -87,24 +92,26 @@ class RepositoryTabViewController: NSViewController {
         tabContentView.addTabViewItem(tabViewItem)
         
         if needLabel {
-            let tabLabel = NSTextField(labelWithString: vc.title ?? "tab")
-            tabLabel.frame = NSRect(x: CGFloat(index) * tabItemWidth, y: 0, width: tabItemWidth, height: initialTabItemContainerHeight)
-            tabLabel.alignment = NSTextAlignment.center
-            tabLabel.tag = index
-            tabLabel.addGestureRecognizer(NSClickGestureRecognizer(target: self, action: #selector(clickTab(gesture:))))
-            tabItemContainerView.addSubview(tabLabel)
-            tabLabelList.append(tabLabel)
+            let tabItem = RepositoryTabItemView.createFromNib(owner: tabItemContainerView, title: title, index: index)
+            tabItem.frame = NSRect(x: CGFloat(index) * tabItemWidth, y: 0, width: tabItemWidth, height: initialTabItemContainerHeight)
+            tabItem.delegate = self
+            tabItemContainerView.addSubview(tabItem)
+            tabItemList.append(tabItem)
             if selected {
                 selectBarLeadingConstraint.constant = tabItemContainerView.frame.minX
             }
         }
     }
     
-    @objc func clickTab(gesture: NSClickGestureRecognizer) {
-        guard let index = gesture.view?.tag else {
-            return
-        }
-        
+    private func updateTabItem(index: Int) {
+        let tabItem = tabItemList[index]
+        let repository = repositoryList[index]
+        let tabItemPresenter = RepositoryTabItemViewPresenter(dataList: repository.pullRequestDataList())
+        tabItem.updateView(presenter: tabItemPresenter)
+    }
+    
+    func didClickTab(view: RepositoryTabItemView) {
+        let index = view.index
         tabContentView.selectTabViewItem(at: index)
         
         NSAnimationContext.runAnimationGroup({context in
@@ -114,5 +121,11 @@ class RepositoryTabViewController: NSViewController {
             self.selectBarLeadingConstraint.constant = CGFloat(index) * self.selectBarWidthConstraint.constant
             self.selectBarView.layoutSubtreeIfNeeded()
         }, completionHandler:nil)
+    }
+    
+    func didUpdateRepository(repository: RepositoryObservable) {
+        if let index = repositoryList.firstIndex(where: { $0 === repository as AnyObject }) {
+            updateTabItem(index: index)
+        }
     }
 }

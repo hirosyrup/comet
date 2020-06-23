@@ -87,18 +87,18 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="WwW-Ft-LUK">
-                                <rect key="frame" x="0.0" y="280" width="438" height="20"/>
+                                <rect key="frame" x="0.0" y="272" width="438" height="28"/>
                                 <view key="contentView" id="Qlz-Ib-EIT">
-                                    <rect key="frame" x="1" y="1" width="436" height="18"/>
+                                    <rect key="frame" x="1" y="1" width="436" height="26"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="005-hP-raI"/>
+                                    <constraint firstAttribute="height" constant="28" id="005-hP-raI"/>
                                 </constraints>
                                 <color key="borderColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             </box>
                             <box boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="iHs-k4-hwJ">
-                                <rect key="frame" x="0.0" y="274" width="438" height="4"/>
+                                <rect key="frame" x="0.0" y="266" width="438" height="4"/>
                                 <view key="contentView" id="I6J-lU-grZ">
                                     <rect key="frame" x="1" y="1" width="436" height="2"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,7 +128,7 @@
                                 <color key="fillColor" white="0.72638157704105111" alpha="0.0" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </box>
                             <tabView type="noTabsNoBorder" translatesAutoresizingMaskIntoConstraints="NO" id="UNH-6O-zYe">
-                                <rect key="frame" x="0.0" y="0.0" width="438" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="438" height="262"/>
                                 <font key="font" metaFont="system"/>
                             </tabView>
                         </subviews>
@@ -190,7 +190,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="NdY-M4-Hbe">
-                                        <rect key="frame" x="434" y="0.0" width="16" height="279"/>
+                                        <rect key="frame" x="424" y="0.0" width="16" height="289"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
@@ -270,7 +270,7 @@
                                         <collectionView selectable="YES" id="enQ-yd-Mfe">
                                             <rect key="frame" x="0.0" y="0.0" width="408" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="pow-Mx-lcT">
+                                            <collectionViewGridLayout key="collectionViewLayout" id="pow-Mx-lcT">
                                                 <size key="minimumItemSize" width="400" height="0.0"/>
                                                 <size key="maximumItemSize" width="0.0" height="20"/>
                                             </collectionViewGridLayout>
@@ -485,7 +485,7 @@ Gw
                                         <collectionView selectable="YES" id="S7S-PH-toe">
                                             <rect key="frame" x="0.0" y="0.0" width="408" height="158"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                            <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="7w2-2i-fG9">
+                                            <collectionViewGridLayout key="collectionViewLayout" id="7w2-2i-fG9">
                                                 <size key="minimumItemSize" width="400" height="0.0"/>
                                                 <size key="maximumItemSize" width="0.0" height="20"/>
                                             </collectionViewGridLayout>

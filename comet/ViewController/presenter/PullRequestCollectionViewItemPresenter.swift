@@ -10,17 +10,19 @@ import Foundation
 
 class PullRequestCollectionViewItemPresenter {
     private let data: PullRequestData
+    private let unreadCommandPresenter: UnreadCommentPresenter
     
     init(data: PullRequestData) {
         self.data = data
+        self.unreadCommandPresenter = UnreadCommentPresenter(data: data)
     }
     
     func hiddenUnreadCommentCount() -> Bool {
-        return unreadCommentCountInt() <= 0
+        return unreadCommandPresenter.hiddenUnreadCommentCount()
     }
     
     func unreadCommentCount() -> String {
-        return "\(unreadCommentCountInt())"
+        return unreadCommandPresenter.unreadCommentCount()
     }
     
     func commentCount() -> String {
@@ -37,13 +39,5 @@ class PullRequestCollectionViewItemPresenter {
     
     func reviewerIconContainerViewPresenter() -> ReviewerIconContainerViewPresenter {
         return ReviewerIconContainerViewPresenter(reviewDataList: data.response.participants.filter{ $0.isReviewer() })
-    }
-    
-    private func unreadCommentCountInt() -> Int {
-        if let log = data.log {
-            return data.response.comment_count - log.openedCommentCount
-        } else {
-            return data.response.comment_count
-        }
     }
 }

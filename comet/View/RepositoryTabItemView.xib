@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner"/>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe" customClass="RepositoryTabItemView" customModule="comet" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="328" height="32"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tR0-dw-jZU">
+                    <rect key="frame" x="160" y="4" width="8" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="ILG-FD-x3k">
+                        <font key="font" usesAppearanceFont="YES"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <box boxType="custom" borderWidth="0.0" cornerRadius="8" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="Ree-cr-Yci">
+                    <rect key="frame" x="144" y="10" width="16" height="16"/>
+                    <view key="contentView" id="NJH-61-YLc">
+                        <rect key="frame" x="0.0" y="0.0" width="16" height="16"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MZg-8j-Srb">
+                                <rect key="frame" x="-2" y="2" width="20" height="13"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="UxS-Sa-pna">
+                                    <font key="font" metaFont="system" size="10"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MZg-8j-Srb" secondAttribute="trailing" id="Ezq-WR-wBD"/>
+                            <constraint firstItem="MZg-8j-Srb" firstAttribute="leading" secondItem="NJH-61-YLc" secondAttribute="leading" id="RLc-iN-hle"/>
+                            <constraint firstItem="MZg-8j-Srb" firstAttribute="centerY" secondItem="NJH-61-YLc" secondAttribute="centerY" id="iQz-YX-NXN"/>
+                        </constraints>
+                    </view>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="16" id="cjf-ZA-fcK"/>
+                        <constraint firstAttribute="width" constant="16" id="en3-Ff-dyh"/>
+                    </constraints>
+                    <color key="fillColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                </box>
+            </subviews>
+            <constraints>
+                <constraint firstItem="tR0-dw-jZU" firstAttribute="centerX" secondItem="c22-O7-iKe" secondAttribute="centerX" id="6yZ-wT-DeB"/>
+                <constraint firstItem="tR0-dw-jZU" firstAttribute="leading" secondItem="Ree-cr-Yci" secondAttribute="trailing" constant="2" id="ESC-01-fUf"/>
+                <constraint firstAttribute="bottom" secondItem="tR0-dw-jZU" secondAttribute="bottom" constant="4" id="huc-21-kWV"/>
+                <constraint firstItem="tR0-dw-jZU" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" id="n29-HS-Tc1"/>
+                <constraint firstItem="Ree-cr-Yci" firstAttribute="top" secondItem="tR0-dw-jZU" secondAttribute="top" constant="-6" id="wHn-Oe-cvw"/>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="tR0-dw-jZU" secondAttribute="trailing" constant="20" id="xQm-Ej-N1y"/>
+            </constraints>
+            <connections>
+                <outlet property="titleLabel" destination="tR0-dw-jZU" id="Aj9-PA-MLJ"/>
+                <outlet property="unreadCommentCountBadge" destination="Ree-cr-Yci" id="ugg-0M-PJM"/>
+                <outlet property="unreadCommentCountLabel" destination="MZg-8j-Srb" id="zAO-9G-qlg"/>
+            </connections>
+            <point key="canvasLocation" x="60.5" y="41"/>
+        </customView>
+    </objects>
+</document>

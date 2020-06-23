@@ -9,7 +9,7 @@
 import Foundation
 
 protocol RepositoryNotification: class {
-    func didUpdateRepository()
+    func didUpdateRepository(repository: RepositoryObservable)
 }
 
 protocol RepositoryObservable {
@@ -116,7 +116,7 @@ class Repository: RepositoryObservable {
     }
     
     private func notifyUpdate() {
-        observerList.forEach { $0.didUpdateRepository() }
+        observerList.forEach { $0.didUpdateRepository(repository: self) }
     }
     
     private func updateDataList(pullRequestList: [ShowPullRequestResponse]) {

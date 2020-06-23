@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488724A25A4800A0CCE0 /* RepositoryTabItemView.swift */; };
+		FB77488A24A25A5E00A0CCE0 /* RepositoryTabItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */; };
+		FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */; };
+		FB77488F24A25E0900A0CCE0 /* UnreadCommentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488E24A25E0900A0CCE0 /* UnreadCommentPresenter.swift */; };
 		FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83855B248696F600E88304 /* FetchPullRequests.swift */; };
 		FB8385602486A6C700E88304 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; };
 		FB8385612486A6C700E88304 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -80,6 +84,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB77488724A25A4800A0CCE0 /* RepositoryTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabItemView.swift; sourceTree = "<group>"; };
+		FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTabItemView.xib; sourceTree = "<group>"; };
+		FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabItemViewPresenter.swift; sourceTree = "<group>"; };
+		FB77488E24A25E0900A0CCE0 /* UnreadCommentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadCommentPresenter.swift; sourceTree = "<group>"; };
 		FB83855B248696F600E88304 /* FetchPullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPullRequests.swift; sourceTree = "<group>"; };
 		FB83855F2486A6C700E88304 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		FB8385642487D7F200E88304 /* RequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
@@ -149,6 +157,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FB77488D24A25DDE00A0CCE0 /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				FB77488E24A25E0900A0CCE0 /* UnreadCommentPresenter.swift */,
+			);
+			path = helper;
+			sourceTree = "<group>";
+		};
 		FB8385592486967C00E88304 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,6 +285,8 @@
 		FB8385AE249F8B2100E88304 /* presenter */ = {
 			isa = PBXGroup;
 			children = (
+				FB77488D24A25DDE00A0CCE0 /* helper */,
+				FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */,
 				FB8385A8249BB55200E88304 /* PullRequestCollectionViewItemPresenter.swift */,
 				FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */,
 				FBF2AE9C24A0F05C006379CA /* ReviewerIconViewPresenter.swift */,
@@ -329,6 +347,8 @@
 			isa = PBXGroup;
 			children = (
 				FB83859A2497CEEF00E88304 /* shared */,
+				FB77488724A25A4800A0CCE0 /* RepositoryTabItemView.swift */,
+				FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */,
 				FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */,
 				FBF2AE9824A0ECC5006379CA /* ReviewerIconView.swift */,
 				FBF2AE9A24A0ECD9006379CA /* ReviewerIconView.xib */,
@@ -413,6 +433,7 @@
 				FBF2AE9B24A0ECD9006379CA /* ReviewerIconView.xib in Resources */,
 				FBF62F68247C0E9000D4289D /* PullRequestCollectionViewItem.xib in Resources */,
 				FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */,
+				FB77488A24A25A5E00A0CCE0 /* RepositoryTabItemView.xib in Resources */,
 				FB838591248E78C600E88304 /* TextCollectionViewItem.xib in Resources */,
 				FBAF4B752471842B00614EDB /* Main.storyboard in Resources */,
 			);
@@ -426,6 +447,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB8385A0249907CB00E88304 /* PreferencesRepositoryInputViewController.swift in Sources */,
+				FB77488F24A25E0900A0CCE0 /* UnreadCommentPresenter.swift in Sources */,
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FB8385AB249BC4E300E88304 /* NSImageView+AsyncLoad.swift in Sources */,
 				FB83857E248AA82400E88304 /* PullRequestParticipant.swift in Sources */,
@@ -437,6 +459,8 @@
 				FB83859C2497CEFE00E88304 /* TextFieldHelper.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
 				FB8385962497B03900E88304 /* User.swift in Sources */,
+				FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */,
+				FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */,
 				FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
 				FB838575248A936600E88304 /* PullRequestVallue.swift in Sources */,
