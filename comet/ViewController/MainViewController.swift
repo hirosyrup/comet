@@ -8,16 +8,22 @@
 
 import Cocoa
 
-class MainViewController: NSViewController, PreferencesWindowControllerDelegate {
+protocol MainViewControllerDelegate: class {
+    func didUpdateUnreadCommentCount(vc: MainViewController, count: Int)
+}
+
+class MainViewController: NSViewController, PreferencesWindowControllerDelegate, RepositoryNotification {
     private var repositoryList = [Repository]()
     private let preferencesWindowController = PreferencesWindowController.create()
     private var repositoryTabVc: RepositoryTabViewController? = nil
+    private weak var delegate: MainViewControllerDelegate?
     
-    class func create() -> MainViewController {
+    class func create(delegate: MainViewControllerDelegate? = nil) -> MainViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
         let identifier = NSStoryboard.SceneIdentifier("MainViewController")
         let vc = storyboard.instantiateController(withIdentifier: identifier) as! MainViewController
         vc.updateRepositoryList()
+        vc.delegate = delegate
         return vc
     }
     
@@ -44,6 +50,7 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate 
             Repository(repositoryOwner: $0.owner, repositorySlug: $0.slug, userName: $0.user.name, password: $0.user.password)
         }
         repositoryList.forEach {
+            $0.addObserver(observer: self)
             $0.startTimer()
             $0.updatePullRequest()
         }
@@ -55,6 +62,15 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate 
     
     func willClose(vc: PreferencesWindowController) {
         updateRepositoryList()
+    }
+    
+    func didUpdateRepository(repository: RepositoryObservable) {
+        if let _delegate = delegate {
+            let dataList = repositoryList.flatMap { $0.pullRequestDataList() }
+            let unreadCommandPresenterList = dataList.map {UnreadCommentPresenter(data: $0)}
+            let count = unreadCommandPresenterList.map { $0.unreadCommentCountInt() }.reduce(0, +)
+            _delegate.didUpdateUnreadCommentCount(vc: self, count: count)
+        }
     }
     
     @IBAction func pushPreferences(_ sender: Any) {

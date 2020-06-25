@@ -9,7 +9,7 @@
 import Cocoa
 
 @NSApplicationMain
-class AppDelegate: NSObject, NSApplicationDelegate {
+class AppDelegate: NSObject, NSApplicationDelegate, MainViewControllerDelegate {
     
     private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
     
@@ -20,6 +20,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("icon"))
+            button.imagePosition = .imageLeft
             button.action = #selector(show(_:))
         }
 
@@ -31,10 +32,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     private func constructPopover() {
-        let mainViewController = MainViewController.create()
+        let mainViewController = MainViewController.create(delegate: self)
         popover.contentViewController = mainViewController
         popover.behavior = .transient
         popover.animates = false
+    }
+    
+    private func updateUnreadCommentCountText(count: Int) {
+        if let button = statusItem.button {
+            let countText = count == 0 ? "" : "\(count)"
+            button.attributedTitle = NSAttributedString(string: countText, attributes: [NSAttributedString.Key.foregroundColor: NSColor.red])
+        }
+    }
+    
+    func didUpdateUnreadCommentCount(vc: MainViewController, count: Int) {
+        updateUnreadCommentCountText(count: count)
     }
     
     @objc func show(_ sender: Any?) {
