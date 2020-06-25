@@ -60,15 +60,21 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate,
         }
     }
     
+    private func notifyNewUnreadComment() {
+        let dataList = repositoryList.flatMap { $0.pullRequestDataList() }
+        NotifyNewUnreadComment(dataList: dataList).notify()
+    }
+    
     func willClose(vc: PreferencesWindowController) {
         updateRepositoryList()
     }
     
     func didUpdateRepository(repository: RepositoryObservable) {
+        notifyNewUnreadComment()
         if let _delegate = delegate {
             let dataList = repositoryList.flatMap { $0.pullRequestDataList() }
-            let unreadCommandPresenterList = dataList.map {UnreadCommentPresenter(data: $0)}
-            let count = unreadCommandPresenterList.map { $0.unreadCommentCountInt() }.reduce(0, +)
+            let calcUnreadCommentCountList = dataList.map {CalcUnreadCommentCount(data: $0)}
+            let count = calcUnreadCommentCountList.map { $0.unreadCommentCount() }.reduce(0, +)
             _delegate.didUpdateUnreadCommentCount(vc: self, count: count)
         }
     }

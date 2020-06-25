@@ -12,8 +12,8 @@ class RepositoryTabItemViewPresenter {
     private let count: Int
     
     init(dataList: [PullRequestData]) {
-        let unreadCommandPresenterList = dataList.map {UnreadCommentPresenter(data: $0)}
-        self.count = unreadCommandPresenterList.map { $0.unreadCommentCountInt() }.reduce(0, +)
+        let calcUnreadCommentCountList = dataList.map {CalcUnreadCommentCount(data: $0)}
+        self.count = calcUnreadCommentCountList.map { $0.unreadCommentCount() }.reduce(0, +)
     }
     
     func hiddenUnreadCommentCount() -> Bool {

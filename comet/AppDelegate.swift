@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import UserNotifications
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate, MainViewControllerDelegate {
@@ -24,6 +25,8 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainViewControllerDelegate {
             button.action = #selector(show(_:))
         }
 
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: {_,_ in })
+        
         constructPopover()
     }
     

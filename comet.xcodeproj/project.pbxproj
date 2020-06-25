@@ -11,6 +11,9 @@
 		FB77488A24A25A5E00A0CCE0 /* RepositoryTabItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */; };
 		FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */; };
 		FB77488F24A25E0900A0CCE0 /* UnreadCommentPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488E24A25E0900A0CCE0 /* UnreadCommentPresenter.swift */; };
+		FB77489224A4E26200A0CCE0 /* UpdatePullRequestLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */; };
+		FB77489424A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */; };
+		FB77489624A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */; };
 		FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83855B248696F600E88304 /* FetchPullRequests.swift */; };
 		FB8385602486A6C700E88304 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; };
 		FB8385612486A6C700E88304 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -88,6 +91,9 @@
 		FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTabItemView.xib; sourceTree = "<group>"; };
 		FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabItemViewPresenter.swift; sourceTree = "<group>"; };
 		FB77488E24A25E0900A0CCE0 /* UnreadCommentPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnreadCommentPresenter.swift; sourceTree = "<group>"; };
+		FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePullRequestLog.swift; sourceTree = "<group>"; };
+		FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcUnreadCommentCount.swift; sourceTree = "<group>"; };
+		FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiyNewUnreadComment.swift; sourceTree = "<group>"; };
 		FB83855B248696F600E88304 /* FetchPullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPullRequests.swift; sourceTree = "<group>"; };
 		FB83855F2486A6C700E88304 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		FB8385642487D7F200E88304 /* RequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
@@ -165,6 +171,16 @@
 			path = helper;
 			sourceTree = "<group>";
 		};
+		FB77489024A4E21600A0CCE0 /* usecase */ = {
+			isa = PBXGroup;
+			children = (
+				FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */,
+				FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */,
+				FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */,
+			);
+			path = usecase;
+			sourceTree = "<group>";
+		};
 		FB8385592486967C00E88304 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +188,7 @@
 				FB8385942497B02700E88304 /* realm */,
 				FB83855A248696D600E88304 /* api */,
 				FB838585248D249E00E88304 /* repository */,
+				FB77489024A4E21600A0CCE0 /* usecase */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -451,6 +468,7 @@
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FB8385AB249BC4E300E88304 /* NSImageView+AsyncLoad.swift in Sources */,
 				FB83857E248AA82400E88304 /* PullRequestParticipant.swift in Sources */,
+				FB77489424A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift in Sources */,
 				FB838590248E78C600E88304 /* TextCollectionViewItem.swift in Sources */,
 				FB8385B0249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift in Sources */,
 				FB83859E249907B500E88304 /* PreferencesRepositoryViewController.swift in Sources */,
@@ -458,6 +476,7 @@
 				FB8385A4249BAFB800E88304 /* PullRequestLog.swift in Sources */,
 				FB83859C2497CEFE00E88304 /* TextFieldHelper.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
+				FB77489224A4E26200A0CCE0 /* UpdatePullRequestLog.swift in Sources */,
 				FB8385962497B03900E88304 /* User.swift in Sources */,
 				FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */,
 				FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */,
@@ -482,6 +501,7 @@
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
 				FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */,
 				FB8385AD249F83DC00E88304 /* ReviewerIconContainerView.swift in Sources */,
+				FB77489624A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift in Sources */,
 				FB8385A6249BB18100E88304 /* PullRequestData.swift in Sources */,
 				FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */,
 				FB838584248D1DE300E88304 /* PullRequestLinksHref.swift in Sources */,

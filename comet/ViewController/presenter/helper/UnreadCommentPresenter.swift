@@ -9,25 +9,17 @@
 import Foundation
 
 class UnreadCommentPresenter {
-    private let data: PullRequestData
+    private let calcUnreadCommentCount: CalcUnreadCommentCount
     
     init(data: PullRequestData) {
-        self.data = data
+        self.calcUnreadCommentCount = CalcUnreadCommentCount(data: data)
     }
     
     func hiddenUnreadCommentCount() -> Bool {
-        return unreadCommentCountInt() <= 0
+        return calcUnreadCommentCount.unreadCommentCount() <= 0
     }
     
     func unreadCommentCount() -> String {
-        return "\(unreadCommentCountInt())"
-    }
-    
-    func unreadCommentCountInt() -> Int {
-        if let log = data.log {
-            return data.response.comment_count - log.openedCommentCount
-        } else {
-            return data.response.comment_count
-        }
+        return "\(calcUnreadCommentCount.unreadCommentCount())"
     }
 }
