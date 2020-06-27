@@ -13,6 +13,8 @@ protocol MainViewControllerDelegate: class {
 }
 
 class MainViewController: NSViewController, PreferencesWindowControllerDelegate, RepositoryNotification {
+    @IBOutlet weak var updatingIndicator: NSProgressIndicator!
+    
     private var repositoryList = [Repository]()
     private let preferencesWindowController = PreferencesWindowController.create()
     private var repositoryTabVc: RepositoryTabViewController? = nil
@@ -38,6 +40,7 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate,
         super.viewDidLoad()
 
         preferencesWindowController.delegate = self
+        updateIndicator()
     }
     
     private func updateRepositoryList() {
@@ -65,8 +68,25 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate,
         NotifyNewUnreadComment(dataList: dataList).notify()
     }
     
+    private func isUpdating() -> Bool {
+        return !repositoryList.filter { $0.isUpdating }.isEmpty
+    }
+    
+    private func updateIndicator() {
+        guard let indicator = updatingIndicator else { return }
+        if isUpdating() {
+            indicator.startAnimation(nil)
+        } else {
+            indicator.stopAnimation(nil)
+        }
+    }
+    
     func willClose(vc: PreferencesWindowController) {
         updateRepositoryList()
+    }
+    
+    func willUpdateRepository(repository: RepositoryObservable) {
+        updateIndicator()
     }
     
     func didUpdateRepository(repository: RepositoryObservable) {
@@ -77,6 +97,11 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate,
             let count = calcUnreadCommentCountList.map { $0.unreadCommentCount() }.reduce(0, +)
             _delegate.didUpdateUnreadCommentCount(vc: self, count: count)
         }
+        updateIndicator()
+    }
+    
+    func failedUpdateRepository(repository: RepositoryObservable, error: Error) {
+        updateIndicator()
     }
     
     @IBAction func pushPreferences(_ sender: Any) {

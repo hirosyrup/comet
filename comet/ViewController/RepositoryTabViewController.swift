@@ -104,10 +104,12 @@ class RepositoryTabViewController: NSViewController, RepositoryTabItemViewDelega
     }
     
     private func updateTabItem(index: Int) {
-        let tabItem = tabItemList[index]
-        let repository = repositoryList[index]
-        let tabItemPresenter = RepositoryTabItemViewPresenter(dataList: repository.pullRequestDataList())
-        tabItem.updateView(presenter: tabItemPresenter)
+        if index < tabItemList.count {
+            let tabItem = tabItemList[index]
+            let repository = repositoryList[index]
+            let tabItemPresenter = RepositoryTabItemViewPresenter(dataList: repository.pullRequestDataList())
+            tabItem.updateView(presenter: tabItemPresenter)
+        }
     }
     
     func didClickTab(view: RepositoryTabItemView) {
@@ -123,9 +125,15 @@ class RepositoryTabViewController: NSViewController, RepositoryTabItemViewDelega
         }, completionHandler:nil)
     }
     
+    func willUpdateRepository(repository: RepositoryObservable) {
+    }
+    
     func didUpdateRepository(repository: RepositoryObservable) {
         if let index = repositoryList.firstIndex(where: { $0 === repository as AnyObject }) {
             updateTabItem(index: index)
         }
+    }
+    
+    func failedUpdateRepository(repository: RepositoryObservable, error: Error) {
     }
 }

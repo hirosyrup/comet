@@ -71,7 +71,13 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
     }
     
+    func willUpdateRepository(repository: RepositoryObservable) {
+    }
+    
     func didUpdateRepository(repository: RepositoryObservable) {
         reloadList()
+    }
+    
+    func failedUpdateRepository(repository: RepositoryObservable, error: Error) {
     }
 }

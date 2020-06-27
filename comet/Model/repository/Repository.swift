@@ -9,7 +9,9 @@
 import Foundation
 
 protocol RepositoryNotification: class {
+    func willUpdateRepository(repository: RepositoryObservable)
     func didUpdateRepository(repository: RepositoryObservable)
+    func failedUpdateRepository(repository: RepositoryObservable, error: Error)
 }
 
 protocol RepositoryObservable {
@@ -19,7 +21,7 @@ protocol RepositoryObservable {
 }
 
 class Repository: RepositoryObservable {
-    private var isUpdating = false
+    private(set) var isUpdating = false
     private var lastUpdated = Date()
     private var timer = Timer()
     
@@ -55,19 +57,23 @@ class Repository: RepositoryObservable {
         if (isUpdating) { return }
         
         isUpdating = true
+        notifyWillUpdate()
         DispatchQueue.global().async {
             do {
-                defer { DispatchQueue.main.async {self.isUpdating = false} }
-                
                 let pullRequestList = try self.fetchPullRequestList()
                 
                 DispatchQueue.main.async {
                     self.lastUpdated = Date()
                     self.updateDataList(pullRequestList: pullRequestList)
-                    self.notifyUpdate()
+                    self.isUpdating = false
+                    self.notifyDidUpdate()
                 }
             } catch {
-                DispatchQueue.main.async { print("\(error.localizedDescription)") }
+                DispatchQueue.main.async {
+                    print("\(error.localizedDescription)")
+                    self.isUpdating = false
+                    self.notifyFailedUpdate(error: error)
+                }
             }
         }
     }
@@ -115,8 +121,16 @@ class Repository: RepositoryObservable {
         }
     }
     
-    private func notifyUpdate() {
+    private func notifyWillUpdate() {
+        observerList.forEach { $0.willUpdateRepository(repository: self) }
+    }
+    
+    private func notifyDidUpdate() {
         observerList.forEach { $0.didUpdateRepository(repository: self) }
+    }
+    
+    private func notifyFailedUpdate(error: Error) {
+        observerList.forEach { $0.failedUpdateRepository(repository: self, error: error) }
     }
     
     private func updateDataList(pullRequestList: [ShowPullRequestResponse]) {
