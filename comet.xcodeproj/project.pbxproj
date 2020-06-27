@@ -14,6 +14,7 @@
 		FB77489224A4E26200A0CCE0 /* UpdatePullRequestLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */; };
 		FB77489424A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */; };
 		FB77489624A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */; };
+		FB77489824A7997900A0CCE0 /* CreatePullRequestUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489724A7997900A0CCE0 /* CreatePullRequestUrl.swift */; };
 		FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83855B248696F600E88304 /* FetchPullRequests.swift */; };
 		FB8385602486A6C700E88304 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; };
 		FB8385612486A6C700E88304 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -94,6 +95,7 @@
 		FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePullRequestLog.swift; sourceTree = "<group>"; };
 		FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcUnreadCommentCount.swift; sourceTree = "<group>"; };
 		FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiyNewUnreadComment.swift; sourceTree = "<group>"; };
+		FB77489724A7997900A0CCE0 /* CreatePullRequestUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePullRequestUrl.swift; sourceTree = "<group>"; };
 		FB83855B248696F600E88304 /* FetchPullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPullRequests.swift; sourceTree = "<group>"; };
 		FB83855F2486A6C700E88304 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		FB8385642487D7F200E88304 /* RequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
@@ -177,6 +179,7 @@
 				FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */,
 				FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */,
 				FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */,
+				FB77489724A7997900A0CCE0 /* CreatePullRequestUrl.swift */,
 			);
 			path = usecase;
 			sourceTree = "<group>";
@@ -480,6 +483,7 @@
 				FB8385962497B03900E88304 /* User.swift in Sources */,
 				FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */,
 				FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */,
+				FB77489824A7997900A0CCE0 /* CreatePullRequestUrl.swift in Sources */,
 				FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
 				FB838575248A936600E88304 /* PullRequestVallue.swift in Sources */,

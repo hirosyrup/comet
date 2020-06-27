@@ -18,6 +18,7 @@ protocol RepositoryObservable {
     func addObserver(observer: RepositoryNotification)
     func removeObserver(observer: RepositoryNotification)
     func pullRequestDataList() -> [PullRequestData]
+    func updateLogToReadAllAt(index: Int)
 }
 
 class Repository: RepositoryObservable {
@@ -96,6 +97,12 @@ class Repository: RepositoryObservable {
     
     func pullRequestDataList() -> [PullRequestData] {
         return _pullRequestDataList
+    }
+    
+    func updateLogToReadAllAt(index: Int) {
+        guard index < _pullRequestDataList.count else { return }
+        UpdatePullRequestLog(data: _pullRequestDataList[index]).updateToReadAll()
+        notifyDidUpdate()
     }
     
     private func shouldUpdate() -> Bool {
