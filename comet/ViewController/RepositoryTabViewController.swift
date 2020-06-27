@@ -66,7 +66,7 @@ class RepositoryTabViewController: NSViewController, RepositoryTabItemViewDelega
             
             let needLabel = repositoryList.count > 1
             selectBarView.isHidden = !needLabel
-            tabItemContainerHeightConstraint.constant = needLabel ? initialTabItemContainerHeight : 0.0
+            tabItemContainerHeightConstraint.constant = needLabel ? initialTabItemContainerHeight : 2.0
             for (index, repository) in repositoryList.enumerated() {
                 addViewController(repository: repository, needLabel: needLabel, index: index)
             }
