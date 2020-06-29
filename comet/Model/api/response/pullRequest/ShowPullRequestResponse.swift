@@ -10,8 +10,13 @@ import Foundation
 
 struct ShowPullRequestResponse: Codable {
     let id: Int
+    let state: String
     let title: String
     let comment_count: Int
     let author: PullRequestParticipantUser
     let participants: [PullRequestParticipant]
+    
+    func isMerged() -> Bool {
+        return state == "MERGED"
+    }
 }

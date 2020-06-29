@@ -15,6 +15,10 @@
 		FB77489424A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */; };
 		FB77489624A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */; };
 		FB77489824A7997900A0CCE0 /* CreatePullRequestUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489724A7997900A0CCE0 /* CreatePullRequestUrl.swift */; };
+		FB77489A24AA25D000A0CCE0 /* PullRequestPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489924AA25D000A0CCE0 /* PullRequestPresenter.swift */; };
+		FB77489C24AA263600A0CCE0 /* PullRequestSectionPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489B24AA263600A0CCE0 /* PullRequestSectionPresenter.swift */; };
+		FB77489E24AA2F1300A0CCE0 /* PullRequestCollectionViewSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77489D24AA2F1300A0CCE0 /* PullRequestCollectionViewSection.swift */; };
+		FB7748A024AA2F2000A0CCE0 /* PullRequestCollectionViewSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB77489F24AA2F2000A0CCE0 /* PullRequestCollectionViewSection.xib */; };
 		FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB83855B248696F600E88304 /* FetchPullRequests.swift */; };
 		FB8385602486A6C700E88304 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; };
 		FB8385612486A6C700E88304 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FB83855F2486A6C700E88304 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -96,6 +100,10 @@
 		FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcUnreadCommentCount.swift; sourceTree = "<group>"; };
 		FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifiyNewUnreadComment.swift; sourceTree = "<group>"; };
 		FB77489724A7997900A0CCE0 /* CreatePullRequestUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePullRequestUrl.swift; sourceTree = "<group>"; };
+		FB77489924AA25D000A0CCE0 /* PullRequestPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestPresenter.swift; sourceTree = "<group>"; };
+		FB77489B24AA263600A0CCE0 /* PullRequestSectionPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestSectionPresenter.swift; sourceTree = "<group>"; };
+		FB77489D24AA2F1300A0CCE0 /* PullRequestCollectionViewSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCollectionViewSection.swift; sourceTree = "<group>"; };
+		FB77489F24AA2F2000A0CCE0 /* PullRequestCollectionViewSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PullRequestCollectionViewSection.xib; sourceTree = "<group>"; };
 		FB83855B248696F600E88304 /* FetchPullRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchPullRequests.swift; sourceTree = "<group>"; };
 		FB83855F2486A6C700E88304 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/Mac/Alamofire.framework; sourceTree = "<group>"; };
 		FB8385642487D7F200E88304 /* RequestHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeader.swift; sourceTree = "<group>"; };
@@ -307,6 +315,8 @@
 			children = (
 				FB77488D24A25DDE00A0CCE0 /* helper */,
 				FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */,
+				FB77489924AA25D000A0CCE0 /* PullRequestPresenter.swift */,
+				FB77489B24AA263600A0CCE0 /* PullRequestSectionPresenter.swift */,
 				FB8385A8249BB55200E88304 /* PullRequestCollectionViewItemPresenter.swift */,
 				FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */,
 				FBF2AE9C24A0F05C006379CA /* ReviewerIconViewPresenter.swift */,
@@ -372,6 +382,8 @@
 				FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */,
 				FBF2AE9824A0ECC5006379CA /* ReviewerIconView.swift */,
 				FBF2AE9A24A0ECD9006379CA /* ReviewerIconView.xib */,
+				FB77489D24AA2F1300A0CCE0 /* PullRequestCollectionViewSection.swift */,
+				FB77489F24AA2F2000A0CCE0 /* PullRequestCollectionViewSection.xib */,
 				FBF62F65247C0E9000D4289D /* PullRequestCollectionViewItem.swift */,
 				FBF62F66247C0E9000D4289D /* PullRequestCollectionViewItem.xib */,
 				FB83858E248E78C600E88304 /* TextCollectionViewItem.swift */,
@@ -456,6 +468,7 @@
 				FB77488A24A25A5E00A0CCE0 /* RepositoryTabItemView.xib in Resources */,
 				FB838591248E78C600E88304 /* TextCollectionViewItem.xib in Resources */,
 				FBAF4B752471842B00614EDB /* Main.storyboard in Resources */,
+				FB7748A024AA2F2000A0CCE0 /* PullRequestCollectionViewSection.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +482,7 @@
 				FB8385A0249907CB00E88304 /* PreferencesRepositoryInputViewController.swift in Sources */,
 				FB77488F24A25E0900A0CCE0 /* UnreadCommentPresenter.swift in Sources */,
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
+				FB77489A24AA25D000A0CCE0 /* PullRequestPresenter.swift in Sources */,
 				FB8385AB249BC4E300E88304 /* NSImageView+AsyncLoad.swift in Sources */,
 				FB83857E248AA82400E88304 /* PullRequestParticipant.swift in Sources */,
 				FB77489424A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift in Sources */,
@@ -476,6 +490,7 @@
 				FB8385B0249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift in Sources */,
 				FB83859E249907B500E88304 /* PreferencesRepositoryViewController.swift in Sources */,
 				FB8385932496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift in Sources */,
+				FB77489E24AA2F1300A0CCE0 /* PullRequestCollectionViewSection.swift in Sources */,
 				FB8385A4249BAFB800E88304 /* PullRequestLog.swift in Sources */,
 				FB83859C2497CEFE00E88304 /* TextFieldHelper.swift in Sources */,
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
@@ -512,6 +527,7 @@
 				FB83857C248AA4E600E88304 /* ShowPullRequestResponse.swift in Sources */,
 				FB838578248AA2F600E88304 /* ShowPullRequest.swift in Sources */,
 				FB838589248D388700E88304 /* PreferencesTabViewController.swift in Sources */,
+				FB77489C24AA263600A0CCE0 /* PullRequestSectionPresenter.swift in Sources */,
 				FBF2AE9D24A0F05C006379CA /* ReviewerIconViewPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

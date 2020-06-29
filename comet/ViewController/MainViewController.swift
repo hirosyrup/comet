@@ -64,7 +64,7 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate,
     }
     
     private func notifyNewUnreadComment() {
-        let dataList = repositoryList.flatMap { $0.pullRequestDataList() }
+        let dataList = repositoryList.flatMap { $0.pullRequestDataListWithoutMerged() }
         NotifyNewUnreadComment(dataList: dataList).notify()
     }
     
@@ -92,7 +92,7 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate,
     func didUpdateRepository(repository: RepositoryObservable) {
         notifyNewUnreadComment()
         if let _delegate = delegate {
-            let dataList = repositoryList.flatMap { $0.pullRequestDataList() }
+            let dataList = repositoryList.flatMap { $0.pullRequestDataListWithoutMerged() }
             let calcUnreadCommentCountList = dataList.map {CalcUnreadCommentCount(data: $0)}
             let count = calcUnreadCommentCountList.map { $0.unreadCommentCount() }.reduce(0, +)
             _delegate.didUpdateUnreadCommentCount(vc: self, count: count)

@@ -9,12 +9,13 @@
 import Cocoa
 import Moya
 
-class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, RepositoryNotification {
+class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, RepositoryNotification, NSCollectionViewDelegateFlowLayout {
     @IBOutlet weak var listView: NSCollectionView!
     
+    private let headerId = "PullRequestCollectionViewSection"
     private let cellId = "PullRequestCollectionViewItem"
     private var repositoryObservable: RepositoryObservable!
-    private var listItemPresenterList = [PullRequestCollectionViewItemPresenter]()
+    private var presenter = PullRequestPresenter(pullRequestDataList: [])
     
     class func create(repositoryObservable: RepositoryObservable) -> PullRequestViewController {
         let storyboard = NSStoryboard(name: "Main", bundle: nil)
@@ -30,8 +31,10 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         listView.delegate = self
         listView.dataSource = self
         
-        let nib = NSNib(nibNamed: "PullRequestCollectionViewItem", bundle: nil)
-        listView.register(nib, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId))
+        let headerNib = NSNib(nibNamed: headerId, bundle: nil)
+        let cellNib = NSNib(nibNamed: cellId, bundle: nil)
+        listView.register(headerNib, forSupplementaryViewOfKind: NSCollectionView.elementKindSectionHeader, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: headerId))
+        listView.register(cellNib, forItemWithIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId))
     }
     
     override func viewWillAppear() {
@@ -50,7 +53,7 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     }
     
     private func updatePresenterList() {
-        listItemPresenterList = repositoryObservable.pullRequestDataList().map { PullRequestCollectionViewItemPresenter(data: $0) }
+        presenter = PullRequestPresenter(pullRequestDataList: repositoryObservable.pullRequestDataListWithoutMerged())
     }
     
     private func reloadList() {
@@ -58,20 +61,42 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         listView.reloadData()
     }
     
+    func numberOfSections(in collectionView: NSCollectionView) -> Int {
+        return presenter.sectionPresenters.count
+    }
+    
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return listItemPresenterList.count
+        return presenter.sectionPresenters[section].itemPresenterList.count
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> NSSize {
+        return NSSize(width: view.bounds.width, height: 44.0)
+    }
+    
+    func collectionView(_ collectionView: NSCollectionView, layout collectionViewLayout: NSCollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> NSSize {
+        return NSSize(width: 0.0, height: 40.0)
+    }
+
+    func collectionView(_ collectionView: NSCollectionView, viewForSupplementaryElementOfKind kind: NSCollectionView.SupplementaryElementKind, at indexPath: IndexPath) -> NSView {
+        if kind == NSCollectionView.elementKindSectionHeader {
+            let header = collectionView.makeSupplementaryView(ofKind: kind, withIdentifier: NSUserInterfaceItemIdentifier(rawValue: headerId), for: indexPath) as! PullRequestCollectionViewSection
+            header.setTitle(title: presenter.sectionPresenters[indexPath.section].title)
+            return header
+        } else {
+            return NSView()
+        }
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = listView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), for: indexPath) as! PullRequestCollectionViewItem
-        item.updateView(presenter: listItemPresenterList[indexPath.item])
+        item.updateView(presenter: presenter.sectionPresenters[indexPath.section].itemPresenterList[indexPath.item])
         return item
     }
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
         guard let indexpPath = indexPaths.first else { return }
         repositoryObservable.updateLogToReadAllAt(index: indexpPath.item)
-        let pullRequestData = repositoryObservable.pullRequestDataList()[indexpPath.item]
+        let pullRequestData = repositoryObservable.pullRequestDataListWithoutMerged()[indexpPath.item]
         let url = CreatePullRequestUrl(id: pullRequestData.response.id).createUrl()
         NSWorkspace.shared.open(url)
         reloadList()

@@ -186,9 +186,9 @@
                                             <collectionView selectable="YES" maxNumberOfColumns="1" id="38y-hI-ph1">
                                                 <rect key="frame" x="0.0" y="0.0" width="450" height="299"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <collectionViewGridLayout key="collectionViewLayout" maximumNumberOfColumns="1" id="mJu-w4-nVn">
-                                                    <size key="maximumItemSize" width="0.0" height="44"/>
-                                                </collectionViewGridLayout>
+                                                <collectionViewFlowLayout key="collectionViewLayout" id="X6d-fa-n3X">
+                                                    <size key="itemSize" width="50" height="50"/>
+                                                </collectionViewFlowLayout>
                                                 <color key="primaryBackgroundColor" white="0.69587435787671237" alpha="0.01" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </collectionView>
                                         </subviews>
@@ -198,7 +198,7 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                     <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="NdY-M4-Hbe">
-                                        <rect key="frame" x="434" y="0.0" width="16" height="281"/>
+                                        <rect key="frame" x="424" y="0.0" width="16" height="289"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>

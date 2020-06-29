@@ -107,7 +107,7 @@ class RepositoryTabViewController: NSViewController, RepositoryTabItemViewDelega
         if index < tabItemList.count {
             let tabItem = tabItemList[index]
             let repository = repositoryList[index]
-            let tabItemPresenter = RepositoryTabItemViewPresenter(dataList: repository.pullRequestDataList())
+            let tabItemPresenter = RepositoryTabItemViewPresenter(dataList: repository.pullRequestDataListWithoutMerged())
             tabItem.updateView(presenter: tabItemPresenter)
         }
     }

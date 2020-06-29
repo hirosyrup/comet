@@ -17,7 +17,7 @@ protocol RepositoryNotification: class {
 protocol RepositoryObservable {
     func addObserver(observer: RepositoryNotification)
     func removeObserver(observer: RepositoryNotification)
-    func pullRequestDataList() -> [PullRequestData]
+    func pullRequestDataListWithoutMerged() -> [PullRequestData]
     func updateLogToReadAllAt(index: Int)
 }
 
@@ -95,8 +95,8 @@ class Repository: RepositoryObservable {
         observerList.removeAll()
     }
     
-    func pullRequestDataList() -> [PullRequestData] {
-        return _pullRequestDataList
+    func pullRequestDataListWithoutMerged() -> [PullRequestData] {
+        return _pullRequestDataList.filter {!$0.response.isMerged()}
     }
     
     func updateLogToReadAllAt(index: Int) {
