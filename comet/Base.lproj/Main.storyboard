@@ -202,12 +202,25 @@
                                         <autoresizingMask key="autoresizingMask"/>
                                     </scroller>
                                 </scrollView>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5Ce-Ns-Wcv">
+                                    <rect key="frame" x="146" y="215" width="157" height="23"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="No pull requests" id="gFO-rV-R7F">
+                                        <font key="font" metaFont="systemBold" size="20"/>
+                                        <color key="textColor" white="0.2987478595890411" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
                             </subviews>
+                            <constraints>
+                                <constraint firstItem="5Ce-Ns-Wcv" firstAttribute="centerX" secondItem="7sA-QD-96K" secondAttribute="centerX" id="Iyq-wW-Gr2"/>
+                                <constraint firstItem="5Ce-Ns-Wcv" firstAttribute="top" secondItem="7sA-QD-96K" secondAttribute="top" constant="60" id="T98-aY-s34"/>
+                            </constraints>
                         </view>
                         <color key="borderColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </box>
                     <connections>
                         <outlet property="listView" destination="38y-hI-ph1" id="Pj8-JF-1ck"/>
+                        <outlet property="noPullRequestsLabel" destination="5Ce-Ns-Wcv" id="P1U-yL-koF"/>
                     </connections>
                 </viewController>
                 <customObject id="mIE-3E-Ppf" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

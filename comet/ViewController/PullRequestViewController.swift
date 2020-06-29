@@ -11,6 +11,7 @@ import Moya
 
 class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, RepositoryNotification, NSCollectionViewDelegateFlowLayout {
     @IBOutlet weak var listView: NSCollectionView!
+    @IBOutlet weak var noPullRequestsLabel: NSTextField!
     
     private let headerId = "PullRequestCollectionViewSection"
     private let cellId = "PullRequestCollectionViewItem"
@@ -58,6 +59,7 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     
     private func reloadList() {
         updatePresenterList()
+        noPullRequestsLabel.isHidden = !presenter.sectionPresenters.isEmpty
         listView.reloadData()
     }
     
