@@ -67,7 +67,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tXQ-Sf-F6s">
                                 <rect key="frame" x="-2" y="2" width="20" height="12"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="hRO-m2-VS6">
-                                    <font key="font" metaFont="system" size="9"/>
+                                    <font key="font" metaFont="label" size="9"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -94,7 +94,7 @@
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ryh-bx-jje"/>
                 </imageView>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-x1-yMM">
-                    <rect key="frame" x="98" y="14" width="278" height="16"/>
+                    <rect key="frame" x="98" y="14" width="286" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="charWrapping" drawsBackground="YES" id="p1F-PW-RJa">
                         <font key="font" usesAppearanceFont="YES"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -129,7 +129,7 @@
                 <constraint firstItem="ucs-x1-yMM" firstAttribute="leading" secondItem="6At-4A-06S" secondAttribute="trailing" constant="12" id="NGJ-8N-hUy"/>
                 <constraint firstItem="eb1-PA-FJA" firstAttribute="leading" secondItem="gIV-0z-dfO" secondAttribute="leading" constant="-8" id="PhF-Sc-Hrw"/>
                 <constraint firstItem="eb1-PA-FJA" firstAttribute="top" secondItem="gIV-0z-dfO" secondAttribute="top" constant="-6" id="d0X-EF-wWl"/>
-                <constraint firstItem="YzC-dd-kKe" firstAttribute="leading" secondItem="ucs-x1-yMM" secondAttribute="trailing" constant="12" id="lb6-Mb-pDa"/>
+                <constraint firstItem="YzC-dd-kKe" firstAttribute="leading" secondItem="ucs-x1-yMM" secondAttribute="trailing" constant="4" id="lb6-Mb-pDa"/>
                 <constraint firstItem="gIV-0z-dfO" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="mBB-j4-orI"/>
                 <constraint firstAttribute="trailing" secondItem="YzC-dd-kKe" secondAttribute="trailing" constant="12" id="mU1-xJ-Cdv"/>
                 <constraint firstAttribute="bottom" secondItem="N2P-Fa-MG1" secondAttribute="bottom" id="oO4-S0-kq7"/>
