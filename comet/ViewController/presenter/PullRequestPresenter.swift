@@ -12,26 +12,17 @@ class PullRequestPresenter {
     let sectionPresenters: [PullRequestSectionPresenter]
     
     init(pullRequestDataList: [PullRequestData]) {
-        var approvedList = [PullRequestData]()
-        var inReviewList = [PullRequestData]()
-        pullRequestDataList.forEach { pullRequestData in
-            let reviewerList = pullRequestData.response.participants.filter {$0.isReviewer()}
-            if reviewerList.allSatisfy({$0.approved}) {
-                approvedList.append(pullRequestData)
-            } else {
-                inReviewList.append(pullRequestData)
-            }
-        }
+        let separator = SeparatePullRequestDataList(pullRequestDataList: pullRequestDataList)
         
         var _sectionPresenters = [PullRequestSectionPresenter]()
-        if !approvedList.isEmpty {
+        if !separator.approvedList.isEmpty {
             _sectionPresenters.append(
-                PullRequestSectionPresenter(title: "Approved", pullRequestDataList: approvedList)
+                PullRequestSectionPresenter(title: "Approved", pullRequestDataList: separator.approvedList)
             )
         }
-        if !inReviewList.isEmpty {
+        if !separator.inReviewList.isEmpty {
             _sectionPresenters.append(
-                PullRequestSectionPresenter(title: "In Review", pullRequestDataList: inReviewList)
+                PullRequestSectionPresenter(title: "In Review", pullRequestDataList: separator.inReviewList)
             )
         }
         self.sectionPresenters = _sectionPresenters

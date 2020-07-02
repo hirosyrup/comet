@@ -9,7 +9,7 @@
 import Cocoa
 
 protocol MainViewControllerDelegate: class {
-    func didUpdateUnreadCommentCount(vc: MainViewController, count: Int)
+    func didUpdateCount(vc: MainViewController, unreadCommentCount: Int, inReviewCount: Int)
 }
 
 class MainViewController: NSViewController, PreferencesWindowControllerDelegate, RepositoryNotification {
@@ -94,8 +94,9 @@ class MainViewController: NSViewController, PreferencesWindowControllerDelegate,
         if let _delegate = delegate {
             let dataList = repositoryList.flatMap { $0.pullRequestDataListWithoutMerged() }
             let calcUnreadCommentCountList = dataList.map {CalcUnreadCommentCount(data: $0)}
-            let count = calcUnreadCommentCountList.map { $0.unreadCommentCount() }.reduce(0, +)
-            _delegate.didUpdateUnreadCommentCount(vc: self, count: count)
+            let unreadCommentCount = calcUnreadCommentCountList.map { $0.unreadCommentCount() }.reduce(0, +)
+            let inReviewCount = SeparatePullRequestDataList(pullRequestDataList: dataList).inReviewList.count
+            _delegate.didUpdateCount(vc: self, unreadCommentCount: unreadCommentCount, inReviewCount: inReviewCount)
         }
         updateIndicator()
     }

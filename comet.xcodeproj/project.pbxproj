@@ -56,6 +56,9 @@
 		FB8385AD249F83DC00E88304 /* ReviewerIconContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */; };
 		FB8385B0249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */; };
 		FBAAD7E924AE266000850FDD /* NotifyNewPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */; };
+		FBAAD7EB24AE2EE600850FDD /* SeparatePullRequestDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAD7EA24AE2EE600850FDD /* SeparatePullRequestDataList.swift */; };
+		FBAAD7ED24AE32A700850FDD /* Sequence+JoinedAttributeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAD7EC24AE32A700850FDD /* Sequence+JoinedAttributeString.swift */; };
+		FBAAD7EF24AE355300850FDD /* AppDelegatePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAD7EE24AE355300850FDD /* AppDelegatePresenter.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -141,6 +144,9 @@
 		FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerIconContainerView.swift; sourceTree = "<group>"; };
 		FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerIconContainerViewPresenter.swift; sourceTree = "<group>"; };
 		FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyNewPullRequest.swift; sourceTree = "<group>"; };
+		FBAAD7EA24AE2EE600850FDD /* SeparatePullRequestDataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatePullRequestDataList.swift; sourceTree = "<group>"; };
+		FBAAD7EC24AE32A700850FDD /* Sequence+JoinedAttributeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+JoinedAttributeString.swift"; sourceTree = "<group>"; };
+		FBAAD7EE24AE355300850FDD /* AppDelegatePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegatePresenter.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 				FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */,
 				FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */,
 				FB77489724A7997900A0CCE0 /* CreatePullRequestUrl.swift */,
+				FBAAD7EA24AE2EE600850FDD /* SeparatePullRequestDataList.swift */,
 			);
 			path = usecase;
 			sourceTree = "<group>";
@@ -301,6 +308,7 @@
 			children = (
 				FB8385982497BF2A00E88304 /* NSColor+AppColor.swift */,
 				FB8385AA249BC4E300E88304 /* NSImageView+AsyncLoad.swift */,
+				FBAAD7EC24AE32A700850FDD /* Sequence+JoinedAttributeString.swift */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -317,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				FB77488D24A25DDE00A0CCE0 /* helper */,
+				FBAAD7EE24AE355300850FDD /* AppDelegatePresenter.swift */,
 				FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */,
 				FB77489924AA25D000A0CCE0 /* PullRequestPresenter.swift */,
 				FB77489B24AA263600A0CCE0 /* PullRequestSectionPresenter.swift */,
@@ -493,6 +502,7 @@
 				FB8385B0249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift in Sources */,
 				FB83859E249907B500E88304 /* PreferencesRepositoryViewController.swift in Sources */,
 				FB8385932496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift in Sources */,
+				FBAAD7EB24AE2EE600850FDD /* SeparatePullRequestDataList.swift in Sources */,
 				FB77489E24AA2F1300A0CCE0 /* PullRequestCollectionViewSection.swift in Sources */,
 				FB8385A4249BAFB800E88304 /* PullRequestLog.swift in Sources */,
 				FB83859C2497CEFE00E88304 /* TextFieldHelper.swift in Sources */,
@@ -522,10 +532,12 @@
 				FB838587248D24E100E88304 /* Repository.swift in Sources */,
 				FB8385992497BF2A00E88304 /* NSColor+AppColor.swift in Sources */,
 				FBF62F6C247C132000D4289D /* PullRequestViewController.swift in Sources */,
+				FBAAD7EF24AE355300850FDD /* AppDelegatePresenter.swift in Sources */,
 				FB8385672487DAC600E88304 /* BaseUrl.swift in Sources */,
 				FB8385AD249F83DC00E88304 /* ReviewerIconContainerView.swift in Sources */,
 				FB77489624A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift in Sources */,
 				FB8385A6249BB18100E88304 /* PullRequestData.swift in Sources */,
+				FBAAD7ED24AE32A700850FDD /* Sequence+JoinedAttributeString.swift in Sources */,
 				FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */,
 				FB838584248D1DE300E88304 /* PullRequestLinksHref.swift in Sources */,
 				FB83857C248AA4E600E88304 /* ShowPullRequestResponse.swift in Sources */,

@@ -41,15 +41,15 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainViewControllerDelegate {
         popover.animates = false
     }
     
-    private func updateUnreadCommentCountText(count: Int) {
+    private func updateCountText(unreadCommentCount: Int, inReviewCount: Int) {
         if let button = statusItem.button {
-            let countText = count == 0 ? "" : "\(count)"
-            button.attributedTitle = NSAttributedString(string: countText, attributes: [NSAttributedString.Key.foregroundColor: NSColor.red])
+            let presenter = AppDelegatePresenter(unreadCommentCount: unreadCommentCount, inReviewCount: inReviewCount)
+            button.attributedTitle = presenter.textInStatusMenu()
         }
     }
     
-    func didUpdateUnreadCommentCount(vc: MainViewController, count: Int) {
-        updateUnreadCommentCountText(count: count)
+    func didUpdateCount(vc: MainViewController, unreadCommentCount: Int, inReviewCount: Int) {
+        updateCountText(unreadCommentCount: unreadCommentCount, inReviewCount: inReviewCount)
     }
     
     @objc func show(_ sender: Any?) {
