@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class PullRequetLog: Object {
+class PullRequestLog: Object {
     @objc dynamic var id = 0
     @objc dynamic var openedCommentCount = 0
     @objc dynamic var unreadCommentCountAtPreviousNotification = 0
@@ -19,9 +19,9 @@ class PullRequetLog: Object {
         return "id"
     }
     
-    static func all() throws -> RealmSwift.Results<PullRequetLog> {
+    static func all() throws -> RealmSwift.Results<PullRequestLog> {
         let realm = try Realm()
-        return realm.objects(PullRequetLog.self).sorted(byKeyPath: "createdAt")
+        return realm.objects(PullRequestLog.self).sorted(byKeyPath: "createdAt")
     }
     
     func create(id: Int) throws {

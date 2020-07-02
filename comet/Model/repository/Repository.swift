@@ -141,7 +141,7 @@ class Repository: RepositoryObservable {
     }
     
     private func updateDataList(pullRequestList: [ShowPullRequestResponse]) {
-        let pullRequestLog = try! PullRequetLog.all()
+        let pullRequestLog = try! PullRequestLog.all()
         _pullRequestDataList = pullRequestList.map {
             var log = pullRequestLog.filter("id = \($0.id)").first
             if log == nil {
@@ -152,8 +152,8 @@ class Repository: RepositoryObservable {
         }
     }
     
-    private func createNewLog(id: Int) -> PullRequetLog{
-        let newLog = PullRequetLog()
+    private func createNewLog(id: Int) -> PullRequestLog{
+        let newLog = PullRequestLog()
         try! newLog.create(id: id)
         return newLog
     }
