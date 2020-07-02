@@ -55,6 +55,7 @@
 		FB8385AB249BC4E300E88304 /* NSImageView+AsyncLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385AA249BC4E300E88304 /* NSImageView+AsyncLoad.swift */; };
 		FB8385AD249F83DC00E88304 /* ReviewerIconContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */; };
 		FB8385B0249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */; };
+		FBAAD7E924AE266000850FDD /* NotifyNewPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */; };
 		FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAF4B6D2471842800614EDB /* AppDelegate.swift */; };
 		FBAF4B722471842A00614EDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B712471842A00614EDB /* Assets.xcassets */; };
 		FBAF4B752471842B00614EDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBAF4B732471842B00614EDB /* Main.storyboard */; };
@@ -139,6 +140,7 @@
 		FB8385AA249BC4E300E88304 /* NSImageView+AsyncLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+AsyncLoad.swift"; sourceTree = "<group>"; };
 		FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerIconContainerView.swift; sourceTree = "<group>"; };
 		FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerIconContainerViewPresenter.swift; sourceTree = "<group>"; };
+		FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyNewPullRequest.swift; sourceTree = "<group>"; };
 		FBAF4B6A2471842800614EDB /* comet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = comet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBAF4B6D2471842800614EDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBAF4B712471842A00614EDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			children = (
 				FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */,
 				FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */,
+				FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */,
 				FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */,
 				FB77489724A7997900A0CCE0 /* CreatePullRequestUrl.swift */,
 			);
@@ -496,6 +499,7 @@
 				FBAF4B6E2471842800614EDB /* AppDelegate.swift in Sources */,
 				FB77489224A4E26200A0CCE0 /* UpdatePullRequestLog.swift in Sources */,
 				FB8385962497B03900E88304 /* User.swift in Sources */,
+				FBAAD7E924AE266000850FDD /* NotifyNewPullRequest.swift in Sources */,
 				FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */,
 				FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */,
 				FB77489824A7997900A0CCE0 /* CreatePullRequestUrl.swift in Sources */,

@@ -145,11 +145,16 @@ class Repository: RepositoryObservable {
         _pullRequestDataList = pullRequestList.map {
             var log = pullRequestLog.filter("id = \($0.id)").first
             if log == nil {
-                let newLog = PullRequetLog()
-                newLog.id = $0.id
-                log = newLog
+                log = createNewLog(id: $0.id)
+                NotifyNewPullRequest(pullRequestTitle: $0.title).notify()
             }
             return PullRequestData(log: log!, response: $0)
         }
+    }
+    
+    private func createNewLog(id: Int) -> PullRequetLog{
+        let newLog = PullRequetLog()
+        try! newLog.create(id: id)
+        return newLog
     }
 }

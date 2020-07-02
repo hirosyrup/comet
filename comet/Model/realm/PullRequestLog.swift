@@ -24,6 +24,14 @@ class PullRequetLog: Object {
         return realm.objects(PullRequetLog.self).sorted(byKeyPath: "createdAt")
     }
     
+    func create(id: Int) throws {
+        let realm = try Realm()
+        try realm.write{
+            self.id = id
+            realm.add(self)
+        }
+    }
+    
     func save(openedCommentCount: Int, unreadCommentCountAtPreviousNotification: Int) throws {
         let realm = try Realm()
         try realm.write{
