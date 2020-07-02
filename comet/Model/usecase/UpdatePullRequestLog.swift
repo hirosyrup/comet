@@ -18,22 +18,10 @@ class UpdatePullRequestLog {
     }
     
     func updateToReadAll() {
-        let log = pullRequestLog()
-        try! log.save(openedCommentCount: data.response.comment_count, unreadCommentCountAtPreviousNotification: 0)
+        try! data.log.save(openedCommentCount: data.response.comment_count, unreadCommentCountAtPreviousNotification: 0)
     }
     
     func updateToNotifiedStatus() {
-        let log = pullRequestLog()
-        try! log.save(openedCommentCount: log.openedCommentCount, unreadCommentCountAtPreviousNotification: calcUnreadCommentCount.unreadCommentCount())
-    }
-    
-    private func pullRequestLog() -> PullRequetLog {
-        if let log = data.log {
-            return log
-        } else {
-            let newLog = PullRequetLog()
-            newLog.id = data.response.id
-            return newLog
-        }
+        try! data.log.save(openedCommentCount: data.log.openedCommentCount, unreadCommentCountAtPreviousNotification: calcUnreadCommentCount.unreadCommentCount())
     }
 }

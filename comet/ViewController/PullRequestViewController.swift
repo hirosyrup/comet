@@ -96,10 +96,10 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     }
     
     func collectionView(_ collectionView: NSCollectionView, didSelectItemsAt indexPaths: Set<IndexPath>) {
-        guard let indexpPath = indexPaths.first else { return }
-        repositoryObservable.updateLogToReadAllAt(index: indexpPath.item)
-        let pullRequestData = repositoryObservable.pullRequestDataListWithoutMerged()[indexpPath.item]
-        let url = CreatePullRequestUrl(id: pullRequestData.response.id).createUrl()
+        guard let indexPath = indexPaths.first else { return }
+        let itemPresenter = presenter.sectionPresenters[indexPath.section].itemPresenterList[indexPath.item]
+        repositoryObservable.updateLogToReadAllAt(id: itemPresenter.id())
+        let url = CreatePullRequestUrl(id: itemPresenter.id()).createUrl()
         NSWorkspace.shared.open(url)
         reloadList()
     }

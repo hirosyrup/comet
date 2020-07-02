@@ -21,6 +21,10 @@ class PullRequestCollectionViewItemPresenter {
         return unreadCommandPresenter.hiddenUnreadCommentCount()
     }
     
+    func id() -> Int {
+        return data.response.id
+    }
+    
     func unreadCommentCount() -> String {
         return unreadCommandPresenter.unreadCommentCount()
     }

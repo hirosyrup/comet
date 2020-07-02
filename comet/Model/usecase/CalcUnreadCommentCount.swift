@@ -16,10 +16,6 @@ class CalcUnreadCommentCount {
     }
     
     func unreadCommentCount() -> Int {
-        if let log = data.log {
-            return data.response.comment_count - log.openedCommentCount
-        } else {
-            return data.response.comment_count
-        }
+        return data.response.comment_count - data.log.openedCommentCount
     }
 }

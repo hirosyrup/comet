@@ -18,7 +18,7 @@ protocol RepositoryObservable {
     func addObserver(observer: RepositoryNotification)
     func removeObserver(observer: RepositoryNotification)
     func pullRequestDataListWithoutMerged() -> [PullRequestData]
-    func updateLogToReadAllAt(index: Int)
+    func updateLogToReadAllAt(id: Int)
 }
 
 class Repository: RepositoryObservable {
@@ -99,9 +99,9 @@ class Repository: RepositoryObservable {
         return _pullRequestDataList.filter {!$0.response.isMerged()}
     }
     
-    func updateLogToReadAllAt(index: Int) {
-        guard index < _pullRequestDataList.count else { return }
-        UpdatePullRequestLog(data: _pullRequestDataList[index]).updateToReadAll()
+    func updateLogToReadAllAt(id: Int) {
+        guard let pullRequestData = _pullRequestDataList.filter({$0.response.id == id}).first else { return }
+        UpdatePullRequestLog(data: pullRequestData).updateToReadAll()
         notifyDidUpdate()
     }
     
@@ -143,7 +143,13 @@ class Repository: RepositoryObservable {
     private func updateDataList(pullRequestList: [ShowPullRequestResponse]) {
         let pullRequestLog = try! PullRequetLog.all()
         _pullRequestDataList = pullRequestList.map {
-            PullRequestData(log: pullRequestLog.filter("id = \($0.id)").first, response: $0)
+            var log = pullRequestLog.filter("id = \($0.id)").first
+            if log == nil {
+                let newLog = PullRequetLog()
+                newLog.id = $0.id
+                log = newLog
+            }
+            return PullRequestData(log: log!, response: $0)
         }
     }
 }

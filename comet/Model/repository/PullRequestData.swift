@@ -9,6 +9,6 @@
 import Foundation
 
 struct PullRequestData {
-    let log: PullRequetLog?
+    let log: PullRequetLog
     let response: ShowPullRequestResponse
 }

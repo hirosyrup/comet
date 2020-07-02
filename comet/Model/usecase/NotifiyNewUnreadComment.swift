@@ -36,9 +36,8 @@ class NotifyNewUnreadComment {
     
     private func filterTargetDataList() -> [PullRequestData] {
         return dataList.filter {
-            guard let log = $0.log else { return true }
             let calcUnreadCommentCount = CalcUnreadCommentCount(data: $0)
-            return log.unreadCommentCountAtPreviousNotification != calcUnreadCommentCount.unreadCommentCount()
+            return $0.log.unreadCommentCountAtPreviousNotification != calcUnreadCommentCount.unreadCommentCount()
         }
     }
     
