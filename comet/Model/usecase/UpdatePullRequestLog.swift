@@ -19,6 +19,7 @@ class UpdatePullRequestLog {
     
     func updateToReadAll() {
         try! data.log.saveCommentCount(openedCommentCount: data.response.comment_count, unreadCommentCountAtPreviousNotification: 0)
+        try! data.log.saveCommitHash(openedCommitHash: data.response.source.commit.hash, commitHashAtPreviousNotification: data.log.commitHashAtPreviousNotification)
     }
     
     func updateToNotifiedStatusForNewComment() {
