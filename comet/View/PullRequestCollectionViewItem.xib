@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,6 +11,7 @@
                 <outlet property="authorImageView" destination="6At-4A-06S" id="p3Y-d6-Bzt"/>
                 <outlet property="background" destination="N2P-Fa-MG1" id="TCq-8Q-ieM"/>
                 <outlet property="commentCountLabel" destination="dxm-zw-K66" id="Q0L-I9-9Q5"/>
+                <outlet property="newCommitNoteLabel" destination="aPd-qt-Zta" id="Iv4-cu-07n"/>
                 <outlet property="reviewerIconView" destination="YzC-dd-kKe" id="ajM-cB-00g"/>
                 <outlet property="titleLabel" destination="ucs-x1-yMM" id="ogh-I0-bl1"/>
                 <outlet property="unreadCommentCountBadge" destination="eb1-PA-FJA" id="nOp-51-atZ"/>
@@ -67,7 +69,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tXQ-Sf-F6s">
                                 <rect key="frame" x="-2" y="2" width="20" height="12"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" id="hRO-m2-VS6">
-                                    <font key="font" metaFont="label" size="9"/>
+                                    <font key="font" metaFont="system" size="9"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -93,14 +95,41 @@
                     </constraints>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="ryh-bx-jje"/>
                 </imageView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-x1-yMM">
-                    <rect key="frame" x="98" y="14" width="286" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="charWrapping" drawsBackground="YES" id="p1F-PW-RJa">
-                        <font key="font" usesAppearanceFont="YES"/>
-                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                    </textFieldCell>
-                </textField>
+                <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H7u-wH-I4u">
+                    <rect key="frame" x="98" y="9" width="286" height="27"/>
+                    <subviews>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ucs-x1-yMM">
+                            <rect key="frame" x="0.0" y="12" width="286" height="15"/>
+                            <textFieldCell key="cell" lineBreakMode="charWrapping" drawsBackground="YES" id="p1F-PW-RJa">
+                                <font key="font" metaFont="system" size="12"/>
+                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            </textFieldCell>
+                        </textField>
+                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="aPd-qt-Zta">
+                            <rect key="frame" x="-2" y="0.0" width="290" height="12"/>
+                            <textFieldCell key="cell" lineBreakMode="clipping" id="tAs-tE-VYT">
+                                <font key="font" metaFont="system" size="9"/>
+                                <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </textFieldCell>
+                        </textField>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="ucs-x1-yMM" firstAttribute="leading" secondItem="H7u-wH-I4u" secondAttribute="leading" id="4f1-wU-U3C"/>
+                        <constraint firstAttribute="trailing" secondItem="aPd-qt-Zta" secondAttribute="trailing" id="Ah2-3s-iif"/>
+                        <constraint firstItem="aPd-qt-Zta" firstAttribute="leading" secondItem="H7u-wH-I4u" secondAttribute="leading" id="iUd-kS-NZC"/>
+                        <constraint firstAttribute="trailing" secondItem="ucs-x1-yMM" secondAttribute="trailing" id="vVC-HX-TCS"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
                 <box boxType="custom" borderWidth="0.0" title="Box" transparent="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YzC-dd-kKe" customClass="ReviewerIconContainerView" customModule="comet" customModuleProvider="target">
                     <rect key="frame" x="388" y="0.0" width="80" height="44"/>
                     <view key="contentView" id="r6f-eF-QXo">
@@ -120,16 +149,16 @@
             </subviews>
             <constraints>
                 <constraint firstItem="YzC-dd-kKe" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="3qY-lO-VfO"/>
-                <constraint firstItem="ucs-x1-yMM" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="45e-7T-gq3"/>
                 <constraint firstItem="6At-4A-06S" firstAttribute="leading" secondItem="dxm-zw-K66" secondAttribute="trailing" constant="14" id="55P-kH-jeL"/>
                 <constraint firstItem="6At-4A-06S" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="63R-gu-Qb0"/>
                 <constraint firstItem="N2P-Fa-MG1" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="6Tb-Kk-EEe"/>
                 <constraint firstAttribute="trailing" secondItem="N2P-Fa-MG1" secondAttribute="trailing" id="7LE-9q-O4T"/>
                 <constraint firstItem="N2P-Fa-MG1" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Jsg-SO-cZf"/>
-                <constraint firstItem="ucs-x1-yMM" firstAttribute="leading" secondItem="6At-4A-06S" secondAttribute="trailing" constant="12" id="NGJ-8N-hUy"/>
                 <constraint firstItem="eb1-PA-FJA" firstAttribute="leading" secondItem="gIV-0z-dfO" secondAttribute="leading" constant="-8" id="PhF-Sc-Hrw"/>
+                <constraint firstItem="H7u-wH-I4u" firstAttribute="leading" secondItem="6At-4A-06S" secondAttribute="trailing" constant="12" id="QqS-yV-nk8"/>
+                <constraint firstItem="YzC-dd-kKe" firstAttribute="leading" secondItem="H7u-wH-I4u" secondAttribute="trailing" constant="4" id="Zkm-Cc-3bN"/>
+                <constraint firstItem="H7u-wH-I4u" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="bWH-ej-9AA"/>
                 <constraint firstItem="eb1-PA-FJA" firstAttribute="top" secondItem="gIV-0z-dfO" secondAttribute="top" constant="-6" id="d0X-EF-wWl"/>
-                <constraint firstItem="YzC-dd-kKe" firstAttribute="leading" secondItem="ucs-x1-yMM" secondAttribute="trailing" constant="4" id="lb6-Mb-pDa"/>
                 <constraint firstItem="gIV-0z-dfO" firstAttribute="centerY" secondItem="Hz6-mo-xeY" secondAttribute="centerY" id="mBB-j4-orI"/>
                 <constraint firstAttribute="trailing" secondItem="YzC-dd-kKe" secondAttribute="trailing" constant="12" id="mU1-xJ-Cdv"/>
                 <constraint firstAttribute="bottom" secondItem="N2P-Fa-MG1" secondAttribute="bottom" id="oO4-S0-kq7"/>

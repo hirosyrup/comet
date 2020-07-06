@@ -41,6 +41,18 @@ class PullRequestCollectionViewItemPresenter {
         return data.response.title
     }
     
+    func hiddenNewCommitNote() -> Bool {
+        data.log.openedCommitHash == data.response.source.commit.hash
+    }
+    
+    func newCommitNote() -> String {
+        if hiddenNewCommitNote() {
+            return ""
+        } else {
+            return "New commits pushed to the branch."
+        }
+    }
+    
     func reviewerIconContainerViewPresenter() -> ReviewerIconContainerViewPresenter {
         return ReviewerIconContainerViewPresenter(reviewDataList: data.response.participants.filter{ $0.isReviewer() })
     }
