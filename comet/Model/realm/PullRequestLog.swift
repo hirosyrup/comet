@@ -13,6 +13,8 @@ class PullRequestLog: Object {
     @objc dynamic var id = 0
     @objc dynamic var openedCommentCount = 0
     @objc dynamic var unreadCommentCountAtPreviousNotification = 0
+    @objc dynamic var openedCommitHash = ""
+    @objc dynamic var commitHashAtPreviousNotification = ""
     @objc dynamic var createdAt = Date()
     
     override static func primaryKey() -> String? {

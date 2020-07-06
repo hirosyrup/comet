@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FB65B6D424B3672F00891E92 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65B6D324B3672F00891E92 /* Migration.swift */; };
 		FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488724A25A4800A0CCE0 /* RepositoryTabItemView.swift */; };
 		FB77488A24A25A5E00A0CCE0 /* RepositoryTabItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */; };
 		FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */; };
@@ -96,6 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		FB65B6D324B3672F00891E92 /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
 		FB77488724A25A4800A0CCE0 /* RepositoryTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabItemView.swift; sourceTree = "<group>"; };
 		FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTabItemView.xib; sourceTree = "<group>"; };
 		FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabItemViewPresenter.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		FB8385942497B02700E88304 /* realm */ = {
 			isa = PBXGroup;
 			children = (
+				FB65B6D324B3672F00891E92 /* Migration.swift */,
 				FB8385952497B03900E88304 /* User.swift */,
 				FB8385A124990CA600E88304 /* RepositoryPreference.swift */,
 				FB8385A3249BAFB800E88304 /* PullRequestLog.swift */,
@@ -511,6 +514,7 @@
 				FB8385962497B03900E88304 /* User.swift in Sources */,
 				FBAAD7E924AE266000850FDD /* NotifyNewPullRequest.swift in Sources */,
 				FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */,
+				FB65B6D424B3672F00891E92 /* Migration.swift in Sources */,
 				FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */,
 				FB77489824A7997900A0CCE0 /* CreatePullRequestUrl.swift in Sources */,
 				FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */,

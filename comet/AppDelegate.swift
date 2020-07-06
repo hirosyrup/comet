@@ -17,7 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate, MainViewControllerDelegate {
     private let popover = NSPopover()
     
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // Insert code here to initialize your application
+        Migration().execute()
         
         if let button = statusItem.button {
             button.image = NSImage(named:NSImage.Name("icon"))
