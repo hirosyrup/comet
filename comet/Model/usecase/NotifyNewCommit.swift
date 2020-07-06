@@ -1,15 +1,15 @@
 //
-//  NotifiyNewUnreadComment.swift
+//  NotifyNewCommit.swift
 //  comet
 //
-//  Created by 岩井 宏晃 on 2020/06/25.
+//  Created by 岩井 宏晃 on 2020/07/06.
 //  Copyright © 2020 koalab. All rights reserved.
 //
 
 import Foundation
 import UserNotifications
 
-class NotifyNewUnreadComment {
+class NotifyNewCommit {
     private let dataList: [PullRequestData]
     
     init(dataList: [PullRequestData]) {
@@ -24,11 +24,11 @@ class NotifyNewUnreadComment {
         content.title = "comet"
         content.body = createNotificationMessage(targetList: targetList)
         content.sound = .default
-        let request = UNNotificationRequest(identifier: "New Unread Comment Notification", content: content, trigger: nil)
+        let request = UNNotificationRequest(identifier: "New Commit Notification", content: content, trigger: nil)
         UNUserNotificationCenter.current().add(request) { (error) in
             if error == nil {
                 DispatchQueue.main.async {
-                    targetList.forEach { UpdatePullRequestLog(data: $0).updateToNotifiedStatusForNewComment() }
+                    targetList.forEach { UpdatePullRequestLog(data: $0).updateToNotifiedStatusForNewCommit() }
                 }
             }
         }
@@ -36,16 +36,15 @@ class NotifyNewUnreadComment {
     
     private func filterTargetDataList() -> [PullRequestData] {
         return dataList.filter {
-            let calcUnreadCommentCount = CalcUnreadCommentCount(data: $0)
-            return $0.log.unreadCommentCountAtPreviousNotification != calcUnreadCommentCount.unreadCommentCount()
+            return $0.log.commitHashAtPreviousNotification != $0.response.source.commit.hash
         }
     }
     
     private func createNotificationMessage(targetList: [PullRequestData]) -> String {
         if targetList.count == 1 {
-            return "New comment posted on a pull request"
+            return "New commits pushed on a pull request"
         } else {
-            return "New comment posted on pull requests"
+            return "New commits pushed on pull requests"
         }
     }
 }

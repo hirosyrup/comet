@@ -34,11 +34,20 @@ class PullRequestLog: Object {
         }
     }
     
-    func save(openedCommentCount: Int, unreadCommentCountAtPreviousNotification: Int) throws {
+    func saveCommentCount(openedCommentCount: Int, unreadCommentCountAtPreviousNotification: Int) throws {
         let realm = try Realm()
         try realm.write{
             self.openedCommentCount = openedCommentCount
             self.unreadCommentCountAtPreviousNotification = unreadCommentCountAtPreviousNotification
+            realm.add(self, update: .modified)
+        }
+    }
+    
+    func saveCommitHash(openedCommitHash: String, commitHashAtPreviousNotification: String) throws {
+        let realm = try Realm()
+        try realm.write{
+            self.openedCommitHash = openedCommitHash
+            self.commitHashAtPreviousNotification = commitHashAtPreviousNotification
             realm.add(self, update: .modified)
         }
     }

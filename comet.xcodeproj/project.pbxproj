@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		FB65B6D424B3672F00891E92 /* Migration.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65B6D324B3672F00891E92 /* Migration.swift */; };
+		FB65B6D624B36A1E00891E92 /* PullRequestSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65B6D524B36A1E00891E92 /* PullRequestSource.swift */; };
+		FB65B6D824B36A3D00891E92 /* PullRequestCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65B6D724B36A3D00891E92 /* PullRequestCommit.swift */; };
+		FB65B6DA24B36A9900891E92 /* CreatePullRequestLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65B6D924B36A9900891E92 /* CreatePullRequestLog.swift */; };
+		FB65B6DC24B36D3E00891E92 /* NotifyNewCommit.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB65B6DB24B36D3E00891E92 /* NotifyNewCommit.swift */; };
 		FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488724A25A4800A0CCE0 /* RepositoryTabItemView.swift */; };
 		FB77488A24A25A5E00A0CCE0 /* RepositoryTabItemView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */; };
 		FB77488C24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */; };
@@ -98,6 +102,10 @@
 
 /* Begin PBXFileReference section */
 		FB65B6D324B3672F00891E92 /* Migration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Migration.swift; sourceTree = "<group>"; };
+		FB65B6D524B36A1E00891E92 /* PullRequestSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestSource.swift; sourceTree = "<group>"; };
+		FB65B6D724B36A3D00891E92 /* PullRequestCommit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequestCommit.swift; sourceTree = "<group>"; };
+		FB65B6D924B36A9900891E92 /* CreatePullRequestLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePullRequestLog.swift; sourceTree = "<group>"; };
+		FB65B6DB24B36D3E00891E92 /* NotifyNewCommit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyNewCommit.swift; sourceTree = "<group>"; };
 		FB77488724A25A4800A0CCE0 /* RepositoryTabItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabItemView.swift; sourceTree = "<group>"; };
 		FB77488924A25A5E00A0CCE0 /* RepositoryTabItemView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepositoryTabItemView.xib; sourceTree = "<group>"; };
 		FB77488B24A25DA800A0CCE0 /* RepositoryTabItemViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTabItemViewPresenter.swift; sourceTree = "<group>"; };
@@ -194,10 +202,12 @@
 		FB77489024A4E21600A0CCE0 /* usecase */ = {
 			isa = PBXGroup;
 			children = (
+				FB65B6D924B36A9900891E92 /* CreatePullRequestLog.swift */,
 				FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */,
 				FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */,
 				FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */,
 				FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */,
+				FB65B6DB24B36D3E00891E92 /* NotifyNewCommit.swift */,
 				FB77489724A7997900A0CCE0 /* CreatePullRequestUrl.swift */,
 				FBAAD7EA24AE2EE600850FDD /* SeparatePullRequestDataList.swift */,
 			);
@@ -273,6 +283,8 @@
 				FB83857F248D1D5100E88304 /* PullRequestParticipantUser.swift */,
 				FB838581248D1DB600E88304 /* PullRequestParticipantUserLinks.swift */,
 				FB838583248D1DE300E88304 /* PullRequestLinksHref.swift */,
+				FB65B6D524B36A1E00891E92 /* PullRequestSource.swift */,
+				FB65B6D724B36A3D00891E92 /* PullRequestCommit.swift */,
 			);
 			path = pullRequest;
 			sourceTree = "<group>";
@@ -504,6 +516,7 @@
 				FB838590248E78C600E88304 /* TextCollectionViewItem.swift in Sources */,
 				FB8385B0249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift in Sources */,
 				FB83859E249907B500E88304 /* PreferencesRepositoryViewController.swift in Sources */,
+				FB65B6D824B36A3D00891E92 /* PullRequestCommit.swift in Sources */,
 				FB8385932496730B00E88304 /* PreferencesBitbucketUserInputViewController.swift in Sources */,
 				FBAAD7EB24AE2EE600850FDD /* SeparatePullRequestDataList.swift in Sources */,
 				FB77489E24AA2F1300A0CCE0 /* PullRequestCollectionViewSection.swift in Sources */,
@@ -518,6 +531,7 @@
 				FB77488824A25A4800A0CCE0 /* RepositoryTabItemView.swift in Sources */,
 				FB77489824A7997900A0CCE0 /* CreatePullRequestUrl.swift in Sources */,
 				FB83858B248D3B2600E88304 /* PreferencesWindowController.swift in Sources */,
+				FB65B6DC24B36D3E00891E92 /* NotifyNewCommit.swift in Sources */,
 				FB83856A24894A6900E88304 /* CallFetchPullRequests.swift in Sources */,
 				FB838575248A936600E88304 /* PullRequestVallue.swift in Sources */,
 				FB83856C24894FD300E88304 /* ApiError.swift in Sources */,
@@ -527,6 +541,7 @@
 				FB838572248A921A00E88304 /* FetchPullRequestResponse.swift in Sources */,
 				FBF62F6A247C10C500D4289D /* RepositoryTabViewController.swift in Sources */,
 				FB83858D248E767B00E88304 /* PreferencesBitbucketUserViewController.swift in Sources */,
+				FB65B6D624B36A1E00891E92 /* PullRequestSource.swift in Sources */,
 				FB8385652487D7F200E88304 /* RequestHeader.swift in Sources */,
 				FB8385A9249BB55200E88304 /* PullRequestCollectionViewItemPresenter.swift in Sources */,
 				FB8385A224990CA600E88304 /* RepositoryPreference.swift in Sources */,
@@ -545,6 +560,7 @@
 				FB83855C248696F600E88304 /* FetchPullRequests.swift in Sources */,
 				FB838584248D1DE300E88304 /* PullRequestLinksHref.swift in Sources */,
 				FB83857C248AA4E600E88304 /* ShowPullRequestResponse.swift in Sources */,
+				FB65B6DA24B36A9900891E92 /* CreatePullRequestLog.swift in Sources */,
 				FB838578248AA2F600E88304 /* ShowPullRequest.swift in Sources */,
 				FB838589248D388700E88304 /* PreferencesTabViewController.swift in Sources */,
 				FB77489C24AA263600A0CCE0 /* PullRequestSectionPresenter.swift in Sources */,

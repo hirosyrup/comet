@@ -15,6 +15,7 @@ struct ShowPullRequestResponse: Codable {
     let comment_count: Int
     let author: PullRequestParticipantUser
     let participants: [PullRequestParticipant]
+    let source: PullRequestSource
     
     func isMerged() -> Bool {
         return state == "MERGED"

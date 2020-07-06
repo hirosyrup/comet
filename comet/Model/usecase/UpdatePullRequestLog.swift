@@ -18,10 +18,14 @@ class UpdatePullRequestLog {
     }
     
     func updateToReadAll() {
-        try! data.log.save(openedCommentCount: data.response.comment_count, unreadCommentCountAtPreviousNotification: 0)
+        try! data.log.saveCommentCount(openedCommentCount: data.response.comment_count, unreadCommentCountAtPreviousNotification: 0)
     }
     
-    func updateToNotifiedStatus() {
-        try! data.log.save(openedCommentCount: data.log.openedCommentCount, unreadCommentCountAtPreviousNotification: calcUnreadCommentCount.unreadCommentCount())
+    func updateToNotifiedStatusForNewComment() {
+        try! data.log.saveCommentCount(openedCommentCount: data.log.openedCommentCount, unreadCommentCountAtPreviousNotification: calcUnreadCommentCount.unreadCommentCount())
+    }
+    
+    func updateToNotifiedStatusForNewCommit() {
+        try! data.log.saveCommitHash(openedCommitHash: data.log.openedCommitHash, commitHashAtPreviousNotification: data.response.source.commit.hash)
     }
 }

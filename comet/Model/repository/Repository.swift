@@ -145,16 +145,14 @@ class Repository: RepositoryObservable {
         _pullRequestDataList = pullRequestList.map {
             var log = pullRequestLog.filter("id = \($0.id)").first
             if log == nil {
-                log = createNewLog(id: $0.id)
+                log = createNewLog(id: $0.id, fetchedCommitHash: $0.source.commit.hash)
                 NotifyNewPullRequest(pullRequestTitle: $0.title).notify()
             }
             return PullRequestData(log: log!, response: $0)
         }
     }
     
-    private func createNewLog(id: Int) -> PullRequestLog{
-        let newLog = PullRequestLog()
-        try! newLog.create(id: id)
-        return newLog
+    private func createNewLog(id: Int, fetchedCommitHash: String) -> PullRequestLog{
+        return CreatePullRequestLog().createNewLog(id: id, fetchedCommitHash: fetchedCommitHash)
     }
 }
