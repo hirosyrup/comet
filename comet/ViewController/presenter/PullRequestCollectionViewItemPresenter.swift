@@ -56,4 +56,8 @@ class PullRequestCollectionViewItemPresenter {
     func reviewerIconContainerViewPresenter() -> ReviewerIconContainerViewPresenter {
         return ReviewerIconContainerViewPresenter(reviewDataList: data.response.participants.filter{ $0.isReviewer() })
     }
+    
+    func htmlLink() -> URL? {
+        return URL(string: data.response.links.html.href)
+    }
 }

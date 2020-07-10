@@ -99,8 +99,9 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         guard let indexPath = indexPaths.first else { return }
         let itemPresenter = presenter.sectionPresenters[indexPath.section].itemPresenterList[indexPath.item]
         repositoryObservable.updateLogToReadAllAt(id: itemPresenter.id())
-        let url = CreatePullRequestUrl(id: itemPresenter.id()).createUrl()
-        NSWorkspace.shared.open(url)
+        if let url = itemPresenter.htmlLink() {
+            NSWorkspace.shared.open(url)
+        }
         reloadList()
     }
     
