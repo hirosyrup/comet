@@ -25,6 +25,11 @@ class PullRequestPresenter {
                 PullRequestSectionPresenter(title: "In Review", pullRequestDataList: separator.inReviewList)
             )
         }
+        if !separator.mergedList.isEmpty {
+            _sectionPresenters.append(
+                PullRequestSectionPresenter(title: "Merged", pullRequestDataList: separator.mergedList)
+            )
+        }
         self.sectionPresenters = _sectionPresenters
     }
 }

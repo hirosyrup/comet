@@ -17,7 +17,7 @@ protocol RepositoryNotification: class {
 protocol RepositoryObservable {
     func addObserver(observer: RepositoryNotification)
     func removeObserver(observer: RepositoryNotification)
-    func pullRequestDataListWithoutMerged() -> [PullRequestData]
+    func pullRequestDataList() -> [PullRequestData]
     func updateLogToReadAllAt(id: Int)
 }
 
@@ -61,7 +61,8 @@ class Repository: RepositoryObservable {
         notifyWillUpdate()
         DispatchQueue.global().async {
             do {
-                let pullRequestList = try self.fetchPullRequestList()
+                var pullRequestList = try self.fetchPullRequestList(merged: false)
+                pullRequestList = try pullRequestList + self.fetchPullRequestList(merged: true)
                 
                 DispatchQueue.main.async {
                     self.lastUpdated = Date()
@@ -95,13 +96,17 @@ class Repository: RepositoryObservable {
         observerList.removeAll()
     }
     
-    func pullRequestDataListWithoutMerged() -> [PullRequestData] {
-        return _pullRequestDataList.filter {!$0.response.isMerged()}
+    func pullRequestDataList() -> [PullRequestData] {
+        return _pullRequestDataList
     }
     
     func updateLogToReadAllAt(id: Int) {
-        guard let pullRequestData = _pullRequestDataList.filter({$0.response.id == id}).first else { return }
+        guard let index = _pullRequestDataList.firstIndex(where: {$0.response.id == id}) else {return}
+        let pullRequestData = _pullRequestDataList[index]
         UpdatePullRequestLog(data: pullRequestData).updateToReadAll()
+        if pullRequestData.response.isMerged() {
+            _pullRequestDataList.remove(at: index)
+        }
         notifyDidUpdate()
     }
     
@@ -109,12 +114,13 @@ class Repository: RepositoryObservable {
         return Date().timeIntervalSince1970 - lastUpdated.timeIntervalSince1970 >= updateInterval
     }
     
-    private func fetchPullRequestList() throws -> [ShowPullRequestResponse] {
+    private func fetchPullRequestList(merged: Bool) throws -> [ShowPullRequestResponse] {
         let pullRequestIndex = try CallFetchPullRequests(
             repositoryOwner: repositoryOwner,
             repositorySlug: repositorySlug,
             userName: userName,
-            password: password
+            password: password,
+            merged: merged
         ).execute()
         
         return try pullRequestIndex.values.map { (value) -> ShowPullRequestResponse in
@@ -142,13 +148,27 @@ class Repository: RepositoryObservable {
     
     private func updateDataList(pullRequestList: [ShowPullRequestResponse]) {
         let pullRequestLog = try! PullRequestLog.all()
-        _pullRequestDataList = pullRequestList.map {
+        _pullRequestDataList = pullRequestList.compactMap {
             var log = pullRequestLog.filter("id = \($0.id)").first
             if log == nil {
                 log = createNewLog(id: $0.id, fetchedCommitHash: $0.source.commit.hash)
-                NotifyNewPullRequest(pullRequestTitle: $0.title).notify()
+                if $0.isMerged() {
+                    NotifyMergedPullRequest(pullRequestTitle: $0.title).notify()
+                } else {
+                    NotifyNewPullRequest(pullRequestTitle: $0.title).notify()
+                }
             }
-            return PullRequestData(log: log!, response: $0)
+            
+            let data = PullRequestData(log: log!, response: $0)
+            
+            if $0.isMerged() {
+                let calcUnreadCommentCount = CalcUnreadCommentCount(data: data)
+                if log!.openedCommitHash == $0.source.commit.hash && calcUnreadCommentCount.unreadCommentCount() == 0 {
+                    return nil
+                }
+            }
+            
+            return data
         }
     }
     

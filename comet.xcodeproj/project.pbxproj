@@ -60,6 +60,7 @@
 		FB8385AB249BC4E300E88304 /* NSImageView+AsyncLoad.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385AA249BC4E300E88304 /* NSImageView+AsyncLoad.swift */; };
 		FB8385AD249F83DC00E88304 /* ReviewerIconContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */; };
 		FB8385B0249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */; };
+		FB94099825108394000ABF70 /* NotifyMergedPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB94099725108394000ABF70 /* NotifyMergedPullRequest.swift */; };
 		FBAAD7E924AE266000850FDD /* NotifyNewPullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */; };
 		FBAAD7EB24AE2EE600850FDD /* SeparatePullRequestDataList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAD7EA24AE2EE600850FDD /* SeparatePullRequestDataList.swift */; };
 		FBAAD7ED24AE32A700850FDD /* Sequence+JoinedAttributeString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBAAD7EC24AE32A700850FDD /* Sequence+JoinedAttributeString.swift */; };
@@ -154,6 +155,7 @@
 		FB8385AA249BC4E300E88304 /* NSImageView+AsyncLoad.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSImageView+AsyncLoad.swift"; sourceTree = "<group>"; };
 		FB8385AC249F83DC00E88304 /* ReviewerIconContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerIconContainerView.swift; sourceTree = "<group>"; };
 		FB8385AF249F8B9E00E88304 /* ReviewerIconContainerViewPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewerIconContainerViewPresenter.swift; sourceTree = "<group>"; };
+		FB94099725108394000ABF70 /* NotifyMergedPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyMergedPullRequest.swift; sourceTree = "<group>"; };
 		FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyNewPullRequest.swift; sourceTree = "<group>"; };
 		FBAAD7EA24AE2EE600850FDD /* SeparatePullRequestDataList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeparatePullRequestDataList.swift; sourceTree = "<group>"; };
 		FBAAD7EC24AE32A700850FDD /* Sequence+JoinedAttributeString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+JoinedAttributeString.swift"; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 				FB77489124A4E26200A0CCE0 /* UpdatePullRequestLog.swift */,
 				FB77489324A4E4EF00A0CCE0 /* CalcUnreadCommentCount.swift */,
 				FBAAD7E824AE266000850FDD /* NotifyNewPullRequest.swift */,
+				FB94099725108394000ABF70 /* NotifyMergedPullRequest.swift */,
 				FB77489524A4E6F300A0CCE0 /* NotifiyNewUnreadComment.swift */,
 				FB65B6DB24B36D3E00891E92 /* NotifyNewCommit.swift */,
 				FBAAD7EA24AE2EE600850FDD /* SeparatePullRequestDataList.swift */,
@@ -511,6 +514,7 @@
 			files = (
 				FB8385A0249907CB00E88304 /* PreferencesRepositoryInputViewController.swift in Sources */,
 				FB77488F24A25E0900A0CCE0 /* UnreadCommentPresenter.swift in Sources */,
+				FB94099825108394000ABF70 /* NotifyMergedPullRequest.swift in Sources */,
 				FBF62F67247C0E9000D4289D /* PullRequestCollectionViewItem.swift in Sources */,
 				FB77489A24AA25D000A0CCE0 /* PullRequestPresenter.swift in Sources */,
 				FB8385AB249BC4E300E88304 /* NSImageView+AsyncLoad.swift in Sources */,

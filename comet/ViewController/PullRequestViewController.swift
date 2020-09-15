@@ -9,7 +9,7 @@
 import Cocoa
 import Moya
 
-class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, RepositoryNotification, NSCollectionViewDelegateFlowLayout {
+class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout {
     @IBOutlet weak var listView: NSCollectionView!
     @IBOutlet weak var noPullRequestsLabel: NSTextField!
     
@@ -43,18 +43,8 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         reloadList()
     }
     
-    override func viewDidAppear() {
-        super.viewDidAppear()
-        repositoryObservable.addObserver(observer: self)
-    }
-    
-    override func viewWillDisappear() {
-        super.viewWillDisappear()
-        repositoryObservable.removeObserver(observer: self)
-    }
-    
     private func updatePresenterList() {
-        presenter = PullRequestPresenter(pullRequestDataList: repositoryObservable.pullRequestDataListWithoutMerged())
+        presenter = PullRequestPresenter(pullRequestDataList: repositoryObservable.pullRequestDataList())
     }
     
     private func reloadList() {
@@ -102,16 +92,5 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         if let url = itemPresenter.htmlLink() {
             NSWorkspace.shared.open(url)
         }
-        reloadList()
-    }
-    
-    func willUpdateRepository(repository: RepositoryObservable) {
-    }
-    
-    func didUpdateRepository(repository: RepositoryObservable) {
-        reloadList()
-    }
-    
-    func failedUpdateRepository(repository: RepositoryObservable, error: Error) {
     }
 }

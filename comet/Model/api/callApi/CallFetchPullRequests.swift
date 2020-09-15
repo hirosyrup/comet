@@ -14,12 +14,14 @@ class CallFetchPullRequests {
     private let repositorySlug: String
     private let userName: String
     private let password: String
+    private let merged: Bool
     
-    init(repositoryOwner: String, repositorySlug: String, userName: String, password: String) {
+    init(repositoryOwner: String, repositorySlug: String, userName: String, password: String, merged: Bool) {
         self.repositoryOwner = repositoryOwner
         self.repositorySlug = repositorySlug
         self.userName = userName
         self.password = password
+        self.merged = merged
     }
     
     func execute() throws -> FetchPullRequestResponse {
@@ -28,7 +30,7 @@ class CallFetchPullRequests {
         
         let requestHeader = RequestHeader(userName: userName, password: password)
         let provider = MoyaProvider<FetchPullRequests>()
-        provider.request(FetchPullRequests(repositoryOwner: repositoryOwner, repositorySlug: repositorySlug, requestHeader: requestHeader)) { _result in
+        provider.request(FetchPullRequests(repositoryOwner: repositoryOwner, repositorySlug: repositorySlug, requestHeader: requestHeader, merged: merged)) { _result in
             result = _result
             semaphore.signal()
         }

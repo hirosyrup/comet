@@ -9,16 +9,21 @@
 import Foundation
 
 class SeparatePullRequestDataList {
+    private(set) var mergedList = [PullRequestData]()
     private(set) var approvedList = [PullRequestData]()
     private(set) var inReviewList = [PullRequestData]()
     
     init(pullRequestDataList: [PullRequestData]) {
         pullRequestDataList.forEach { pullRequestData in
-            let reviewerList = pullRequestData.response.participants.filter {$0.isReviewer()}
-            if reviewerList.allSatisfy({$0.approved}) {
-                approvedList.append(pullRequestData)
+            if pullRequestData.response.isMerged() {
+                mergedList.append(pullRequestData)
             } else {
-                inReviewList.append(pullRequestData)
+                let reviewerList = pullRequestData.response.participants.filter {$0.isReviewer()}
+                if reviewerList.allSatisfy({$0.approved}) {
+                    approvedList.append(pullRequestData)
+                } else {
+                    inReviewList.append(pullRequestData)
+                }
             }
         }
     }

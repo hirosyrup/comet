@@ -14,11 +14,13 @@ class FetchPullRequests: TargetType {
     private let repositoryOwner: String
     private let repositorySlug: String
     private let requestHeader: RequestHeader
+    private let merged: Bool
     
-    init(repositoryOwner: String, repositorySlug: String, requestHeader: RequestHeader) {
+    init(repositoryOwner: String, repositorySlug: String, requestHeader: RequestHeader, merged: Bool) {
         self.repositoryOwner = repositoryOwner
         self.repositorySlug = repositorySlug
         self.requestHeader = requestHeader
+        self.merged = merged
     }
     
     var baseURL: URL {
@@ -38,7 +40,13 @@ class FetchPullRequests: TargetType {
     }
     
     var task: Task {
-        return .requestPlain
+        if merged {
+            var params: [String : Any] = [:]
+            params["state"] = "MERGED"
+            return .requestParameters(parameters: params, encoding: URLEncoding.default)
+        } else {
+            return .requestPlain
+        }
     }
     
     var headers: [String : String]? {
