@@ -9,7 +9,7 @@
 import Cocoa
 import Moya
 
-class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout {
+class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSCollectionViewDataSource, NSCollectionViewDelegateFlowLayout, PullRequestCollectionViewItemDelegate {
     @IBOutlet weak var listView: NSCollectionView!
     @IBOutlet weak var noPullRequestsLabel: NSTextField!
     
@@ -82,6 +82,7 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = listView.makeItem(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellId), for: indexPath) as! PullRequestCollectionViewItem
         item.updateView(presenter: presenter.sectionPresenters[indexPath.section].itemPresenterList[indexPath.item])
+        item.delegate = self
         return item
     }
     
@@ -92,5 +93,10 @@ class PullRequestViewController: NSViewController, NSCollectionViewDelegate, NSC
         if let url = itemPresenter.htmlLink() {
             NSWorkspace.shared.open(url)
         }
+    }
+    
+    func didPushReadButton(view: PullRequestCollectionViewItem, id: Int) {
+        repositoryObservable.updateLogToReadAllAt(id: id)
+        reloadList()
     }
 }

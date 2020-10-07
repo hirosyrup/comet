@@ -8,6 +8,10 @@
 
 import Cocoa
 
+protocol PullRequestCollectionViewItemDelegate: class {
+    func didPushReadButton(view: PullRequestCollectionViewItem, id: Int)
+}
+
 class PullRequestCollectionViewItem: NSCollectionViewItem {
 
     @IBOutlet weak var background: NSBox!
@@ -18,6 +22,9 @@ class PullRequestCollectionViewItem: NSCollectionViewItem {
     @IBOutlet weak var authorImageView: NSImageView!
     @IBOutlet weak var titleLabel: NSTextField!
     @IBOutlet weak var reviewerIconView: ReviewerIconContainerView!
+    
+    weak var delegate: PullRequestCollectionViewItemDelegate?
+    private var id: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,6 +47,7 @@ class PullRequestCollectionViewItem: NSCollectionViewItem {
     }
     
     func updateView(presenter: PullRequestCollectionViewItemPresenter) {
+        id = presenter.id()
         unreadCommentCountBadge.isHidden = presenter.hiddenUnreadCommentCount()
         unreadCommentCountLabel.stringValue = presenter.unreadCommentCount()
         newCommitNoteLabel.isHidden = presenter.hiddenNewCommitNote()
@@ -50,5 +58,9 @@ class PullRequestCollectionViewItem: NSCollectionViewItem {
         }
         titleLabel.stringValue = presenter.title()
         reviewerIconView.updateView(presenter: presenter.reviewerIconContainerViewPresenter())
+    }
+    
+    @IBAction func pushReadButton(_ sender: Any) {
+        delegate?.didPushReadButton(view: self, id: id)
     }
 }
