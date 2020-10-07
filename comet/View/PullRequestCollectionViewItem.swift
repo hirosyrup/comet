@@ -39,10 +39,12 @@ class PullRequestCollectionViewItem: NSCollectionViewItem {
     }
     
     override func mouseEntered(with event: NSEvent) {
+        background.isTransparent = false
         background.fillColor = NSColor.cellBackground
     }
     
     override func mouseExited(with event: NSEvent) {
+        background.isTransparent = true
         background.fillColor = NSColor.clear
     }
     
